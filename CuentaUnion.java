@@ -32,6 +32,21 @@ public class CuentaUnion {
         }
         return null;
     }
+
+     public String fcomprobarDatos() {
+        Scanner comprueba= new Scanner(System.in);
+        System.out.println("INICIE SESION PARA REALIZAR SU COMPRA");
+        System.out.println("Ingrese su correo: ");
+        correoComp=comprueba.nextLine();
+        System.out.println("Ingrese su cotraseña: ");
+        contraseñaComp=comprueba.nextLine();
+
+        if(correoComp.equals(correo)&&contraseñaComp.equals(contraseña)){
+
+        }
+        return null;
+    }
+    
     public static void main(String[] args) {
         System.out.println("BIENVENIDO A PRODUCTOS UNION");
         CuentaUnion union = new CuentaUnion();
