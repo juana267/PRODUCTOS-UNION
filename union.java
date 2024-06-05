@@ -124,10 +124,8 @@ public class union {
                 break;
             default:
                 System.out.println("opcion no valida");
-
         }
         return null;
-
     }
     public void cobrar (){
         double cantidad,total;
@@ -175,11 +173,79 @@ public class union {
                 cantidad = union.nextDouble();
                 total=cantidad*5.30;
                 break;
-                
+            case 10:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*24.40;
+                break;
+            case 11:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*24.00;
+                break;
+            case 12:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*7.60;
+                break;
+            case 13:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*7.60;
+                break;
+            case 14:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*8.50;
+                break;
+            case 15:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*4.70;
+                break;
+            case 16:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*6.40;
+                break;
+            case 17:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*9.50;
+                break;
+            case 18:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*6.50;
+                break;
+            case 19:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*5.10;
+                break;
+            case 20:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*5.10;
+                break;
+            case 21:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*5.10;
+                break;
+            case 22:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*5.10;
+                break;
+            case 23:
+                System.out.println("cuantos va a querer");
+                cantidad = union.nextDouble();
+                total=cantidad*5.10;
+                break;
             default:
                 System.out.println("opcion no valida");
         }
-
     }
     public static void main(String[] args) {
         union union = new union();
