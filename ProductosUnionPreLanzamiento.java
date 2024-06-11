@@ -53,6 +53,7 @@ public class compras_union {
             System.out.println("BIENVENIDO A PRODUCTOS UNION");
             System.out.println("Sr(a): "+nombre+" "+apellido);
         }
+        this.pregunta();
         return null;
     }
     public String pregunta(){
