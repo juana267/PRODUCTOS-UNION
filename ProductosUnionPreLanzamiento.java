@@ -5,57 +5,51 @@ public class compras_union {
     private double total, precioPan = 0;
     private String correo, contraseña, correo_Comp, contraseña_Comp, nombre, apellido, codigoU, union_m, opc_variedad;
     private int opcion, cantidad, op_pdt = 0;
-
     public String fdatos() {
         Scanner datos = new Scanner(System.in);
-        String opcion;
+        String  codigoU, dni, opcion;
+
         System.out.println("¿Usted es estudiante de la UPeU?");
         System.out.println("Si/No");
-        opcion = datos.nextLine();
-        switch (opcion) {
+        opcion=datos.nextLine();
+        switch (opcion){
             case "Si":
                 System.out.println("Ingrese sus nombres: ");
-                nombre = datos.nextLine();
-                System.out.println("ingrese sus apellidos: ");
-                apellido = datos.nextLine();
+                nobre=datos.nextLine();
+                System.out.println("Ingrese sus apellidos: ");
+                apellido=datos.nextLine();
+                System.out.println("Ingrese su DNI");
+                dni= datos.nextLine();
                 System.out.println("Ingrese su correo: ");
-                correo = datos.nextLine();
+                correo=datos.nextLine();
                 System.out.println("Ingrese su contraseña: ");
-                contraseña = datos.nextLine();
+                contraseña=datos.nextLine();
                 System.out.println("Ingrese su codigo univercitario univercitario: ");
-                codigoU = datos.nextLine();
-                this.fcomprobarDatos();
+                codigoU=datos.nextLine();
                 break;
             case "No":
                 System.out.println("Ingrese sus nombres: ");
-                nombre = datos.nextLine();
+                nobre=datos.nextLine();
                 System.out.println("ingrese sus apellidos: ");
-                apellido = datos.nextLine();
+                apellido=datos.nextLine();
                 System.out.println("Ingrese su correo: ");
-                correo = datos.nextLine();
+                correo=datos.nextLine();
                 System.out.println("Ingrese su contraseña: ");
-                contraseña = datos.nextLine();
-                this.fcomprobarDatos();
+                contraseña=datos.nextLine();
                 break;
         }
-        return null;
-    }
-    public String fcomprobarDatos() {
-        Scanner comprueba = new Scanner(System.in);
-        System.out.println("INICIE SESION PARA REALIZAR SU COMPRA");
-        System.out.println("Ingrese su correo: ");
-        correo_Comp = comprueba.nextLine();
-        System.out.println("Ingrese su cotraseña: ");
-        contraseña_Comp = comprueba.nextLine();
-        if (correo_Comp.equals(correo) && contraseña_Comp.equals(contraseña)) {
-
-            System.out.println("Bienvenido a PRODUCTOS UNION");
-            System.out.println("Sr(a): " + nombre + " " + apellido);
-            System.out.println(" " + correo + "@gmail.com");
+        System.out.println("INICIE SESION EN PRODUCTOS UNION");
+        System.out.println("INGRESE SU CORREO");
+        correoComp=datos.nextLine();
+        System.out.println("INGRESE SU COTRASEÑA");
+        contraseñaComp=datos.nextLine();
+        if(correoComp.equals(correo)&&contraseñaComp.equals(contraseña)){
+            System.out.println("BIENVENIDO A PRODUCTOS UNION");
+            System.out.println("Sr(a): "+nobre+""+apellido);
         }
-        this.pregunta();
         return null;
     }
+   
     public String pregunta(){
         Scanner union = new Scanner(System.in);
         boolean salir = false;
