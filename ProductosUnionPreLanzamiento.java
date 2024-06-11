@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 public class compras_union {
-    private double total, precioPan = 0;
+    private double total, precioPan = 0, tproducto = 0;
     private String correo, contraseña, correo_Comp, contraseña_Comp, nombre, apellido, codigoU, union_m, opc_variedad;
     private int opcion, cantidad, op_pdt = 0;
     public String fdatos() {
@@ -437,7 +437,7 @@ public class compras_union {
     }
     public String cantidad(){
         if (total>=58) {
-            precioPan=total+8;
+            tproducto=total+8;
             //fTipoDePago();
         }
         else if (total<58){
