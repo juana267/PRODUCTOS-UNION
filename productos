@@ -108,7 +108,7 @@ public class ProductosUnion {
                                 System.out.println("S/8.90 ");
                                 System.out.println("Pan Fibra Integral");
                                 System.out.println("Delicioso y saludable pan, Libre de bromato y colesterol.");
-                                System.out.println("Elaborado en base de harina integral fortificada y granos");                                System.out.println("bajo en grasa saturada y colesterol. El pan es un alimento");
+                                System.out.println("Elaborado en base de harina integral fortificada y granos");  
                                 System.out.println("como la Quinua y la Cañihua. Así mismo, contiene una ");
                                 System.out.println("semilla altamente nutritiva y saludable como el ajonjolí.");
                                 System.out.println("El pan es alto en Hierro, contiene fuente de fibra");
@@ -138,7 +138,7 @@ public class ProductosUnion {
                                 System.out.println("S/9.30 ");
                                 System.out.println(" Pan Multisemillas con Avena");
                                 System.out.println("Delicioso y saludable pan, libre de bromato. Con una");
-                                System.out.println("nutritiva mezcla en base a harina fortificada con hierro y");                                System.out.println("bajo en grasa saturada y colesterol. El pan es un alimento");
+                                System.out.println("nutritiva mezcla en base a harina fortificada con hierro y"); 
                                 System.out.println("semillas altamente nutritivas por su valor funcional");
                                 System.out.println("para el organismo humano como el girasol, chía y linaza. ");
                                 System.out.println("El pan es alto en Hierro, contiene fuente de fibra y ");
@@ -168,7 +168,7 @@ public class ProductosUnion {
                                 System.out.println("S/6.50 ");
                                 System.out.println(" Pan Integral Familiar Superbom");
                                 System.out.println("Delicioso pan, elaborado en base de harina integral");
-                                System.out.println("fortificada con hierro y vitaminas del complejo B.");                                System.out.println("bajo en grasa saturada y colesterol. El pan es un alimento");
+                                System.out.println("fortificada con hierro y vitaminas del complejo B.");                         
                                 System.out.println("El pan es un alimento fuente de hidratos de carbono");
                                 System.out.println("complejos, principal fuente de energía del organismo. ");
                                 System.out.println(" Consumido en las cantidades adecuadas no altera el peso ideal.");
@@ -224,15 +224,14 @@ public class ProductosUnion {
                                     }while (!salir);
                                     break;
                             case 7:
-                                System.out.println("S/8.90 ");
-                                System.out.println("Pan Granos y Semillas");
-                                System.out.println("Energético y delicioso pan, elaborado en base");
-                                System.out.println("de harina fortificada con hierro y vitaminas del");
-                                System.out.println("complejo B. Libre de bromato. Fundamental");
-                                System.out.println("para el desarrollo y fortalecimiento de los");
-                                System.out.println("músculos, ideal para complementar tus");
-                                System.out.println("desayunos. Consumido en las cantidades");
-                                System.out.println("adecuadas no altera el peso ideal.");
+                                System.out.println("S/9.50 ");
+                                System.out.println("Pan Fuente");
+                                System.out.println("Energético y delicioso pan, elaborado en base ");
+                                System.out.println("de harina fortificada con hierro y vitaminas del complejo B.");
+                                System.out.println("Libre de bromato, bajo en grasa saturada y colesterol. El pan ");
+                                System.out.println("es un alimento fuente de hidratos de carbono complejos, ");
+                                System.out.println("principal fuente de energía del organismo. Consumido en");
+                                System.out.println("las cantidades adecuadas no altera el peso ideal.");
                                 do {
                                     System.out.println("Seleccione una opción");
                                     System.out.println("1. AÑADIR A CARRITO");
@@ -255,15 +254,14 @@ public class ProductosUnion {
                                 }while (!salir);
                                 break;
                             case 8:
-                                System.out.println("S/8.90 ");
-                                System.out.println("Pan Granos y Semillas");
-                                System.out.println("Energético y delicioso pan, elaborado en base");
-                                System.out.println("de harina fortificada con hierro y vitaminas del");
-                                System.out.println("complejo B. Libre de bromato. Fundamental");
-                                System.out.println("para el desarrollo y fortalecimiento de los");
-                                System.out.println("músculos, ideal para complementar tus");
-                                System.out.println("desayunos. Consumido en las cantidades");
-                                System.out.println("adecuadas no altera el peso ideal.");
+                                System.out.println("S/8.50 ");
+                                System.out.println("Pan Integral Sándwich Clásico");
+                                System.out.println("Delicioso pan, elaborado en base de harina integral");
+                                System.out.println("fortificada con hierro y vitaminas del complejo B. ");
+                                System.out.println("Libre de colesterol. El pan integral es un alimento ");
+                                System.out.println("fuente de hidratos de carbono complejos, principal ");
+                                System.out.println("fuente de fibra del organismo. Consumido en las ");
+                                System.out.println("cantidades adecuadas no altera el peso ideal.");
                                 do {
                                     System.out.println("Seleccione una opción");
                                     System.out.println("1. AÑADIR A CARRITO");
@@ -305,6 +303,185 @@ public class ProductosUnion {
 
         } while (!salir);
         union.close(); // Importante cerrar el scanner después de su uso.
+case "BOLLERIA":
+                    do {
+                        System.out.println("\033[93m");
+                        System.out.println("┌──────────────────────────────────────────────┐");
+                        System.out.println("│                          BOLLERIA                             │");
+                        System.out.println("├────────────────┼─────────────────┼─────── ───┤");
+                        System.out.println("│ 1. Pan pita integral │ 2.  Pan pita semillas │  3.Pre Pizza  │");
+                        System.out.println("│      granos andinos  │       chia y linaza   │       Union   │");
+                        System.out.println("│          S/7.60      │          S/7.60       │     S/8.90    │");
+                        System.out.println("├────────────────┼───────────── ───┼───────────┘");
+                        System.out.println("│ 5.  Pan Integral     │ 6. Pan Granos y    │  7.  Pan      │ 8.     Pan Integral    │");
+                        System.out.println("│  Familiar Superbom   │      Semillas      │    Fuente     │    Sándwich Clásico    │");
+                        System.out.println("│        S/6.50        │       S/8.90       │    S/8.90     │         S/9.30         │");
+                        System.out.println("└──────────────────────┴────────────────────┴───────────────┴────────────────────────┘");
+                        System.out.println("Seleccione una opción");
+                        opcion = union.nextInt();
+                        union.nextLine();
+                        switch (opcion) {
+                            case 1:
+                                System.out.println("S/7.60 ");
+                                System.out.println("Delicioso pan pita integral elaborado con semillas ");
+                                System.out.println("de linaza, kiwicha y quinua. Bajo en Colesterol.");
+                                System.out.println("Contiene Omega 9 y Omega 3.");
+                                do {
+                                System.out.println("Seleccione una opción");
+                                System.out.println("1. AÑADIR A CARRITO");
+                                System.out.println("2. salir");
+                                opcion = union.nextInt();
+                                union.nextLine();
+                                switch (opcion) {
+                                    case 1:
+                                        fcosto();
+                                        break;
+                                    case 2:
+                                        salir = true;
+                                        System.out.println("vuelva pronto");
+                                        break;
+                                    default:
+                                        System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                        break;
+                                }
+
+                                }while (!salir);
+                                break;
+                            case 2:
+                            System.out.println("S/ 7.60 ");
+                            System.out.println("Pan pita semillas chia y linaza");
+                            System.out.println("Delicioso pan pita elaborado con semillas de chía,");
+                            System.out.println("linaza y quinua. Libre de grasas trans y colesterol.");
+                            System.out.println("Contiene Omega 9 y Omega 3.");
+                            do {
+                                System.out.println("Seleccione una opción");
+                                System.out.println("1. AÑADIR A CARRITO");
+                                System.out.println("2. salir");
+                                opcion = union.nextInt();
+                                union.nextLine();
+                                switch (opcion) {
+                                    case 1:
+                                        fcosto();
+                                        break;
+                                    case 2:
+                                        salir = true;
+                                        System.out.println("vuelva pronto");
+                                        break;
+                                    default:
+                                        System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                        break;
+                                }
+
+                            }while (!salir);
+                            break;
+                            case 3:
+                                System.out.println("S/8.50 ");
+                                System.out.println("Pre Pizza Union");
+                                System.out.println("Deliciosa masa, elaborada en base de harina fortificada");
+                                System.out.println("con hierro y vitaminas del complejo B, y una cobertura");  
+                                System.out.println(" de pasta de tomate. Libre de bromato, grasas trans y colesterol. ");
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            fcosto();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+                            case 4:
+                                System.out.println("S/9.30 ");
+                                System.out.println(" Pan Multisemillas con Avena");
+                                System.out.println("Delicioso y saludable pan, libre de bromato. Con una");
+                                System.out.println("nutritiva mezcla en base a harina fortificada con hierro y"); 
+                                System.out.println("semillas altamente nutritivas por su valor funcional");
+                                System.out.println("para el organismo humano como el girasol, chía y linaza. ");
+                                System.out.println("El pan es alto en Hierro, contiene fuente de fibra y ");
+                                System.out.println("  fuente de proteínas del organismo.");
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            fcosto();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+                            case 5:
+                                System.out.println("S/6.50 ");
+                                System.out.println(" Pan Integral Familiar Superbom");
+                                System.out.println("Delicioso pan, elaborado en base de harina integral");
+                                System.out.println("fortificada con hierro y vitaminas del complejo B.");                         
+                                System.out.println("El pan es un alimento fuente de hidratos de carbono");
+                                System.out.println("complejos, principal fuente de energía del organismo. ");
+                                System.out.println(" Consumido en las cantidades adecuadas no altera el peso ideal.");
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            fcosto();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+                                
+                            case 0:
+                                salir = true;
+                                break;
+                            default:
+                                System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                break;
+                        }
+                    } while (!salir);
+                    break;
+                case "SALIR":
+                    salir = true;
+                    break;
+                default:
+                    System.out.println("\033[93m");
+                    System.out.println("Sección no válida. Inténtalo de nuevo.");
+                    break;
+            }
+
+        } while (!salir);
+        union.close(); // Importante cerrar el scanner después de su uso.
+
     }
     public static void fcosto() {
 
