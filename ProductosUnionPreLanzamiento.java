@@ -1,8 +1,8 @@
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
-public class ProductosUnionPreLanzamiento {
-    double total;
+public class compras_union {
+    double total, precioPan = 0;
     private String correo, contraseña, correo_Comp, contraseña_Comp, nombre, apellido, codigoU, union_m, opc_variedad;
     private int opcion, cantidad, op_pdt = 0;
 
@@ -24,7 +24,7 @@ public class ProductosUnionPreLanzamiento {
                 contraseña = datos.nextLine();
                 System.out.println("Ingrese su codigo univercitario univercitario: ");
                 codigoU = datos.nextLine();
-                this.fproductos();
+                this.fcomprobarDatos();
                 break;
             case "No":
                 System.out.println("Ingrese sus nombres: ");
@@ -35,12 +35,11 @@ public class ProductosUnionPreLanzamiento {
                 correo = datos.nextLine();
                 System.out.println("Ingrese su contraseña: ");
                 contraseña = datos.nextLine();
-                this.fproductos();
+                this.fcomprobarDatos();
                 break;
         }
         return null;
     }
-
     public String fcomprobarDatos() {
         Scanner comprueba = new Scanner(System.in);
         System.out.println("INICIE SESION PARA REALIZAR SU COMPRA");
@@ -54,10 +53,50 @@ public class ProductosUnionPreLanzamiento {
             System.out.println("Sr(a): " + nombre + " " + apellido);
             System.out.println(" " + correo + "@gmail.com");
         }
-        this.función_de_impresion_de_cobro();
+        this.pregunta();
         return null;
     }
+    public String pregunta(){
+        Scanner union = new Scanner(System.in);
+        boolean salir = false;
+        System.out.print("\033[31m");
+        System.out.println(" _    _  ._   _.  _    ___   ._   _.");
+        System.out.println("|  |  |  | |  \\ |  | |  |  /  __  \\  |  \\ |  |");
+        System.out.println("|  |  |  | |   \\|  | |  | |  |  |  | |   \\|  |");
+        System.out.println("|  |  |  | |  . `   | |  | |  |  |  | |  . `  |");
+        System.out.println("|  `--'  | |  |\\   | |  | |  `--'  | |  |\\   |");
+        System.out.println(" \\__/  |_| \\| ||  \\__/  || \\_|");
+        do {
+            System.out.println("┌────────────┬─────────────────┬───────────┬─────────────────────┬─────┐");
+            System.out.println("│  PRODUCTOS │ PUNTOS DE VENTA │  DELIVERY │ ELIJO SER SALUDABLE │  x  │");
+            System.out.println("└────────────┴─────────────────┴───────────┴─────────────────────┴─────┘");
+            System.out.println("Ingrese el nombre de la seccion");
+            String respuesta = union.next();
+            switch (respuesta) {
+                case "PRODUCTOS":
+                    fproductos();
+                    break;
+                case "PUNTOS DE VENTA":
+                    puntosdeventa();
+                    break;
+                case "DELIVERY":
+                    delivery();
+                    break;
+                case " ELIJO SER SALUDABLE":
+                    //felijosersaludable();
+                case "x":
+                    salir = true;
+                    break;
+                default:
+                    System.out.println("\033[93m");
+                    System.out.println("Sección no válida. Inténtalo de nuevo.");
+                    break;
+            }
 
+        } while (!salir);
+        union.close(); // Importante cerrar el scanner después de su uso.
+        return null;
+    }
     public String fproductos() {
         Scanner union = new Scanner(System.in);
         int opcion;
@@ -147,84 +186,9 @@ public class ProductosUnionPreLanzamiento {
         union.close(); // Importante cerrar el scanner después de su uso.
         return null;
     }
-
-
-    public String puntosdeventa() {
-        Scanner direc = new Scanner(System.in);
-        String opcionPV, opcionU;
-
-            System.out.println("PUNTOS DE VENTA");
-            System.out.println("Conoce las ubicaciones donde puedes encontrar nuestros productos");
-            System.out.println("\uD83D\uDED2Supermercados");
-            System.out.println("⛟Bodegas y distribuidores");
-            System.out.println("1. Conoce más");
-            System.out.println("2. Delivery");
-            opcionPV = direc.nextLine();
-            switch (opcionPV) {
-                case "1":
-                    System.out.println("Ingrese su ubicación");
-                    System.out.println("Lima");
-                    System.out.println("Arequipa");
-                    System.out.println("Juliaca");
-                    System.out.println("Huanuco");
-                    System.out.println("Pucallpa");
-                    System.out.println("Chimbote");
-                    System.out.println("Trujillo");
-                    System.out.println("Piura");
-                    System.out.println("Jaèn");
-                    System.out.println("Tarapoto");
-                    System.out.println("Iquitos");
-                    opcionU = direc.nextLine();
-                    switch (opcionU) {
-                        case "Lima":
-                            System.out.println("Salida | Universidad de la Unión Peruana");
-                            System.out.println("Carretera Central Km 19.5 Hermana\n" +
-                                    "Chosica, Lima");
-                            break;
-                        case "Arequipa":
-                            System.out.println("Av. La Marina 123, Cayma, Arequipa");
-                            break;
-                        case "Juliaca":
-                            System.out.println("Jr. San Román 345, Juliaca, Puno");
-                            break;
-                        case "Huanuco":
-                            System.out.println("Jr. 2 de Mayo 456, Huanuco");
-                            break;
-                        case "Pucallpa":
-                            System.out.println("Av. Centenario 123, Pucallpa, Ucayali");
-                            break;
-                        case "Chimbote":
-                            System.out.println("Av. José Gálvez 345, Chimbote, Ancash");
-                            break;
-                        case "Trujillo":
-                            System.out.println("Jr. Independencia 456, Trujillo, La Libertad");
-                            break;
-                        case "Piura":
-                            System.out.println("Av. Sullana 123, Piura");
-                            break;
-                        case "Jaèn":
-                            System.out.println("Jr. Amazonas 345, Jaèn, Cajamarquilla");
-                            break;
-                        case "Tarapoto":
-                            System.out.println("Av. Tarapoto 456, Tarapoto, San Martín");
-                            break;
-                        case "Iquitos":
-                            System.out.println("Av. La Marina 123, Iquitos, Loreto");
-                            break;
-                        default:
-                            System.out.println("sin ubicacion");
-
-                    }
-                default:
-                    System.out.println("opcion no valida");
-            }
-            return null;
-        }
-
     public String fcosto(Scanner union) {
         System.out.println("ingresa opcion");
         int opcion = union.nextInt();
-        double precioPan = 0;
 
         switch (opcion) {
             case 1:
@@ -266,99 +230,232 @@ public class ProductosUnionPreLanzamiento {
         fcomprobarDatos();
         return null;
     }
+    public String puntosdeventa() {
+        Scanner direc = new Scanner(System.in);
+        String opcionPV, opcionU;
 
-    public String función_de_impresion_de_cobro() {
-        Scanner union_m = new Scanner(System.in);
-            do {
-                System.out.println("Seleccione si desea boleta o factura :");
-                System.out.println("1. PARA BOLETA");
-                System.out.println("2. PARA FACTURA");
-                System.out.println("0. PARA SALIR");
-                opcion = union_m.nextInt();
-                union_m.nextLine();
-                switch (opcion) {
-                    case 1:
-                        System.out.println("\033[38;5;226m|--------------------------------------------------------------|");
-                        System.out.println("|---------------------------- UNIÓN ---------------------------|");
-                        System.out.println("|-------------------- Saludable por naturaleza ----------------|");
-                        System.out.println("|--------------------------------------------------------------|");
-                        System.out.println("|------------------- UNIVERSIDAD PERUANA UNIÓN ----------------|");
-                        System.out.println("|--------- Centro de prod. de Bienes  Productos union ---------|");
-                        System.out.println("|---------------- C. central Km. 19 Villa union ---------------|");
-                        System.out.println("|-------------- Lurigancho - Chosica Fax : 6186300 ------------|");
-                        System.out.println("|------------------ Telef. 618-6309 - 618-6310 ----------------|");
-                        System.out.println("|------------------------ RUC 20138122256 ---------------------|");
-                        System.out.println("|--------------------------------------------------------------|");
-                        System.out.println("|===================== BOLETA ELECTRONICA =====================|");
-                        System.out.println("|=-- Numero: --------------------------------------------------|");
-                        System.out.println("|=-- Cliente: " + nombre + " " + apellido + "-----------------|");
-                        System.out.println("|=-- Doc. ident: " + " " + "------------------------------|");
-                        System.out.println("|=-- Fecha: ---------------------------------------------------|");
-                        System.out.println("|=-- Dirección: -----------------------------------------------|");
-                        System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
-                        System.out.println("|N°|CANTIDAD|  |ARTICULO|                        |MONTO|       |");
-                        System.out.println("|=== Op. Gratuitas: ===========================================|");
-                        System.out.println("|=== Op. Exoneradas: ==========================================|");
-                        System.out.println("|=== Op. Gravadas: ============================================|");
-                        System.out.println("|=== Total de descuento: ======================================|");
-                        System.out.println("|=== Sub-Total: ===============================================|");
-                        System.out.println("|=== IGV: =====================================================|");
-                        System.out.println("|=== ICBPER: ==================================================|");
-                        System.out.println("|=== Importe total: ===========================================|");
-                        System.out.println("|=== Detracción: ==============================================|");
-                        System.out.println("|=== Importe neto: ============================================|");
-                        System.out.println("|================= GRACIAS POR SU COMPRA ======================|");
-                        System.out.println("|==============================================================|");
+        System.out.println("PUNTOS DE VENTA");
+        System.out.println("Conoce las ubicaciones donde puedes encontrar nuestros productos");
+        System.out.println("\uD83D\uDED2Supermercados");
+        System.out.println("⛟Bodegas y distribuidores");
+        System.out.println("1. Conoce más");
+        System.out.println("2. Delivery");
+        opcionPV = direc.nextLine();
+        switch (opcionPV) {
+            case "1":
+                System.out.println("Ingrese su ubicación");
+                System.out.println("Lima");
+                System.out.println("Arequipa");
+                System.out.println("Juliaca");
+                System.out.println("Huanuco");
+                System.out.println("Pucallpa");
+                System.out.println("Chimbote");
+                System.out.println("Trujillo");
+                System.out.println("Piura");
+                System.out.println("Jaèn");
+                System.out.println("Tarapoto");
+                System.out.println("Iquitos");
+                opcionU = direc.nextLine();
+                switch (opcionU) {
+                    case "Lima":
+                        System.out.println("Salida | Universidad de la Unión Peruana");
+                        System.out.println("Carretera Central Km 19.5 Hermana\n" +
+                                "Chosica, Lima");
                         break;
-                    case 2:
-                        System.out.println("\u001B[36m|--------------------------------------------------------------|");
-                        System.out.println("|---------------------------- UNIÓN ---------------------------|");
-                        System.out.println("|-------------------- Saludable por naturaleza ----------------|");
-                        System.out.println("|--------------------------------------------------------------|");
-                        System.out.println("|------------------- UNIVERSIDAD PERUANA UNIÓN ----------------|");
-                        System.out.println("|--------- Centro de prod. de Bienes  Productos union ---------|");
-                        System.out.println("|---------------- C. central Km. 19 Villa union ---------------|");
-                        System.out.println("|-------------- Lurigancho - Chosica Fax : 6186300 ------------|");
-                        System.out.println("|------------------ Telef. 618-6309 - 618-6310 ----------------|");
-                        System.out.println("|------------------------ RUC 20138122256 ---------------------|");
-                        System.out.println("|--------------------------------------------------------------|");
-                        System.out.println("|======================= FACTURA DE UNIÓN =====================|");
-                        System.out.println("|=-- Facturado a Cliente: " + nombre + " " + apellido + "-----------|");
-                        System.out.println("|=-- DNI: " + " " + "-------------------------------------------|");
-                        System.out.println("|=-- Correo: " + correo + "--------------------------------------------------|");
-                        System.out.println("|=-- Contraseña: " + contraseña + "----------------------------------------------|");
-                        System.out.println("|=-- codigo universitario: " + codigoU + "------------------------------------|");
-                        System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
-                        System.out.println("|N°|CANTIDAD|  |ARTICULO|                        |MONTO|       |");
-                        System.out.println("|==============================================================|");
-                        System.out.println("|=== Op. Gratuitas: ===========================================|");
-                        System.out.println("|=== Op. Exoneradas: ==========================================|");
-                        System.out.println("|=== Op. Gravadas: ============================================|");
-                        System.out.println("|=== Total de descuento: ======================================|");
-                        System.out.println("|=== Sub-Total: ===============================================|");
-                        System.out.println("|=== IGV: =====================================================|");
-                        System.out.println("|=== ICBPER: ==================================================|");
-                        System.out.println("|=== Importe total: ===========================================|");
-                        System.out.println("|=== Detracción: ==============================================|");
-                        System.out.println("|=== Importe neto: ============================================|");
-                        System.out.println("|================= GRACIAS POR SU COMPRA ======================|");
-                        System.out.println("|==============================================================|");
+                    case "Arequipa":
+                        System.out.println("Av. La Marina 123, Cayma, Arequipa");
                         break;
-                    case 0:
-                        System.out.println("\u001B[31m🌟✨ Gracias por usar nuestro servicio. ✨🌟");
+                    case "Juliaca":
+                        System.out.println("Jr. San Román 345, Juliaca, Puno");
+                        break;
+                    case "Huanuco":
+                        System.out.println("Jr. 2 de Mayo 456, Huanuco");
+                        break;
+                    case "Pucallpa":
+                        System.out.println("Av. Centenario 123, Pucallpa, Ucayali");
+                        break;
+                    case "Chimbote":
+                        System.out.println("Av. José Gálvez 345, Chimbote, Ancash");
+                        break;
+                    case "Trujillo":
+                        System.out.println("Jr. Independencia 456, Trujillo, La Libertad");
+                        break;
+                    case "Piura":
+                        System.out.println("Av. Sullana 123, Piura");
+                        break;
+                    case "Jaèn":
+                        System.out.println("Jr. Amazonas 345, Jaèn, Cajamarquilla");
+                        break;
+                    case "Tarapoto":
+                        System.out.println("Av. Tarapoto 456, Tarapoto, San Martín");
+                        break;
+                    case "Iquitos":
+                        System.out.println("Av. La Marina 123, Iquitos, Loreto");
                         break;
                     default:
-                        System.out.println("\u001B[31m😒❌SOLO TIENES QUE ELEGIR ENTRE EL NUMERO 1 O 2 ❌😒");
-                }
-            } while (opcion != 0);
-            return null;
-        }
+                        System.out.println("sin ubicacion");
 
-    public static void main(String[] args) {
-        System.out.println("BIENVENIDO A PRODUCTOS UNION");
-        ProductosUnionPreLanzamiento union = new ProductosUnionPreLanzamiento();
-        union.fdatos();
-        union.fproductos();
+                }
+            default:
+                System.out.println("opcion no valida");
+        }
+        return null;
+    }
+    public String delivery() {
+        Scanner union = new Scanner(System.in);
+        String opcionEn;
+        System.out.println("DELIVERY");
+        System.out.println("Visita la tienda virtual y conoce las ofertas\n" +
+                "que tenemos para ti");
+        System.out.println("¿Deseas ingresar a WEB DELIVERY?");
+        System.out.println("SI | NO");
+        opcionEn = union.nextLine();
+        switch (opcionEn) {
+            case "SI":
+                System.out.println("\033[38;5;203m");
+                System.out.println("Productos disponibles:");
+                System.out.println("┌──────────────────────────────────────────────────────────┐");
+                System.out.println("│ Nº │ Producto                        │ Precio │ Cantidad │");
+                System.out.println("├────┼─────────────────────────────────┼────────┼──────────┤");
+                System.out.println("│ 1  | Pionono                         | 19.00  | 7        │");//19
+                System.out.println("│ 2  | Cereal Premium                  | 21.50  | 350g     │");//21.50
+                System.out.println("│ 3  | Mantequilla de Mani Sachet      | 10.50  | 200g     │");//10.50
+                System.out.println("│ 4  | Mant. de Mani 1 Kg.             | 36.00  | 1000g    │");//36
+                System.out.println("│ 5  | Mermelada de Uva Frasco         | 8.40   | 1        │");//8.40
+                System.out.println("│ 6  | Palitos con Especias            | 2.30   | 65g      │");//+
+                System.out.println("│ 7  | Palitos con ajonjoli y linaza   | 2.30   | 65g      │");//+
+                System.out.println("│ 8  | Tostada Integral X 10           | 5.30   | 10       │");//P
+                System.out.println("│ 9  | Tostada Blanca X 10             | 5.30   | 10       │    ┌──────────────────────────────────────────────────────────┐");//P
+                System.out.println("│ 10 | Paneton Diet T/L 500 gr         | 24.40  | 500g     │    │                                                        X │ ");//24.40
+                System.out.println("│ 11 | Paneton Integral T/C 900 gr     | 24.00  | 900g     │    │                           AVISO                          │");//24
+                System.out.println("│ 12 | Pan pita integral granos andinos| 7.60   | 1        │    │      Días de entrega                  Monto Mínimo       │");//--
+                System.out.println("│ 13 | Pan pita semillas chia y linaza | 7.60   | 1        │    │   El día de entrega es          El monto mínimo para las │");//--
+                System.out.println("│ 14 | Pan Integral Sandwich           | 8.50   | 1        │    │          jueves                    compras es de S/. 58  │");//8.50
+                System.out.println("│ 15 | Pan Integral Mediano Union      | 4.70   | 1        │    │                                       incluye Delivery   │");//4.70
+                System.out.println("│ 16 | Pan Blanco Familiar Superbom    | 6.40   | 1        │    │                                                          │");//6.40
+                System.out.println("│ 17 | Pan Fuente                      | 9.50   | 1        │    │                           Además                         │");//9.50
+                System.out.println("│ 18 | Pan Integral Familiar Superbom  | 6.50   | 1        │    │      Recuerda usar la aplicación para encontrar muchas   │");//6.50
+                System.out.println("│ 19 | Mega Galleta Integral de Naranja| 5.10   | 1        │    │      promociones y ofertas                               │");//
+                System.out.println("│ 20 | Mega Galleta Integral de Coco   | 5.10   | 1        │    │                                                          │");//
+                System.out.println("│ 21 | Mega Galleta de Naranja         | 5.10   | 1        │    │                                                          │");//
+                System.out.println("│ 22 | Mega Galleta de Kiwicha         | 5.10   | 1        │    │      App: Tienda Unión                                   │");//
+                System.out.println("│ 23 | Mega Galleta de Coco            | 5.10   | 1        │    └──────────────────────────────────────────────────────────┘");//
+                System.out.println("└──────────────────────────────────────────────────────────┘    ");//===============16
+                op_pdt = union.nextInt();
+                this.cobrar();
+                break;
+            case "NO":
+                System.out.println("\033[38;5;226m");
+                System.out.println("¡DESCARGA NUESTRA APP!");
+                System.out.println("┌─────────────────┐        ┌─────────────────┐");
+                System.out.println("│  descargalo en  │        │  DISPONIBLE EN  │");
+                System.out.println("│   App STORE     │        │   Google play   │");
+                System.out.println("└─────────────────┘        └─────────────────┘");
+                break;
+            default:
+                System.out.println("opcion no valida");
+        }
+        return null;
+    }
+
+    public String cobrar() {
+        Scanner union = new Scanner(System.in);
+        double cantidad, total = 0;
+        System.out.println("cuantos va a querer");
+        cantidad = union.nextDouble();
+        union.nextLine();
+        switch (op_pdt) {
+            case 1:
+                total=19.00;
+                break;
+            case 2:
+                total = 21.50;
+                break;
+            case 3:
+                total = 10.50;
+                break;
+            case 4:
+                total=36.00;
+                break;
+            case 5:
+                total=8.40;
+                break;
+            case 6:
+                total=2.30;
+                break;
+            case 7:
+                total=2.30;
+                break;
+            case 8:
+                total=5.30;
+                break;
+            case 9:
+                total=5.30;
+                break;
+            case 10:
+                total=24.40;
+                break;
+            case 11:
+                total=24.00;
+                break;
+            case 12:
+                total=7.60;
+                break;
+            case 13:
+                total=7.60;
+                break;
+            case 14:
+                total=8.50;
+                break;
+            case 15:
+                total=4.70;
+                break;
+            case 16:
+                total=6.40;
+                break;
+            case 17:
+                total=9.50;
+                break;
+            case 18:
+                total=6.50;
+                break;
+            case 19:
+                total=5.10;
+                break;
+            case 20:
+                total=5.10;
+                break;
+            case 21:
+                total=5.10;
+                break;
+            case 22:
+                total=5.10;
+                break;
+            case 23:
+                total=5.10;
+                break;
+            default:
+                System.out.println("opcion no valida");
+        }
+        precioPan=total*cantidad;
+        cantidad();
+        return null;
+    }
+    public String cantidad(){
+        if (total>=58) {
+            precioPan=total+8;
+            System.out.println(precioPan);
+            //fTipoDePago();
+        }
+        else if (total<58){
+            System.out.println("Todavia no supera el monto mínimo");
+            delivery();
+        }
+        return null;
+    }
+    public static void main(String[]args){
+        compras_union todo= new compras_union();
+        todo.fdatos();
+
     }
 }
-
