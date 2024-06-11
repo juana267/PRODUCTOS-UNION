@@ -45,54 +45,76 @@ public class CuentaUnion {
         }
         return null;
     }
-    
+
 
     private String fTipoDePago() {
         Scanner tpago = new Scanner(System.in);
-        int opcion, tarjeta, fechacaducidad, cvv;
-        Double costo, pago;
-        String titulartarjeta;
-        System.out.println("ingrese el costo a pagar");
-        costo=tpago.nextDouble();
+        int opcion;
+
         System.out.println("ingrese el tipo de pago?");
         System.out.println("1: tarjeta");
         System.out.println("2: efectivo");
         opcion=tpago.nextInt();
         switch (opcion){
             case 1:
-                System.out.println("ingrese e l numero de tarjeta");
-                tarjeta=tpago.nextInt();
-                System.out.println("ingrese la fecha de caducidad de la tarjeta");
-                fechacaducidad=tpago.nextInt();
-                System.out.println("ingrese el nombre completo del titular de la tarjeta");
-                titulartarjeta=tpago.nextLine();
-                System.out.println("ingrese el CVV");
-                cvv=tpago.nextInt();
-                System.out.println("pago realizado exitosamente con su tarjeta");
-                System.out.println("PRODUCTOS UNION");
-
+                this.ftarjeta();
                 break;
             case 2:
-                System.out.println("el total a pagar es de "+costo);
-                do{
-                    System.out.println("ingrese el monto que va pagar");
-                    pago=tpago.nextDouble();
-                    if (pago==0){
-                        System.out.println("ingrese el pago porfavor\n//no va consumir los productos gratis");
-                        pago=tpago.nextDouble();
-                    } else if (pago>costo) {
-                        Double vuelto=pago-costo;
-                        System.out.println("su vuelto es de: "+vuelto);
-                    } else if (pago<costo) {
-                        System.out.println("complete el monto porfavor");
-                        System.out.println("");
-                    }
-                }
-                while (pago==0);
-                break;
+                this.fefectivo();
         }
         return  null;
     }
+
+    private String ftarjeta() {
+        Scanner tar= new Scanner(System.in);
+        int tarjeta, fechacaducidad, cvv;
+        System.out.println("ingrese el nombre completo del titular de la tarjeta");
+        String titulartarjeta=tar.nextLine();
+        System.out.println("ingrese el numero de tarjeta");
+        tarjeta=tar.nextInt();
+        System.out.println("ingrese la fecha de caducidad de la tarjeta");
+        fechacaducidad=tar.nextInt();
+        System.out.println("ingrese el CVV");
+        cvv=tar.nextInt();
+        System.out.println("pago realizado exitosamente con su tarjeta");
+        System.out.println("PRODUCTOS UNION");
+        return null;
+    }
+
+    private String fefectivo() {
+        Scanner efect = new Scanner(System.in);
+        Double costo, totalPagado;
+        System.out.println("el costo total del producto es de ");
+        costo=efect.nextDouble();
+        System.out.println("El total a pagar es de " + costo);
+        System.out.println("realice su pago en soles");
+        totalPagado= efect.nextDouble();
+
+        while (totalPagado < costo) {
+            System.out.println("Ingrese el monto que va a pagar:");
+            double pago = efect.nextDouble();
+
+            if (pago <= 0) {
+                System.out.println("Ingrese un monto válido, por favor. No puede consumir los productos gratis.");
+            } else {
+                totalPagado += pago;
+
+                if (totalPagado > costo) {
+                    double vuelto = totalPagado - costo;
+                    System.out.println("Su vuelto es de: " + vuelto);
+                    break;
+                } else if (totalPagado < costo) {
+                    double restante = costo - totalPagado;
+                    System.out.println("Monto insuficiente. Faltan " + restante + " para completar el pago.");
+                } else {
+                    System.out.println("Pago completado. Gracias por su compra.");
+                    break;
+                }
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         System.out.println("BIENVENIDO A PRODUCTOS UNION");
         CuentaUnion union = new CuentaUnion();
