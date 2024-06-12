@@ -155,7 +155,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -191,7 +191,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -227,7 +227,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -263,7 +263,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -298,7 +298,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -370,7 +370,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -406,7 +406,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -466,7 +466,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -499,7 +499,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -532,7 +532,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -568,7 +568,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -599,7 +599,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -660,7 +660,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -695,7 +695,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -730,7 +730,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -765,7 +765,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -800,7 +800,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -836,7 +836,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -893,7 +893,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -928,7 +928,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -963,7 +963,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -998,7 +998,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1033,7 +1033,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1067,7 +1067,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1124,7 +1124,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1158,7 +1158,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1193,7 +1193,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1227,7 +1227,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1263,7 +1263,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1298,7 +1298,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1354,7 +1354,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos Palitos con ajonjoli y linaza va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1390,7 +1390,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos Palitos con Especias x 65 gr va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1426,7 +1426,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos Tostadas Blancas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1461,7 +1461,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos Palitos con ajonjoli y linaza va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1516,7 +1516,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántas Mantequillas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1549,7 +1549,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos frascos de Mermelada va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1583,7 +1583,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántas Mantequillas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1618,7 +1618,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántas Mantequillas va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1675,7 +1675,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panetones va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1711,7 +1711,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panetones va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1746,7 +1746,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panetones va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1781,7 +1781,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panetones va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1815,7 +1815,7 @@ public class compras_union {
                                         case 1:
                                             System.out.println("¿Cuántos panetones va comprar?");
                                             int cantidad = union.nextInt();
-                                            double total = precio * cantidad;
+                                            total = precio * cantidad;
                                             System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
@@ -1956,7 +1956,7 @@ public class compras_union {
                         break;
                     default:
                         System.out.println("sin ubicacion");
-            case "NO" :
+                    case "NO" :
 
                 }
             default:
@@ -2218,20 +2218,18 @@ public class compras_union {
         cvv=tar.nextInt();
         System.out.println("pago realizado exitosamente con su tarjeta");
         System.out.println("PRODUCTOS UNION");
+        función_de_impresion_de_cobro();
         return null;
     }
 
     public String fefectivo() { ///opino que aqui llama la boleta y la factura
         Scanner efect = new Scanner(System.in);
-        double costo, totalPagado;
-        System.out.println("Ingrese el costo:");
-        costo = efect.nextDouble();
-        función_de_impresion_de_cobro();                         ///ojo ojito
-        System.out.println("El monto a pagar es de: " + costo);
+        double totalPagado;
+        System.out.println("El monto a pagar es de: " + total);
         System.out.println("Ingrese el pago de los productos:");
         totalPagado = efect.nextDouble();
-        while (totalPagado < costo) {
-            System.out.println("Monto insuficiente. Faltan " + (costo - totalPagado) + " para completar el pago.");
+        while (totalPagado < total) {
+            System.out.println("Monto insuficiente. Faltan " + (total - totalPagado) + " para completar el pago.");
             System.out.println("Ingrese el monto adicional que va a pagar:");
             double pagoAdicional = efect.nextDouble();
             if (pagoAdicional <= 0) {
@@ -2240,12 +2238,13 @@ public class compras_union {
                 totalPagado += pagoAdicional;
             }
         }
-        if (totalPagado > costo) {
-            double vuelto = totalPagado - costo;
+        if (totalPagado > total) {
+            double vuelto = totalPagado - total;
             System.out.println("Pago recibido. Su vuelto es de: " + vuelto);
         } else {
             System.out.println("Pago completado. Gracias por su compra.");
         }
+        función_de_impresion_de_cobro();
         return null;
     }
     public void función_de_impresion_de_cobro(){
