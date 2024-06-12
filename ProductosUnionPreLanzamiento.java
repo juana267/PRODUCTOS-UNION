@@ -2047,6 +2047,11 @@ public class compras_union {
                     System.out.println("Todavia no supera el monto mínimo");
                     this.delivery();
                 }
+                else {
+                    System.out.println("opcion no valida");
+                }
+                break;
+
 
             case "NO":
                 System.out.println("\033[38;5;226m");
@@ -2163,8 +2168,8 @@ public class compras_union {
     }
 
     public String ftarjeta() {
-        double Costofinal=(total+total1);
         Scanner tar= new Scanner(System.in);
+        double Costofinal=(total+total1);
         int tarjeta, fechacaducidad, cvv;
         System.out.println("ingrese el nombre completo del titular de la tarjeta");
         String titulartarjeta=tar.nextLine();
