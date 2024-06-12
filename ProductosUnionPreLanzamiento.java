@@ -2,19 +2,18 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 public class compras_union {
-    private double total = 0, precioPan = 0, tproducto = 0,igv,subtotal=0;
-    private String correo, dni,contraseña, correoComp, contraseñaComp, nombre, apellido, opc_variedad;
-    private int opcion, cantidad, op_pdt = 0;
+    private double total = 0, precioPan = 0, tproducto = 0,igv,subtotal=0, precio;
+    private String correo, dni,contraseña, correoComp, contraseñaComp, nombre, apellido,opcion_de_pago,opcionU;;
+    private int opcion, op_pdt = 0;
+    int cantidad;
     private float peso,talla,rpt_imc;
-    Scanner union_m= new Scanner(System.in);
     private static int contador_factura = 0;
     String codigoU,nombre_vende,contra_vende,contra_vende_com;//*
-    String numero_factura,opcion_ubicacion;
-    private int total_final, pago_inicial;
+    String numero_factura;
 
-    public String fdatos() {
+    public String fdatos() { //CODIGO DE MIJAEL
         Scanner datos = new Scanner(System.in);
-        String  codigoU, dni, opcion;
+        String  codigoU, opcion;
         System.out.println("¿Usted es estudiante de la UPeU?");
         System.out.println("Si/No");
         opcion=datos.nextLine();
@@ -38,6 +37,8 @@ public class compras_union {
                 nombre=datos.nextLine();
                 System.out.println("ingrese sus apellidos: ");
                 apellido=datos.nextLine();
+                System.out.println("Ingrese su DNI");
+                dni= datos.nextLine();
                 System.out.println("Ingrese su correo: ");
                 correo=datos.nextLine();
                 System.out.println("Ingrese su contraseña: ");
@@ -52,11 +53,11 @@ public class compras_union {
         if(correoComp.equals(correo)&&contraseñaComp.equals(contraseña)){
             System.out.println("BIENVENIDO A PRODUCTOS UNION");
             System.out.println("Sr(a): "+nombre+" "+apellido);
+            this.pregunta();
         }
-        this.pregunta();
         return null;
     }
-    public String pregunta(){
+    public String pregunta(){ //CODIGO DE JUANA
         Scanner union = new Scanner(System.in);
         boolean salir = false;
         System.out.print("\033[31m");
@@ -70,7 +71,7 @@ public class compras_union {
             System.out.println("┌────────────┬─────────────────┬───────────┬─────────────────────┬─────┐");
             System.out.println("│  PRODUCTOS │ PUNTOS DE VENTA │  DELIVERY │ ELIJO SER SALUDABLE │  x  │");
             System.out.println("└────────────┴─────────────────┴───────────┴─────────────────────┴─────┘");
-            System.out.println("Ingrese el nombre de la seccion");
+            System.out.println("Ingrese el nombre de la seccion sin espaciados");
             String respuesta = union.next();
             switch (respuesta) {
                 case "PRODUCTOS":
@@ -132,7 +133,6 @@ public class compras_union {
                         System.out.println("└──────────────────────┴────────────────────┴───────────────┴────────────────────────┘");
                         System.out.println("Seleccione una opción");
                         opcion = union.nextInt();
-                        double precio = 0;
                         switch (opcion) {
                             case 1:
                                 precio = 7.80;
@@ -1893,7 +1893,7 @@ public class compras_union {
     }
     public String puntosdeventa() {
         Scanner direc = new Scanner(System.in);
-        String opcionPV, opcionU;
+        String opcionPV;
 
         System.out.println("PUNTOS DE VENTA");
         System.out.println("Conoce las ubicaciones donde puedes encontrar nuestros productos");
@@ -2081,8 +2081,8 @@ public class compras_union {
                         break;
                 }
                 System.out.println("¿Cuántos desea comprar?");
-                int cantidad = union.nextInt();
-                double subtotal = precio * cantidad;
+                 cantidad = union.nextInt();
+                 subtotal = precio * cantidad;
                 System.out.println("El total a pagar es: S/. " + subtotal);
                 if (subtotal >= 58.00) {
                     System.out.println(" se le sumara S/. 8.00 soles por el delivery");
@@ -2192,17 +2192,15 @@ public class compras_union {
 
     private String fTipoDePago() {
         Scanner tpago = new Scanner(System.in);
-        int opcion;
-
         System.out.println("ingrese el tipo de pago?");
-        System.out.println("1: tarjeta");
-        System.out.println("2: efectivo");
-        opcion=tpago.nextInt();
-        switch (opcion){
-            case 1:
+        System.out.println("TARJETA ");
+        System.out.println("EFECTIVO");
+        opcion_de_pago=tpago.nextLine();
+        switch (opcion_de_pago){
+            case "TARJETA ":
                 this.ftarjeta();
                 break;
-            case 2:
+            case "EFECTIVO":
                 this.fefectivo();
         }
         return  null;
@@ -2224,11 +2222,12 @@ public class compras_union {
         return null;
     }
 
-    public String fefectivo() {
+    public String fefectivo() { ///opino que aqui llama la boleta y la factura
         Scanner efect = new Scanner(System.in);
         double costo, totalPagado;
         System.out.println("Ingrese el costo:");
         costo = efect.nextDouble();
+        función_de_impresion_de_cobro();                         ///ojo ojito
         System.out.println("El monto a pagar es de: " + costo);
         System.out.println("Ingrese el pago de los productos:");
         totalPagado = efect.nextDouble();
@@ -2250,23 +2249,22 @@ public class compras_union {
         }
         return null;
     }
-    public void calculando(){ //ojo con este codigo falta completar
-        double total_pagar, sub_total,costo = 0;
-        System.out.println("ingrese la cantidad: ");
-        cantidad=union_m.nextInt();
-
-        igv= (cantidad*costo)*0.18;
-        sub_total=(cantidad*costo)-igv;
-        total_pagar = sub_total + igv;
-
-        System.out.println("SUBTOTAL " + sub_total);
-        System.out.println("IGV " + igv);
-        System.out.println("TOTAL A PAGAR " + total_pagar);
-
-    }
     public void función_de_impresion_de_cobro(){
+        Scanner union_m= new Scanner(System.in);
         LocalDate fechaActual = LocalDate.now();
         LocalTime horaActual = LocalTime.now();
+        //Recordar dar valores pero solo si lo deseas ***
+        double op_gratuitas=0.00;
+        double op_exoneradas=0.00;
+        double op_gravadas=precio;
+        double descuento_total=0.00;
+        double tasaIGV = 0.18;
+        double sub_total = precio * cantidad;
+        double igv = sub_total * tasaIGV;
+        double icbper = 0.00;
+        double importe_Total = sub_total + igv + icbper;
+        double detraccion = 0.00;
+        double importe_Neto = importe_Total - detraccion;
         do {
             System.out.println("Ingrese nombre del vendedor: ");
             nombre_vende = union_m.nextLine();
@@ -2299,26 +2297,27 @@ public class compras_union {
                         System.out.println("|--------------------------------------------------------------|");
                         System.out.println("|===================== BOLETA ELECTRONICA =====================|");
                         System.out.println("|=-- Numero: -----------------------------------  "+numero_factura+"|");
-                        System.out.println("|=-- Cliente: -----------------  "+nombre+" "+apellido+"|");
-                        System.out.println("|=-- Doc. ident: ------------------------------  "+dni+"|");
+                        System.out.println("|=-- Cliente: --------------------------  "+nombre+" "+apellido+" |");
+                        System.out.println("|=-- Doc. ident: -----------------------------------  "+dni+"|");
                         System.out.println("|=-- Fecha: ------------------  "+ fechaActual+"   "+horaActual+"|");
-                        System.out.println("|=-- Dirección: ------------------- -----"+opcion_ubicacion+"|");
+                        System.out.println("|=-- Dirección: ---------------------------" +opcionU+" - Perú|");
                         System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
                         System.out.println("|N°|CANTIDAD|  |ARTICULO|                         |MONTO|      |");
-                        System.out.println("|=== Op. Gratuitas: ============================== S/.         |");
-                        System.out.println("|=== Op. Exoneradas: ============================= S/.         |");
-                        System.out.println("|=== Op. Gravadas: =============================== S/.         |");
-                        System.out.println("|=== Total de descuento: ========================= S/.         |");
-                        System.out.println("|=== Sub-Total: ================================== S/.         |");
-                        System.out.println("|=== IGV: ======================================== S/."+igv+"|");
-                        System.out.println("|=== ICBPER: ===================================== S/.         |");
-                        System.out.println("|=== Importe total: ============================== S/."+total_final+" |");
-                        System.out.println("|=== Detracción: ================================= S/.     0.00|");
-                        System.out.println("|=== Importe neto: =============================== S/."+total_final+" |");
+                        System.out.println("|N°"+cantidad+"| "+opcion+"                           " +precio+ "|");
+                        System.out.println("|=== Op. Gratuitas: ============================== S/. "+op_gratuitas+"        |");
+                        System.out.println("|=== Op. Exoneradas: ============================= S/  "+op_exoneradas+"        |");
+                        System.out.println("|=== Op. Gravadas: =============================== S/. "+op_gravadas+"        |");
+                        System.out.println("|=== Total de descuento: ========================= S/. "+descuento_total+"        |");
+                        System.out.println("|=== Sub-Total: ================================== S/. "+sub_total+"        |");
+                        System.out.println("|=== IGV: ======================================== S/. "+igv+"          |");
+                        System.out.println("|=== ICBPER: ===================================== S/. "+icbper+"       |");
+                        System.out.println("|=== Importe total: ============================== S/. "+importe_Total+" |");
+                        System.out.println("|=== Detracción: ================================= S/. "+detraccion+"|");
+                        System.out.println("|=== Importe neto: =============================== S/. "+importe_Neto+" |");
                         System.out.println("|================= GRACIAS POR SU COMPRA ======================|");
                         System.out.println("|==============================================================|");
-                        System.out.println("|=== Medio de Pago: ==============================          |");
-                        System.out.println("|=== Vendedor(a) :================================  "+nombre_vende+"    |");
+                        System.out.println("|=== Medio de Pago: ==============================  "+opcion_de_pago+"   |");
+                        System.out.println("|=== Vendedor(a) :================================  "+nombre_vende+"     |");
                         System.out.println("|==============================================================|");
                         System.out.println("|==== Representación Impresa de documento, el cual puede ser ==|");
                         System.out.println("|==========  descargado de la pagina WWW.upeu.pe   ============|");
@@ -2338,6 +2337,7 @@ public class compras_union {
                         System.out.println("|------------------------ RUC 20138122256 ---------------------|");
                         System.out.println("|--------------------------------------------------------------|");
                         System.out.println("|======================= FACTURA DE UNIÓN =====================|");
+                        System.out.println("|=-- Fecha: ------------------  "+ fechaActual+"   "+horaActual+"|");
                         System.out.println("|=-- Facturado a Cliente: "+nombre+" "+apellido+"-----------|");
                         System.out.println("|=-- DNI: "+dni+"-------------------------------------------|");
                         System.out.println("|=-- Correo: "+correo+"--------------------------------------------------|");
@@ -2346,20 +2346,20 @@ public class compras_union {
                         System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
                         System.out.println("|N°|CANTIDAD|  |ARTICULO|                        |MONTO|       |");
                         System.out.println("|==============================================================|");
-                        System.out.println("|=== Op. Gratuitas: ===========================================|");
-                        System.out.println("|=== Op. Exoneradas: ==========================================|");
-                        System.out.println("|=== Op. Gravadas: ============================================|");
-                        System.out.println("|=== Total de descuento: ======================================|");
-                        System.out.println("|=== Sub-Total: ===============================================|");
-                        System.out.println("|=== IGV: =====================================================|");
-                        System.out.println("|=== ICBPER: ==================================================|");
-                        System.out.println("|=== Importe total: ===========================================|");
-                        System.out.println("|=== Detracción: ==============================================|");
-                        System.out.println("|=== Importe neto: ============================================|");
+                        System.out.println("|=== Op. Gratuitas: ============================== S/. "+op_gratuitas+"        |");
+                        System.out.println("|=== Op. Exoneradas: ============================= S/  "+op_exoneradas+"        |");
+                        System.out.println("|=== Op. Gravadas: =============================== S/. "+op_gravadas+"        |");
+                        System.out.println("|=== Total de descuento: ========================= S/. "+descuento_total+"        |");
+                        System.out.println("|=== Sub-Total: ================================== S/. "+sub_total+"        |");
+                        System.out.println("|=== IGV: ======================================== S/. "+igv+"          |");
+                        System.out.println("|=== ICBPER: ===================================== S/. "+icbper+"       |");
+                        System.out.println("|=== Importe total: ============================== S/. "+importe_Total+" |");
+                        System.out.println("|=== Detracción: ================================= S/. "+detraccion+"|");
+                        System.out.println("|=== Importe neto: =============================== S/. "+importe_Neto+" |");
                         System.out.println("|================= GRACIAS POR SU COMPRA ======================|");
                         System.out.println("|==============================================================|");
-                        System.out.println("|=== Medio de Pago: =================================          |");
-                        System.out.println("|=== Vendedor(a) :===================================          |");
+                        System.out.println("|=== Medio de Pago: ==============================  "+opcion_de_pago+"   |");
+                        System.out.println("|=== Vendedor(a) :================================  "+nombre_vende+"     |");
                         System.out.println("|==============================================================|");
                         System.out.println("|==== Representación Impresa de documento, el cual puede ser ==|");
                         System.out.println("|==========  descargado de la pagina WWW.upeu.pe   ============|");
@@ -2379,6 +2379,5 @@ public class compras_union {
     public static void main(String[]args){
         compras_union todo= new compras_union();
         todo.fdatos();
-
     }
 }
