@@ -2216,16 +2216,17 @@ public class compras_union {
         LocalTime horaActual = LocalTime.now();
         //Recordar dar valores pero solo si lo deseas ***
         double op_gratuitas=0.00;
+        double op_gratuitas=0.00;
         double op_exoneradas=0.00;
         double op_gravadas=precio;
         double descuento_total=0.00;
         double tasaIGV = 0.18;
-        double sub_total = (precio+precio1) * (cantidad+cantidad1);
-        double igv = sub_total * tasaIGV;
+        double igv = (precio+precio1) * (cantidad+cantidad1) * tasaIGV;
+        double sub_total = ((precio+precio1) * (cantidad+cantidad1))-igv;
         double icbper = 0.00;
         double importe_Total = sub_total + igv + icbper;
         double detraccion = 0.00;
-        double importe_Neto = importe_Total - detraccion;
+        double importe_Neto = importe_Total-detraccion;
         do {
             System.out.println("Ingrese nombre del vendedor: ");
             nombre_vende = union_m.nextLine();
