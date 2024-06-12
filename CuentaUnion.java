@@ -41,7 +41,7 @@ public class CuentaUnion {
         contraseñaComp=datos.nextLine();
         if(correoComp.equals(correo)&&contraseñaComp.equals(contraseña)){
             System.out.println("BIENVENIDO A PRODUCTOS UNION");
-            System.out.println("Sr(a): "+nobre+""+apellido);
+            System.out.println("Sr(a): "+nobre+" "+apellido);
         }
         return null;
     }
@@ -65,7 +65,7 @@ public class CuentaUnion {
         return  null;
     }
 
-    private String ftarjeta() {
+    public String ftarjeta() {
         Scanner tar= new Scanner(System.in);
         int tarjeta, fechacaducidad, cvv;
         System.out.println("ingrese el nombre completo del titular de la tarjeta");
@@ -81,36 +81,29 @@ public class CuentaUnion {
         return null;
     }
 
-    private String fefectivo() {
+    public String fefectivo() {
         Scanner efect = new Scanner(System.in);
-        Double costo, totalPagado;
-        System.out.println("el costo total del producto es de ");
-        costo=efect.nextDouble();
-        System.out.println("El total a pagar es de " + costo);
-        System.out.println("realice su pago en soles");
-        totalPagado= efect.nextDouble();
-
+        double costo, totalPagado;
+        System.out.println("Ingrese el costo:");
+        costo = efect.nextDouble();
+        System.out.println("El monto a pagar es de: " + costo);
+        System.out.println("Ingrese el pago de los productos:");
+        totalPagado = efect.nextDouble();
         while (totalPagado < costo) {
-            System.out.println("Ingrese el monto que va a pagar:");
-            double pago = efect.nextDouble();
-
-            if (pago <= 0) {
+            System.out.println("Monto insuficiente. Faltan " + (costo - totalPagado) + " para completar el pago.");
+            System.out.println("Ingrese el monto adicional que va a pagar:");
+            double pagoAdicional = efect.nextDouble();
+            if (pagoAdicional <= 0) {
                 System.out.println("Ingrese un monto válido, por favor. No puede consumir los productos gratis.");
             } else {
-                totalPagado += pago;
-
-                if (totalPagado > costo) {
-                    double vuelto = totalPagado - costo;
-                    System.out.println("Su vuelto es de: " + vuelto);
-                    break;
-                } else if (totalPagado < costo) {
-                    double restante = costo - totalPagado;
-                    System.out.println("Monto insuficiente. Faltan " + restante + " para completar el pago.");
-                } else {
-                    System.out.println("Pago completado. Gracias por su compra.");
-                    break;
-                }
+                totalPagado += pagoAdicional;
             }
+        }
+        if (totalPagado > costo) {
+            double vuelto = totalPagado - costo;
+            System.out.println("Pago recibido. Su vuelto es de: " + vuelto);
+        } else {
+            System.out.println("Pago completado. Gracias por su compra.");
         }
         return null;
     }
@@ -122,3 +115,4 @@ public class CuentaUnion {
         union.fTipoDePago();
     }
 }
+
