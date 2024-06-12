@@ -1211,7 +1211,7 @@ public class compras_union {
                 this.ftarjeta();
                 break;
             case 2:
-                //this.fefectivo();
+                this.fefectivo();
         }
         return  null;
     }
@@ -1229,6 +1229,33 @@ public class compras_union {
         cvv=tar.nextInt();
         System.out.println("pago realizado exitosamente con su tarjeta");
         System.out.println("PRODUCTOS UNION");
+        return null;
+    }
+    
+    public String fefectivo() {
+        Scanner efect = new Scanner(System.in);
+        double costo, totalPagado;
+        System.out.println("Ingrese el costo:");
+        costo = efect.nextDouble();
+        System.out.println("El monto a pagar es de: " + costo);
+        System.out.println("Ingrese el pago de los productos:");
+        totalPagado = efect.nextDouble();
+        while (totalPagado < costo) {
+            System.out.println("Monto insuficiente. Faltan " + (costo - totalPagado) + " para completar el pago.");
+            System.out.println("Ingrese el monto adicional que va a pagar:");
+            double pagoAdicional = efect.nextDouble();
+            if (pagoAdicional <= 0) {
+                System.out.println("Ingrese un monto válido, por favor. No puede consumir los productos gratis.");
+            } else {
+                totalPagado += pagoAdicional;
+            }
+        }
+        if (totalPagado > costo) {
+            double vuelto = totalPagado - costo;
+            System.out.println("Pago recibido. Su vuelto es de: " + vuelto);
+        } else {
+            System.out.println("Pago completado. Gracias por su compra.");
+        }
         return null;
     }
     public void calculando(){ //ojo con este codigo falta completar
