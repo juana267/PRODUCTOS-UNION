@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 public class compras_union {
-    private double total, precioPan = 0, tproducto = 0,igv;
+    private double total = 0, precioPan = 0, tproducto = 0,igv,subtotal=0;
     private String correo, dni,contraseña, correoComp, contraseñaComp, nombre, apellido, opc_variedad;
     private int opcion, cantidad, op_pdt = 0;
     private float peso,talla,rpt_imc;
@@ -1024,7 +1024,7 @@ public class compras_union {
 
     public String cobrar() {
         Scanner union = new Scanner(System.in);
-        double cantidad, total = 0;
+        double cantidad;
         System.out.println("cuantos va a querer");
         cantidad = union.nextDouble();
         union.nextLine();
@@ -1101,17 +1101,17 @@ public class compras_union {
             default:
                 System.out.println("opcion no valida");
         }
-        precioPan=total*cantidad;
+        total=subtotal*cantidad;
         this.cantidad();
         return null;
     }
     public String cantidad(){
-        if (total>=58) {
-            tproducto=total+8;
-            System.out.println(precioPan);
+        if (subtotal>=58) {
+            total=subtotal+8;
+            System.out.println(total);
             this.fTipoDePago();
         }
-        else if (total<58){
+        else if (subtotal<58){
             System.out.println("Todavia no supera el monto mínimo");
             this.delivery();
         }
@@ -1231,7 +1231,7 @@ public class compras_union {
         System.out.println("PRODUCTOS UNION");
         return null;
     }
-    
+
     public String fefectivo() {
         Scanner efect = new Scanner(System.in);
         double costo, totalPagado;
@@ -1383,7 +1383,7 @@ public class compras_union {
             }
         } while (opcion != 0);
     }
-    
+
     public static void main(String[]args){
         compras_union todo= new compras_union();
         todo.fdatos();
