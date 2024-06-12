@@ -1900,10 +1900,10 @@ public class compras_union {
         System.out.println("\uD83D\uDED2Supermercados");
         System.out.println("⛟Bodegas y distribuidores");
         System.out.println("1. Conoce más");
-        System.out.println("2. Delivery");
+        System.out.println("SI/NO");
         opcionPV = direc.nextLine();
         switch (opcionPV) {
-            case "1":
+            case "SI":
                 System.out.println("Ingrese su ubicación");
                 System.out.println("Lima");
                 System.out.println("Arequipa");
@@ -1956,6 +1956,7 @@ public class compras_union {
                         break;
                     default:
                         System.out.println("sin ubicacion");
+            case "NO" :         
 
                 }
             default:
@@ -2081,16 +2082,15 @@ public class compras_union {
                         break;
                 }
                 System.out.println("¿Cuántos desea comprar?");
-                 cantidad = union.nextInt();
-                 subtotal = precio * cantidad;
-                System.out.println("El total a pagar es: S/. " + subtotal);
+                cantidad = union.nextInt();
+                subtotal = precio * cantidad;
                 if (subtotal >= 58.00) {
                     System.out.println(" se le sumara S/. 8.00 soles por el delivery");
                     double total = subtotal + 8;
                     System.out.println("El monto total a pagar es: S/. " + total);
                     System.out.println("vaya a caja a pagar");
                     fTipoDePago();
-                } else if (subtotal <= 58) {
+                } else if (subtotal < 58) {
                     System.out.println("Todavia no supera el monto mínimo");
                     this.delivery();
                 }
@@ -2303,7 +2303,7 @@ public class compras_union {
                         System.out.println("|=-- Dirección: ---------------------------" +opcionU+" - Perú|");
                         System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
                         System.out.println("|N°|CANTIDAD|  |ARTICULO|                         |MONTO|      |");
-                        System.out.println("|N°"+cantidad+"|                                   " +precio+ "|");
+                        System.out.println("|N°"+cantidad+"| "+opcion+"                           " +precio+ "|");
                         System.out.println("|=== Op. Gratuitas: ============================== S/. "+op_gratuitas+"        |");
                         System.out.println("|=== Op. Exoneradas: ============================= S/  "+op_exoneradas+"        |");
                         System.out.println("|=== Op. Gravadas: =============================== S/. "+op_gravadas+"        |");
