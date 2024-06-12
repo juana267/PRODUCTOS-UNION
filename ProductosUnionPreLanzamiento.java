@@ -76,13 +76,13 @@ public class compras_union {
                 case "PRODUCTOS":
                     this.fproductos();
                     break;
-                case "PUNTOS DE VENTA":
+                case "PUNTOSDEVENTA":
                     this.puntosdeventa();
                     break;
                 case "DELIVERY":
                     this.delivery();
                     break;
-                case " ELIJO SER SALUDABLE":
+                case "ELIJOSERSALUDABLE":
                     this.IMC();
                 case "x":
                     salir = true;
