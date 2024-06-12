@@ -1910,7 +1910,6 @@ public class compras_union {
                         break;
                     default:
                         System.out.println("sin ubicacion");
-                    case "NO" :
 
                 }
             default:
@@ -2155,66 +2154,52 @@ public class compras_union {
         System.out.println("EFECTIVO");
         opcion_de_pago=tpago.nextLine();
         switch (opcion_de_pago){
-            case "TARJETA ":
-                this.ftarjeta();
-                break;
+            case "TARJETA":
+                String tarjeta, fechacaducidad, cvv;
+                System.out.println("ingrese el nombre completo del titular de la tarjeta");
+                String titulartarjeta=tpago.nextLine();
+                System.out.println("ingrese el numero de tarjeta");
+                tarjeta=tpago.nextLine();
+                System.out.println("ingrese la fecha de caducidad de la tarjeta");
+                fechacaducidad=tpago.nextLine();
+                System.out.println("ingrese el CVV");
+                cvv=tpago.nextLine();
+                System.out.println("pago realizado exitosamente con su tarjeta");
+                System.out.println("PRODUCTOS UNION");
+                función_de_impresion_de_cobro();                break;
             case "EFECTIVO":
-                this.fefectivo();
-                break;
+                Scanner efect = new Scanner(System.in);
+                double totalPagado;
+                System.out.println("El monto a pagar es de: " + total);
+                System.out.println("Ingrese el pago de los productos:");
+                totalPagado = efect.nextDouble();
+                while (totalPagado < total) {
+                    System.out.println("Monto insuficiente. Faltan " + (total - totalPagado) + " para completar el pago.");
+                    System.out.println("Ingrese el monto adicional que va a pagar:");
+                    double pagoAdicional = efect.nextDouble();
+                    if (pagoAdicional <= 0) {
+                        System.out.println("Ingrese un monto válido, por favor. No puede consumir los productos gratis.");
+                    } else {
+                        totalPagado += pagoAdicional;
+                    }
+                }
+                if (totalPagado > total) {
+                    double vuelto = totalPagado - total;
+                    System.out.println("Pago recibido. Su vuelto es de: " + vuelto);
+                } else {
+                    System.out.println("Pago completado. Gracias por su compra.");
+                }
+                función_de_impresion_de_cobro();
             default:
-                System.out.println("opcion no valida");
+                System.out.println("ingrese de nuevo");
         }
         return  null;
-    }
-
-    public String ftarjeta() {
-        Scanner tar= new Scanner(System.in);
-        double Costofinal=(total+total1);
-        int tarjeta, fechacaducidad, cvv;
-        System.out.println("ingrese el nombre completo del titular de la tarjeta");
-        String titulartarjeta=tar.nextLine();
-        System.out.println("ingrese el numero de tarjeta");
-        tarjeta=tar.nextInt();
-        System.out.println("ingrese la fecha de caducidad de la tarjeta");
-        fechacaducidad=tar.nextInt();
-        System.out.println("ingrese el CVV");
-        cvv=tar.nextInt();
-        System.out.println("pago realizado exitosamente con su tarjeta");
-        System.out.println("La suma de: "+Costofinal);
-        función_de_impresion_de_cobro();
-        return null;
-    }
-
-    public String fefectivo() { ///opino que aqui llama la boleta y la factura
-        Scanner efect = new Scanner(System.in);
-        double totalPagado, Costofinal=total+total1;;
-        System.out.println("El monto a pagar es de: " + Costofinal);
-        System.out.println("Ingrese el pago de los productos:");
-        totalPagado = efect.nextDouble();
-        while (totalPagado < Costofinal) {
-            System.out.println("Monto insuficiente. Faltan " + (Costofinal - totalPagado) + " para completar el pago.");
-            System.out.println("Ingrese el monto adicional que va a pagar:");
-            double pagoAdicional = efect.nextDouble();
-            if (pagoAdicional <= 0) {
-                System.out.println("Ingrese un monto válido, por favor. No puede consumir los productos gratis.");
-            } else {
-                totalPagado += pagoAdicional;
-            }
-        }
-        if (totalPagado > Costofinal) {
-            double vuelto = totalPagado - Costofinal;
-            System.out.println("Pago recibido. Su vuelto es de: " + vuelto);
-        } else {
-            System.out.println("Pago completado. Gracias por su compra.");
-        }
-        función_de_impresion_de_cobro();
-        return null;
     }
     public void función_de_impresion_de_cobro(){
         Scanner union_m= new Scanner(System.in);
         LocalDate fechaActual = LocalDate.now();
         LocalTime horaActual = LocalTime.now();
-        //Recordar dar valores pero solo si lo deseas ***
+        //Recordar dar valores pero solo si lo deseas *
         double op_gratuitas=0.00;
         double op_exoneradas=0.00;
         double op_gravadas=precio;
@@ -2336,7 +2321,6 @@ public class compras_union {
             }
         } while (opcion != 0);
     }
-
     public static void main(String[]args){
         compras_union todo= new compras_union();
         todo.fdatos();
