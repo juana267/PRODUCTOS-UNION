@@ -2303,7 +2303,7 @@ public class compras_union {
                         System.out.println("|=-- Dirección: ---------------------------" +opcionU+" - Perú|");
                         System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
                         System.out.println("|N°|CANTIDAD|  |ARTICULO|                         |MONTO|      |");
-                        System.out.println("|N°"+cantidad+"| "+opcion+"                           " +precio+ "|");
+                        System.out.println("|N°"+cantidad+"|                                   " +precio+ "|");
                         System.out.println("|=== Op. Gratuitas: ============================== S/. "+op_gratuitas+"        |");
                         System.out.println("|=== Op. Exoneradas: ============================= S/  "+op_exoneradas+"        |");
                         System.out.println("|=== Op. Gravadas: =============================== S/. "+op_gravadas+"        |");
