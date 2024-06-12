@@ -1,11 +1,3 @@
-import java.util.Scanner;
-
-public class ProductosUnion11 {
-    public static void main(String[] args) {
-        System.out.println("----BIENVENIDO---");
-        fproductos();
-    }
-
     public static void fproductos() {
         Scanner union = new Scanner(System.in);
         int opcion;
@@ -41,10 +33,10 @@ public class ProductosUnion11 {
                         System.out.println("└──────────────────────┴────────────────────┴───────────────┴────────────────────────┘");
                         System.out.println("Seleccione una opción");
                         opcion = union.nextInt();
-                        double precioPanes = 0;
+                        double precio = 0;
                         switch (opcion) {
                             case 1:
-                                precioPanes = 7.80;
+                                precio = 7.80;
                                 System.out.println("S/7.80 ");
                                 System.out.println("Pan Americano  Sandwich");
                                 System.out.println("Energético y delicioso pan, elaborado en base");
@@ -63,9 +55,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalpan = precioPanes * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalpan);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -81,7 +73,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 2:
-                                precioPanes = 6.40;
+                                precio = 6.40;
                                 System.out.println("S/6.40 ");
                                 System.out.println("Pan Blanco Familiar Superbom");
                                 System.out.println("Delicioso pan, elaborado en base de harina fortificada");
@@ -99,9 +91,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalpan = precioPanes * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalpan);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -117,7 +109,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 3:
-                                precioPanes = 8.90;
+                                precio = 8.90;
                                 System.out.println("S/8.90 ");
                                 System.out.println("Pan Fibra Integral");
                                 System.out.println("Delicioso y saludable pan, Libre de bromato y colesterol.");
@@ -135,9 +127,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalpan = precioPanes * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalpan);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -153,7 +145,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 4:
-                                precioPanes = 9.30;
+                                precio = 9.30;
                                 System.out.println("S/9.30 ");
                                 System.out.println(" Pan Multisemillas con Avena");
                                 System.out.println("Delicioso y saludable pan, libre de bromato. Con una");
@@ -171,9 +163,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
-                                            int panes = union.nextInt();
-                                            double tproducto = precioPanes * panes;
-                                            System.out.println("El total a pagar es: S/. " + tproducto);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -189,7 +181,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 5:
-                                precioPanes = 6.50;
+                                precio = 6.50;
                                 System.out.println("S/6.50 ");
                                 System.out.println(" Pan Integral Familiar Superbom");
                                 System.out.println("Delicioso pan, elaborado en base de harina integral");
@@ -206,9 +198,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalpan = precioPanes * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalpan);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -224,7 +216,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 6:
-                                precioPanes = 8.90;
+                                precio = 8.90;
                                 System.out.println("S/8.90 ");
                                 System.out.println("Pan Granos y Semillas");
                                 System.out.println("Pan delicioso y saludable, elaborado a base de harina");
@@ -242,9 +234,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalpan = precioPanes * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalpan);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -260,7 +252,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 7:
-                                precioPanes = 9.50;
+                                precio = 9.50;
                                 System.out.println("S/9.50 ");
                                 System.out.println("Pan Fuente");
                                 System.out.println("Energético y delicioso pan, elaborado en base ");
@@ -278,9 +270,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalpan = precioPanes * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalpan);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -296,7 +288,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 8:
-                                precioPanes = 8.50;
+                                precio = 8.50;
                                 System.out.println("S/8.50 ");
                                 System.out.println("Pan Integral Sándwich Clásico");
                                 System.out.println("Delicioso pan, elaborado en base de harina integral");
@@ -314,9 +306,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos panes va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalpan = precioPanes * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalpan);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -357,10 +349,10 @@ public class ProductosUnion11 {
                         System.out.println("└──────────────────────┴───────────────────────┘ ");
                     System.out.println("Seleccione una opción");
                     opcion = union.nextInt();
-                    double preciobolleria = 0;
+                    double precio = 0;
                     switch (opcion) {
                         case 1:
-                            preciobolleria = 7.60;
+                            precio = 7.60;
                             System.out.println("S/7.60 ");
                             System.out.println("Delicioso pan pita integral elaborado con semillas ");
                             System.out.println("de linaza, kiwicha y quinua. Bajo en Colesterol.");
@@ -374,9 +366,9 @@ public class ProductosUnion11 {
                                 switch (opcion) {
                                     case 1:
                                         System.out.println("¿Cuántos panes va comprar?");
-                                        int tproducto = union.nextInt();
-                                        double totalbolleria = preciobolleria * tproducto;
-                                        System.out.println("El total a pagar es: S/. " + totalbolleria);
+                                        int cantidad = union.nextInt();
+                                        double total = precio * cantidad;
+                                        System.out.println("El total a pagar es: S/. " + total);
                                         System.out.println("vaya a caja a pagar");
                                         fTipoDePago();
                                         break;
@@ -392,7 +384,7 @@ public class ProductosUnion11 {
                             }while (!salir);
                             break;
                         case 2:
-                            preciobolleria = 7.60;
+                            precio = 7.60;
                             System.out.println("S/7.60 ");
                             System.out.println("Pan pita semillas chia y linaza");
                             System.out.println("Delicioso pan pita elaborado con semillas de chía,");
@@ -407,9 +399,9 @@ public class ProductosUnion11 {
                                 switch (opcion) {
                                     case 1:
                                         System.out.println("¿Cuántos panes va comprar?");
-                                        int tproducto = union.nextInt();
-                                        double totalbolleria = preciobolleria * tproducto;
-                                        System.out.println("El total a pagar es: S/. " + totalbolleria);
+                                        int cantidad = union.nextInt();
+                                        double total = precio * cantidad;
+                                        System.out.println("El total a pagar es: S/. " + total);
                                         System.out.println("vaya a caja a pagar");
                                         fTipoDePago();
                                         break;
@@ -425,7 +417,7 @@ public class ProductosUnion11 {
                             }while (!salir);
                             break;
                         case 3:
-                            preciobolleria = 8.50;
+                            precio = 8.50;
                             System.out.println("S/8.50 ");
                             System.out.println("Pre Pizza Union");
                             System.out.println("Deliciosa masa, elaborada en base de harina fortificada");
@@ -440,9 +432,9 @@ public class ProductosUnion11 {
                                 switch (opcion) {
                                     case 1:
                                         System.out.println("¿Cuántos panes va comprar?");
-                                        int tproducto = union.nextInt();
-                                        double totalbolleria = preciobolleria * tproducto;
-                                        System.out.println("El total a pagar es: S/. " + totalbolleria);
+                                        int cantidad = union.nextInt();
+                                        double total = precio * cantidad;
+                                        System.out.println("El total a pagar es: S/. " + total);
                                         System.out.println("vaya a caja a pagar");
                                         fTipoDePago();
                                         break;
@@ -458,7 +450,7 @@ public class ProductosUnion11 {
                             }while (!salir);
                             break;
                         case 4:
-                            preciobolleria = 11.10;
+                            precio = 11.10;
                             System.out.println("S/11.10 ");
                             System.out.println(" Rollo de Canela");
                             System.out.println("Delicioso pan relleno de una mezcla de maní y canela ");
@@ -476,9 +468,9 @@ public class ProductosUnion11 {
                                 switch (opcion) {
                                     case 1:
                                         System.out.println("¿Cuántos panes va comprar?");
-                                        int tproducto = union.nextInt();
-                                        double totalbolleria = preciobolleria * tproducto;
-                                        System.out.println("El total a pagar es: S/. " + totalbolleria);
+                                        int cantidad = union.nextInt();
+                                        double total = precio * cantidad;
+                                        System.out.println("El total a pagar es: S/. " + total);
                                         System.out.println("vaya a caja a pagar");
                                         fTipoDePago();
                                         break;
@@ -494,7 +486,7 @@ public class ProductosUnion11 {
                             }while (!salir);
                             break;
                         case 5:
-                            preciobolleria = 19.00;
+                            precio = 19.00;
                             System.out.println("S/ 19.00 ");
                             System.out.println("Pionono x 7");
 
@@ -507,9 +499,9 @@ public class ProductosUnion11 {
                                 switch (opcion) {
                                     case 1:
                                         System.out.println("¿Cuántos panes va comprar?");
-                                        int tproducto = union.nextInt();
-                                        double totalbolleria = preciobolleria * tproducto;
-                                        System.out.println("El total a pagar es: S/. " + totalbolleria);
+                                        int cantidad = union.nextInt();
+                                        double total = precio * cantidad;
+                                        System.out.println("El total a pagar es: S/. " + total);
                                         System.out.println("vaya a caja a pagar");
                                         fTipoDePago();
                                         break;
@@ -552,10 +544,10 @@ public class ProductosUnion11 {
                         System.out.println("└──────────────────────┴────────────────────┴──────────────────────┘");
                         System.out.println("Seleccione una opción");
                         opcion = union.nextInt();
-                        double preciocereales = 0;
+                        double precio = 0;
                         switch (opcion) {
                             case 1:
-                                preciocereales = 21.50;
+                                precio = 21.50;
                                 System.out.println("S/21.50 ");
                                 System.out.println("Cereal Premium x 350 g");
 
@@ -568,9 +560,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalcereal = preciocereales * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalcereal);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -586,7 +578,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 2:
-                                preciocereales = 9.99;
+                                precio = 9.99;
                                 System.out.println("S/9.99 ");
                                 System.out.println("Germen de Trigo");
                                 System.out.println("El Germen de trigo es rico en fibra insoluble ideal para el ");
@@ -603,9 +595,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalcereal = preciocereales * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalcereal);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -621,7 +613,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 3:
-                                preciocereales = 14.50;
+                                precio = 14.50;
                                 System.out.println("S/ 14.50 ");
                                 System.out.println("Granola con Granos Andinos");
                                 System.out.println("Energético y delicioso preparado, elaborado a base  ");
@@ -638,9 +630,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalcereal = preciocereales * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalcereal);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -656,7 +648,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 4:
-                                preciocereales = 15.20;
+                                precio = 15.20;
                                 System.out.println("S/15.20 ");
                                 System.out.println("Granola con Pasas y Almendras");
                                 System.out.println("Energético y delicioso preparado, elaborado a base de ");
@@ -673,9 +665,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalcereal = preciocereales * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalcereal);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -691,7 +683,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 5:
-                                preciocereales = 13.30;
+                                precio = 13.30;
                                 System.out.println("S/13.30 ");
                                 System.out.println("Granola Lonchera x 400 gr.");
                                 System.out.println("Energético y delicioso preparado, elaborado a base ");
@@ -708,9 +700,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalcereal = preciocereales * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalcereal);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -726,7 +718,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 6:
-                                preciocereales = 5.99;
+                                precio = 5.99;
                                 System.out.println("S/5.99");
                                 System.out.println("Salvado de Trigo");
                                 System.out.println("El Salvado de trigo es rico en fibra insoluble ideal");
@@ -744,9 +736,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos cereales va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalcereal = preciocereales * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalcereal);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -781,10 +773,10 @@ public class ProductosUnion11 {
                         System.out.println("└──────────────────────┴────────────────────┴──────────────────────┘");
                         System.out.println("Seleccione una opción");
                         opcion = union.nextInt();
-                        double preciobebidas = 0;
+                        double precio = 0;
                         switch (opcion) {
                             case 1:
-                                preciobebidas = 5.50;
+                                precio = 5.50;
                                 System.out.println("S/5.50");
                                 System.out.println("Bebida con pulpa de durazno 475 ml");
                                 System.out.println("Bebida refrescante e hidratante, elaborada con seleccionada  ");
@@ -801,9 +793,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalbebidas = preciobebidas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalbebidas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -819,7 +811,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 2:
-                                preciobebidas = 5.50;
+                                precio = 5.50;
                                 System.out.println("S/5.50");
                                 System.out.println("Bebida con pulpa de mango 475 ml");
                                 System.out.println("Bebida refrescante e hidratante, elaborada con seleccionada y ");
@@ -836,9 +828,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalbebidas = preciobebidas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalbebidas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -854,7 +846,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 3:
-                                preciobebidas = 5.50;
+                                precio = 5.50;
                                 System.out.println("S/5.50");
                                 System.out.println("Bebida con pulpa de manzana 475 ml");
                                 System.out.println("Bebida refrescante e hidratante, elaborada con seleccionada y ");
@@ -871,9 +863,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalbebidas = preciobebidas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalbebidas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -889,7 +881,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 4:
-                                preciobebidas = 5.50;
+                                precio = 5.50;
                                 System.out.println("S/5.50");
                                 System.out.println("Bebida con pulpa de piña 475 ml");
                                 System.out.println("Bebida refrescante e hidratante, elaborada con seleccionada y  ");
@@ -906,9 +898,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalbebidas = preciobebidas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalbebidas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -924,7 +916,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 5:
-                                preciobebidas = 73.50;
+                                precio = 73.50;
                                 System.out.println("S/73.50");
                                 System.out.println("Duo Pack D Vine");
                                 System.out.println("La uva borgoña posee propiedades nutricionales valiosas  ");
@@ -941,9 +933,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalbebidas = preciobebidas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalbebidas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -959,7 +951,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 6:
-                                preciobebidas = 7.20;
+                                precio = 7.20;
                                 System.out.println("S/7.20");
                                 System.out.println("Zumo de Uva 295 ml");
                                 System.out.println("Delicioso zumo, concentrado de uva borgoña. Contiene antioxidantes");
@@ -975,9 +967,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos bebidas  va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalbebidas = preciobebidas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalbebidas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1012,10 +1004,10 @@ public class ProductosUnion11 {
                         System.out.println("└──────────────────────┴────────────────────┴──────────────────────┘");
                         System.out.println("Seleccione una opción");
                         opcion = union.nextInt();
-                        double preciogalletas = 0;
+                        double precio = 0;
                         switch (opcion) {
                             case 1:
-                                preciogalletas = 2.50;
+                                precio = 2.50;
                                 System.out.println("S/2.50");
                                 System.out.println("Galleta Lonchera de Coco x 42 gr");
                                 System.out.println("Energética y deliciosa galleta, elaborada en base a  ");
@@ -1032,9 +1024,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1050,7 +1042,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 2:
-                                preciogalletas = 2.50;
+                                precio = 2.50;
                                 System.out.println("S/2.50");
                                 System.out.println("Galleta Lonchera de Kiwicha x 42 gr");
                                 System.out.println("Energética y deliciosa galleta, elaborada en base  ");
@@ -1066,9 +1058,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1084,7 +1076,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 3:
-                                preciogalletas = 2.50;
+                                precio = 2.50;
                                 System.out.println("S/2.50");
                                 System.out.println("Galleta Lonchera de Naranja x 42 gr");
                                 System.out.println("Deliciosa galleta sabor a Naranja, elaborada con ");
@@ -1101,9 +1093,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1119,7 +1111,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 4:
-                                preciogalletas = 5.10;
+                                precio = 5.10;
                                 System.out.println("S/5.10");
                                 System.out.println("Mega Galleta de Kiwicha");
                                 System.out.println("Energética y deliciosa galleta, elaborada en base a la mezcla de ");
@@ -1135,9 +1127,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1153,7 +1145,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 5:
-                                preciogalletas = 5.10;
+                                precio = 5.10;
                                 System.out.println("S/5.10");
                                 System.out.println("Mega Galleta de Naranja");
                                 System.out.println("Energética y deliciosa galleta, elaborada en base a la mezcla ");
@@ -1171,9 +1163,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1189,7 +1181,7 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 6:
-                                preciogalletas = 5.10;
+                                precio = 5.10;
                                 System.out.println("S/5.10");
                                 System.out.println("Mega Galleta Integral de Coco");
                                 System.out.println("Energética y deliciosa galleta, elaborada en base a la mezcla  ");
@@ -1206,9 +1198,9 @@ public class ProductosUnion11 {
                                     switch (opcion) {
                                         case 1:
                                             System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1230,30 +1222,28 @@ public class ProductosUnion11 {
                 case "SNACK":
                     do {
                         System.out.println("\033[93m");
-                        System.out.println("┌──────────────────────────────────────────────────────┐");
-                        System.out.println("│                  SNACK                      │");
-                        System.out.println("├───────────────────────────┼──────────────────────┤");
-                        System.out.println("│ 1.  Palitos con ajonjoli  │  3. Galleta Lonchera │");
-                        System.out.println("│        y linaza 65 g      │   de Naranja x 42 gr │");
-                        System.out.println("│           S/2.30          │          S/2.50      │");
-                        System.out.println("├───────────────────────────┼──────────────────────┤");
-                        System.out.println("│ 4.   Mega Galleta         │  6.   Mega Galleta   │");
-                        System.out.println("│       de Kiwicha          │    ntegral de Coco   │");
-                        System.out.println("│        S/5.10             │        S/5.10        │");
-                        System.out.println("└───────────────────────────┴──────────────────────┘");
+                        System.out.println("┌─────────────────────────────────────────────────────┐");
+                        System.out.println("│                   SNACK                             │");
+                        System.out.println("├───────────────────────────┼─────────────────────────┤");
+                        System.out.println("│ 1.  Palitos con ajonjoli  │ 2.Palitos con Especias  │");
+                        System.out.println("│        y linaza 65 g      │          x 65 gr        │");
+                        System.out.println("│           S/2.30          │          S/2.30         │");
+                        System.out.println("├───────────────────────────┼─────────────────────────┤");
+                        System.out.println("│ 3.   Tostada Blanca X 10  │ 4.Tostada Integral X 10 │");
+                        System.out.println("│          S/5.30           │        S/5.30           │");
+                        System.out.println("└───────────────────────────┴─────────────────────────┘");
                         System.out.println("Seleccione una opción");
                         opcion = union.nextInt();
-                        double preciosnack = 0;
+                        double precio = 0;
                         switch (opcion) {
                             case 1:
-                                preciosnack = 2.30;
+                                precio = 2.30;
                                 System.out.println("S/2.30");
                                 System.out.println("Palitos con ajonjoli y linaza 65 g");
                                 System.out.println("Estos deliciosos palitos, están elaborados en base a ");
                                 System.out.println("harina fortificada con hierro. Libre de bromato y colesterol. ");
                                 System.out.println(" Este producto es un alimento fuente de hidratos de carbono ");
                                 System.out.println("complejos, principal fuente de energía del organismo. Contiene Omega 9, 6 y 3.");
-                                System.out.println("Libre de colorantes artificiales");
 
                                 do {
                                     System.out.println("Seleccione una opción");
@@ -1263,10 +1253,10 @@ public class ProductosUnion11 {
                                     union.nextLine();
                                     switch (opcion) {
                                         case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciosnack * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            System.out.println("¿Cuántos Palitos con ajonjoli y linaza va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1282,12 +1272,14 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 2:
-                                preciogalletas = 2.50;
-                                System.out.println("S/2.50");
-                                System.out.println("Galleta Lonchera de Kiwicha x 42 gr");
-                                System.out.println("Energética y deliciosa galleta, elaborada en base  ");
-                                System.out.println("a la mezcla de harina integral de Kiwicha especial fortificada con hierro. ");
-                                System.out.println("Libre de colorantes artificiales");
+                                precio = 2.30;
+                                System.out.println("S/2.30");
+                                System.out.println("Palitos con Especias x 65 gr");
+                                System.out.println("Estos deliciosos palitos con ajonjolí, chía, kión y ajo, están");
+                                System.out.println("elaborados en base a harina fortificada con hierro y vitaminas B12.");
+                                System.out.println("Libre de bromato y colesterol. Este producto es un alimento fuente ");
+                                System.out.println("de hidratos de carbono complejos, principal fuente de energía del ");
+                                System.out.println("organismo. Contiene Omega 9, 6 y 3.");
 
                                 do {
                                     System.out.println("Seleccione una opción");
@@ -1297,10 +1289,10 @@ public class ProductosUnion11 {
                                     union.nextLine();
                                     switch (opcion) {
                                         case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            System.out.println("¿Cuántos Palitos con Especias x 65 gr va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1316,13 +1308,14 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 3:
-                                preciogalletas = 2.50;
-                                System.out.println("S/2.50");
-                                System.out.println("Galleta Lonchera de Naranja x 42 gr");
-                                System.out.println("Deliciosa galleta sabor a Naranja, elaborada con ");
-                                System.out.println("harina especial fortificada con hierro y vitaminas   ");
-                                System.out.println("del complejo B. Deliciosa al paladar por su textura y sabor tradicional.  ");
-                                System.out.println("Libre de colorantes artificiales");
+                                precio = 5.30;
+                                System.out.println("S/5.30");
+                                System.out.println("Tostada Blanca X 10");
+                                System.out.println("Deliciosas y clásicas tostadas, elaboradas en base a harina fortificada ");
+                                System.out.println("con hierro y vitaminas del complejo B. Libre de bromato, bajo en grasa ");
+                                System.out.println("saturada y libre de colesterol. Las tostadas son fuente de hidratos de ");
+                                System.out.println("carbono complejos, principal fuente de energía del organismo. Consumido ");
+                                System.out.println("en las cantidades adecuadas no altera el peso ideal.");
 
                                 do {
                                     System.out.println("Seleccione una opción");
@@ -1332,10 +1325,10 @@ public class ProductosUnion11 {
                                     union.nextLine();
                                     switch (opcion) {
                                         case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            System.out.println("¿Cuántos Tostadas Blancas va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1351,12 +1344,13 @@ public class ProductosUnion11 {
                                 }while (!salir);
                                 break;
                             case 4:
-                                preciogalletas = 5.10;
-                                System.out.println("S/5.10");
-                                System.out.println("Mega Galleta de Kiwicha");
-                                System.out.println("Energética y deliciosa galleta, elaborada en base a la mezcla de ");
-                                System.out.println(" harina integral de Kiwicha especial fortificada con hierro.");
-                                System.out.println("Libre de colorantes artificiales");
+                                precio = 5.30;
+                                System.out.println("S/5.30");
+                                System.out.println("Tostada Integral X 10");
+                                System.out.println("Deliciosas y clásicas tostadas, elaboradas en base a harina integral fortificada ");
+                                System.out.println(" con hierro y vitaminas del complejo B. Libre de bromato, bajo en grasa saturada y ");
+                                System.out.println("libre de colesterol. Las tostadas son fuente de hidratos de carbono complejos,");
+                                System.out.println(" principal fuente de energía del organismo. Consumido en las cantidades adecuadas no altera el peso ideal.");
 
                                 do {
                                     System.out.println("Seleccione una opción");
@@ -1366,10 +1360,10 @@ public class ProductosUnion11 {
                                     union.nextLine();
                                     switch (opcion) {
                                         case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            System.out.println("¿Cuántos Palitos con ajonjoli y linaza va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1384,15 +1378,34 @@ public class ProductosUnion11 {
 
                                 }while (!salir);
                                 break;
-                            case 5:
-                                preciogalletas = 5.10;
-                                System.out.println("S/5.10");
-                                System.out.println("Mega Galleta de Naranja");
-                                System.out.println("Energética y deliciosa galleta, elaborada en base a la mezcla ");
-                                System.out.println("de Deliciosa galleta sabor a Naranja, elaborada con harina ");
-                                System.out.println("especial fortificada con hierro y vitaminas del complejo B. ");
-                                System.out.println("Deliciosa al paladar por su textura y sabor tradicional.");
-                                System.out.println("Libre de colorantes artificiales");
+                            }
+
+                    } while (!salir);
+                    break;
+                case "UNTABLES":
+                    do {
+                        System.out.println("\033[93m");
+                        System.out.println("┌─────────────────────────────────────────────────────┐");
+                        System.out.println("│                     UNTABLES                        │");
+                        System.out.println("├───────────────────────────┼─────────────────────────┤");
+                        System.out.println("│ 1.  Mant. de Mani 1 Kg.   │2.Mermelada de Uva Frasco│");
+                        System.out.println("│          S/36.00          │          S/8.40         │");
+                        System.out.println("├───────────────────────────┼─────────────────────────┤");
+                        System.out.println("│ 3. Mantequilla de Mani    │ 4.Mant. de Mani Frasco  │");
+                        System.out.println("│       Sachet 200 gr       │         410 gr.         │");
+                        System.out.println("│          S/10.50          │        S/19.90          │");
+                        System.out.println("└───────────────────────────┴─────────────────────────┘");
+                        System.out.println("Seleccione una opción");
+                        opcion = union.nextInt();
+                        double precio = 0;
+                        switch (opcion) {
+                            case 1:
+                                precio = 36.00;
+                                System.out.println("S/36.00");
+                                System.out.println("Mant. de Mani 1 Kg.");
+                                System.out.println("Elaborado en base a puro maní, fruto seco rico en proteínas.  ");
+                                System.out.println("Dos cucharas de este producto aportan el 10% del requerimiento  ");
+                                System.out.println("diario de este nutriente. Contiene Omega 6 y 9.");
 
                                 do {
                                     System.out.println("Seleccione una opción");
@@ -1402,10 +1415,10 @@ public class ProductosUnion11 {
                                     union.nextLine();
                                     switch (opcion) {
                                         case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            System.out.println("¿Cuántas Mantequillas va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1420,14 +1433,12 @@ public class ProductosUnion11 {
 
                                 }while (!salir);
                                 break;
-                            case 6:
-                                preciogalletas = 5.10;
-                                System.out.println("S/5.10");
-                                System.out.println("Mega Galleta Integral de Coco");
-                                System.out.println("Energética y deliciosa galleta, elaborada en base a la mezcla  ");
-                                System.out.println(" de harina integral especial fortificada con hierro y vitaminas");
-                                System.out.println("del complejo B y coco rallado.");
-                                System.out.println("Libre de colorantes artificiales");
+                            case 2:
+                                precio = 8.40;
+                                System.out.println("S/8.40");
+                                System.out.println("Mermelada de Uva Frasco");
+                                System.out.println("Fuente de antioxidantes, mermelada clásica. Fuente de energía. ");
+                                System.out.println("Elaborado con uva borgoña.");
 
                                 do {
                                     System.out.println("Seleccione una opción");
@@ -1437,10 +1448,79 @@ public class ProductosUnion11 {
                                     union.nextLine();
                                     switch (opcion) {
                                         case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            int tproducto = union.nextInt();
-                                            double totalgalletas = preciogalletas * tproducto;
-                                            System.out.println("El total a pagar es: S/. " + totalgalletas);
+                                            System.out.println("¿Cuántos frascos de Mermelada va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
+                                            System.out.println("vaya a caja a pagar");
+                                            fTipoDePago();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+                            case 3:
+                                precio = 10.50;
+                                System.out.println("S/10.50");
+                                System.out.println("Mantequilla de Mani Sachet 200 gr.");
+                                System.out.println("Elaborado en base a puro maní, fruto seco rico en proteínas. Dos ");
+                                System.out.println("cucharas de este producto aportan el 10% del requerimiento diario . ");
+                                System.out.println("de este nutriente. Contiene Omega 6 y 9. ");
+
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            System.out.println("¿Cuántas Mantequillas va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
+                                            System.out.println("vaya a caja a pagar");
+                                            fTipoDePago();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+                            case 4:
+                                precio = 19.90;
+                                System.out.println("S/19.90");
+                                System.out.println("Mant. de Mani Frasco 410 gr.");
+                                System.out.println("Deliciosas y clásicas tostadas, elaboradas en base a harina integral fortificada ");
+                                System.out.println(" con hierro y vitaminas del complejo B. Libre de bromato, bajo en grasa saturada y ");
+                                System.out.println("libre de colesterol. Las tostadas son fuente de hidratos de carbono complejos,");
+                                System.out.println(" principal fuente de energía del organismo. Consumido en las cantidades adecuadas no altera el peso ideal.");
+
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            System.out.println("¿Cuántas Mantequillas va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
                                             System.out.println("vaya a caja a pagar");
                                             fTipoDePago();
                                             break;
@@ -1459,9 +1539,210 @@ public class ProductosUnion11 {
 
                     } while (!salir);
                     break;
-                case "UNTABLES":
-                    break;
                 case "PANETONES":
+                    do {
+                        System.out.println("\033[93m");
+                        System.out.println("┌────────────────────────────────────────────────────────────────────┐");
+                        System.out.println("│                            BOLLERIA                                │");
+                        System.out.println("├──────────────────────┼────────────────────────┼────────────────────┤");
+                        System.out.println("│ 1. Paneton Diet T/L  │  2.Paneton Integral    │ 3.Paneton Integral │");
+                        System.out.println("│          500 gr      │       T/B 900 g        │      T/C 900 gr    │");
+                        System.out.println("│         S/24.40      │        S/23.00         │       S/24.00      │");
+                        System.out.println("├──────────────────────┼────────────────────────┼────────────────────┘");
+                        System.out.println("│ 4.  Paneton Union    │  5.Paneton Vita Rey    │ ");
+                        System.out.println("│        T/L 1kg       │con Arádanos T/C 900 gr │ ");
+                        System.out.println("│        S/32.40       │        S/26.00         │ ");
+                        System.out.println("└──────────────────────┴────────────────────────┘ ");
+                        System.out.println("Seleccione una opción");
+                        opcion = union.nextInt();
+                        double precio = 0;
+                        switch (opcion) {
+                            case 1:
+                                precio = 24.40;
+                                System.out.println("S/24.40");
+                                System.out.println(" Paneton Diet T/L 500 gr");
+                                System.out.println("Deliciosa y nutritiva receta elaborada a partir de la selección ");
+                                System.out.println("de los mejores ingredientes, como harina integral fortificada con ");
+                                System.out.println("nutrientes a la cual se adiciona higos deshidratados y pecanas. ");
+                                System.out.println("Atractivo al paladar por su miga suave y crujientes, frescas pecanas. ");
+                                System.out.println("Contiene Omega 9. Fuente de proteínas, libre de colorantes artificiales.");
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            System.out.println("¿Cuántos panetones va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
+                                            System.out.println("vaya a caja a pagar");
+                                            fTipoDePago();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+                            case 2:
+                                precio = 23.00;
+                                System.out.println("S/23.00 ");
+                                System.out.println("Paneton Integral T/B 900 g");
+                                System.out.println("Deliciosa y nutritiva receta elaborada a partir de la ");
+                                System.out.println("selección de los mejores ingredientes, como harina integral");
+                                System.out.println(" fortificada con nutrientes a la cual se adiciona pasas y ");
+                                System.out.println("castañas. Atractivo al paladar por su miga suave y crujientes ");
+                                System.out.println("frescas castañas. Fortificado con Hierro, contiene fuente de ");
+                                System.out.println("fibra y fuente de proteínas. Contiene Omega 6 y 9.");
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            System.out.println("¿Cuántos panetones va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
+                                            System.out.println("vaya a caja a pagar");
+                                            fTipoDePago();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+                            case 3:
+                                precio = 24.00;
+                                System.out.println("S/24.00 ");
+                                System.out.println("Paneton Integral T/C 900 gr");
+                                System.out.println("Deliciosa y nutritiva receta elaborada a partir de la selección ");
+                                System.out.println("de los mejores ingredientes, como harina integral fortificada con ");
+                                System.out.println(" nutrientes a la cual se adiciona pasas y castañas. Atractivo al ");
+                                System.out.println("paladar por su miga suave y crujientes frescas castañas. Fortificado ");
+                                System.out.println("con Hierro, contiene fuente de fibra y fuente de proteínas. Contiene Omega 6 y 9. ");
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            System.out.println("¿Cuántos panetones va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
+                                            System.out.println("vaya a caja a pagar");
+                                            fTipoDePago();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+                            case 4:
+                                precio = 32.40;
+                                System.out.println("S/32.40 ");
+                                System.out.println(" Paneton Union T/L 1kg");
+                                System.out.println("Receta tradicional elaborada a partir de la selección de los mejores");
+                                System.out.println(" ingredientes, como harina fortificada con nutrientes a la cual se ");
+                                System.out.println("adiciona pasas, frutas confitadas y almendras. Atractivo al paladar  ");
+                                System.out.println("por su característica miga suave y fresca.");
+
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            System.out.println("¿Cuántos panetones va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
+                                            System.out.println("vaya a caja a pagar");
+                                            fTipoDePago();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+                            case 5:
+                                precio = 26.00;
+                                System.out.println("S/ 26.00 ");
+                                System.out.println(" Paneton Vita Rey con Arádanos T/C 900 gr");
+                                System.out.println("Deliciosa y nutritiva receta elaborada a partir de la selección de los ");
+                                System.out.println("mejores ingredientes, como harina integral fortificada con nutrientes a ");
+                                System.out.println("la cual se adiciona arándanos deshidratados y castañas. Atractivo al ");
+                                System.out.println("paladar por su miga suave y crujientes, frescas Castañas.");
+                                do {
+                                    System.out.println("Seleccione una opción");
+                                    System.out.println("1. AÑADIR A CARRITO");
+                                    System.out.println("2. salir");
+                                    opcion = union.nextInt();
+                                    union.nextLine();
+                                    switch (opcion) {
+                                        case 1:
+                                            System.out.println("¿Cuántos panetones va comprar?");
+                                            int cantidad = union.nextInt();
+                                            double total = precio * cantidad;
+                                            System.out.println("El total a pagar es: S/. " + total);
+                                            System.out.println("vaya a caja a pagar");
+                                            fTipoDePago();
+                                            break;
+                                        case 2:
+                                            salir = true;
+                                            System.out.println("vuelva pronto");
+                                            break;
+                                        default:
+                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                                            break;
+                                    }
+
+                                }while (!salir);
+                                break;
+
+                            case 0:
+                                salir = true;
+                                break;
+                            default:
+                                System.out.println("\033[93m");
+                                System.out.println("Sección no válida. Inténtalo de nuevo.");
+                                break;
+                        }
+
+                    } while (!salir);
                     break;
             }
 
