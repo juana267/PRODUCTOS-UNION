@@ -2,10 +2,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 public class compras_union {
-    private double total = 0, precioPan = 0, tproducto = 0,igv,subtotal=0, precio;
+    private double total = 0, precioPan = 0, tproducto = 0,igv,subtotal=0, precio,precio1,total1=0;
     private String correo, dni,contraseña, correoComp, contraseñaComp, nombre, apellido,opcion_de_pago,opcionU;;
     private int opcion, op_pdt = 0;
-    int cantidad;
+    private int cantidad,cantidad1;
     private float peso,talla,rpt_imc;
     private static int contador_factura = 0;
     String codigoU,nombre_vende,contra_vende,contra_vende_com;//*
@@ -1956,7 +1956,7 @@ public class compras_union {
                         break;
                     default:
                         System.out.println("sin ubicacion");
-            case "NO" :         
+            case "NO" :
 
                 }
             default:
@@ -2006,90 +2006,89 @@ public class compras_union {
                 System.out.println("└──────────────────────────────────────────────────────────┘    ");//===============16
                 System.out.println("selecione opcion");
                 opcion = union.nextInt();
-                double precio = 0;
                 switch (opcion) {
                     case 1:
-                        precio = 19.00;
+                        precio1 = 19.00;
                         break;
                     case 2:
-                        precio = 21.50;
+                        precio1 = 21.50;
                         break;
                     case 3:
-                        precio = 10.50;
+                        precio1 = 10.50;
                         break;
                     case 4:
-                        precio = 36.00;
+                        precio1 = 36.00;
                         break;
                     case 5:
-                        precio = 8.40;
+                        precio1 = 8.40;
                         break;
                     case 6:
-                        precio = 2.30;
+                        precio1 = 2.30;
                         break;
                     case 7:
-                        precio = 2.30;
+                        precio1 = 2.30;
                         break;
                     case 8:
-                        precio = 5.30;
+                        precio1 = 5.30;
                         break;
                     case 9:
-                        precio = 5.30;
+                        precio1 = 5.30;
                         break;
                     case 10:
-                        precio = 24.40;
+                        precio1 = 24.40;
                         break;
                     case 11:
-                        precio = 24.00;
+                        precio1 = 24.00;
                         break;
                     case 12:
-                        precio = 7.60;
+                        precio1 = 7.60;
                         break;
                     case 13:
-                        precio = 7.60;
+                        precio1 = 7.60;
                         break;
                     case 14:
-                        precio = 8.50;
+                        precio1 = 8.50;
                         break;
                     case 15:
-                        precio = 4.70;
+                        precio1 = 4.70;
                         break;
                     case 16:
-                        precio = 6.40;
+                        precio1 = 6.40;
                         break;
                     case 17:
-                        precio = 9.50;
+                        precio1 = 9.50;
                         break;
                     case 18:
-                        precio = 6.50;
+                        precio1 = 6.50;
                         break;
                     case 19:
-                        precio = 5.10;
+                        precio1 = 5.10;
                         break;
                     case 20:
-                        precio = 5.10;
+                        precio1 = 5.10;
                         break;
                     case 21:
-                        precio = 5.10;
+                        precio1 = 5.10;
                         break;
                     case 22:
-                        precio = 5.10;
+                        precio1 = 5.10;
                         break;
                     case 23:
-                        precio = 5.10;
+                        precio1 = 5.10;
                         break;
                     default:
                         System.out.println("opcion no valida");
                         break;
                 }
                 System.out.println("¿Cuántos desea comprar?");
-                cantidad = union.nextInt();
-                subtotal = precio * cantidad;
+                cantidad1 = union.nextInt();
+                subtotal = precio1 * cantidad1;
                 if (subtotal >= 58.00) {
                     System.out.println(" se le sumara S/. 8.00 soles por el delivery");
-                    double total = subtotal + 8;
-                    System.out.println("El monto total a pagar es: S/. " + total);
+                    total1 = subtotal + 8;
+                    System.out.println("El monto total a pagar es: S/. " + total1);
                     System.out.println("vaya a caja a pagar");
-                    fTipoDePago();
+                    this.fTipoDePago();
                 } else if (subtotal < 58) {
                     System.out.println("Todavia no supera el monto mínimo");
                     this.delivery();
@@ -2259,7 +2258,7 @@ public class compras_union {
         double op_gravadas=precio;
         double descuento_total=0.00;
         double tasaIGV = 0.18;
-        double sub_total = precio * cantidad;
+        double sub_total = (precio+precio1) * (cantidad+cantidad1);
         double igv = sub_total * tasaIGV;
         double icbper = 0.00;
         double importe_Total = sub_total + igv + icbper;
@@ -2303,7 +2302,7 @@ public class compras_union {
                         System.out.println("|=-- Dirección: ---------------------------" +opcionU+" - Perú|");
                         System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
                         System.out.println("|N°|CANTIDAD|  |ARTICULO|                         |MONTO|      |");
-                        System.out.println("|N°"+cantidad+"| "+opcion+"                           " +precio+ "|");
+                        System.out.println("|N°"+(cantidad+cantidad1)+ "|                          " +precio+ "|");
                         System.out.println("|=== Op. Gratuitas: ============================== S/. "+op_gratuitas+"        |");
                         System.out.println("|=== Op. Exoneradas: ============================= S/  "+op_exoneradas+"        |");
                         System.out.println("|=== Op. Gravadas: =============================== S/. "+op_gravadas+"        |");
