@@ -2216,7 +2216,6 @@ public class compras_union {
         LocalTime horaActual = LocalTime.now();
         //Recordar dar valores pero solo si lo deseas ***
         double op_gratuitas=0.00;
-        double op_gratuitas=0.00;
         double op_exoneradas=0.00;
         double op_gravadas=precio;
         double descuento_total=0.00;
