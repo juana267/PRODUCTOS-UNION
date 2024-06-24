@@ -3,7 +3,7 @@ import java.time.LocalTime;
 import java.util.Scanner;
 public class compras_union {
     private double total = 0,subtotal=0, precio,precio1,total1=0;
-    private String correo, dni,contraseña, correoComp, contraseñaComp, nombre, apellido,opcion_de_pago,opcionU;;
+    private String correo, dni,contraseña, correoComp, contraseñaComp, nombre, nombreconvertido, apellido,apellidoconvertido,opcion_de_pago,opcionU;;
     private int opcion, op_pdt = 0;
     private int cantidad,cantidad1;
     private float peso,talla,rpt_imc;
@@ -13,18 +13,23 @@ public class compras_union {
 
     public String fdatos() { //CODIGO DE MIJAEL
         Scanner datos = new Scanner(System.in);
-        String  codigoU, opcion;
+        String  codigoU, opcion, opcionconvertido;
         System.out.println("¿Usted es estudiante de la UPeU?");
-        System.out.println("Si/No");
+        System.out.println("SI/NO");
         opcion=datos.nextLine();
-        switch (opcion){
-            case "Si":
+        opcionconvertido=opcion.toUpperCase();
+        switch (opcionconvertido){
+            case "SI":
                 System.out.println("Ingrese sus nombres: ");
                 nombre=datos.nextLine();
+                nombreconvertido=nombre.toUpperCase();
                 System.out.println("Ingrese sus apellidos: ");
                 apellido=datos.nextLine();
-                System.out.println("Ingrese su DNI");
-                dni= datos.nextLine();
+                apellidoconvertido=apellido.toUpperCase();
+                do {
+                    System.out.print("Introduce tu numero de DNI (8 dígitos): ");
+                    dni = datos.nextLine();
+                } while (dni.length() != 8);
                 System.out.println("Ingrese su correo: ");
                 correo=datos.nextLine();
                 System.out.println("Ingrese su contraseña: ");
@@ -32,13 +37,17 @@ public class compras_union {
                 System.out.println("Ingrese su codigo univercitario univercitario: ");
                 codigoU=datos.nextLine();
                 break;
-            case "No":
+            case "NO":
                 System.out.println("Ingrese sus nombres: ");
                 nombre=datos.nextLine();
-                System.out.println("ingrese sus apellidos: ");
+                nombreconvertido=nombre.toUpperCase();
+                System.out.println("Ingrese sus apellidos: ");
                 apellido=datos.nextLine();
-                System.out.println("Ingrese su DNI");
-                dni= datos.nextLine();
+                apellidoconvertido=apellido.toUpperCase();
+                do {
+                    System.out.print("Introduce tu numero de DNI (8 dígitos): ");
+                    dni = datos.nextLine();
+                } while (dni.length() != 8);
                 System.out.println("Ingrese su correo: ");
                 correo=datos.nextLine();
                 System.out.println("Ingrese su contraseña: ");
@@ -52,7 +61,7 @@ public class compras_union {
         contraseñaComp=datos.nextLine();
         if(correoComp.equals(correo)&&contraseñaComp.equals(contraseña)){
             System.out.println("BIENVENIDO A PRODUCTOS UNION");
-            System.out.println("Sr(a): "+nombre+" "+apellido);
+            System.out.println("Sr(a): "+nombreconvertido+" "+apellidoconvertido);
             this.pregunta();
         }
         return null;
