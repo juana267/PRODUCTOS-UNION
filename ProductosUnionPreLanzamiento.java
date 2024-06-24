@@ -2167,15 +2167,34 @@ public class compras_union {
                 String tarjeta, fechacaducidad, cvv;
                 System.out.println("ingrese el nombre completo del titular de la tarjeta");
                 String titulartarjeta=tpago.nextLine();
-                System.out.println("ingrese el numero de tarjeta");
-                tarjeta=tpago.nextLine();
-                System.out.println("ingrese la fecha de caducidad de la tarjeta");
-                fechacaducidad=tpago.nextLine();
-                System.out.println("ingrese el CVV");
-                cvv=tpago.nextLine();
+                do {
+                    System.out.print("Introduce tu numero de tarjeta (16 dígitos): ");
+                    dni = tpago.nextLine();
+                } while (dni.length() != 16);
+                boolean formatoValido = false;
+                do {
+                    System.out.print("Introduce la fecha de caducidad de la tarjeta (MM/YY): ");
+                    System.out.println(" ___________________________ ");
+                    System.out.println("|                           |");
+                    System.out.println("|          Tarjeta          |");
+                    System.out.println("|                           |");
+                    System.out.println("|    **** **** **** ****    |");
+                    System.out.println("|___________________________|");
+                    fechacaducidad = tpago.nextLine();
+                    if (fechacaducidad.matches("\\d{2}/\\d{2}")) {
+                        formatoValido = true;
+                    } else {
+                        System.out.println("Formato de fecha no válido. Debe ser MM/YY.");
+                    }
+                } while (!formatoValido);
+                do {
+                    System.out.print("Ingrese el numero de CVV ( 3 digitos) ");
+                    cvv = tpago.nextLine();
+                } while (cvv.length() != 3);
                 System.out.println("pago realizado exitosamente con su tarjeta");
                 System.out.println("PRODUCTOS UNION");
-                función_de_impresion_de_cobro();                break;
+                función_de_impresion_de_cobro();
+                break;
             case "EFECTIVO":
                 Scanner efect = new Scanner(System.in);
                 double totalPagado;
