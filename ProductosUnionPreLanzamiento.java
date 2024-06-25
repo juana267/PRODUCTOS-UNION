@@ -1,16 +1,39 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.Scanner;
 public class compras_union {
+    Scanner union = new Scanner(System.in);
+    String[] menus = {"PRODUCTOS", "PUNTOS DE VENTA", "DELIVERY", "ELIJO SER SALUDABLE"};
+    String[] productos = {"PANES", "BOLLERIA", "CEREALES", "BEBIDAS", "GALLETAS", "SNACK", "UNTABLES", "PANETONES"};
+    String[] panes = {"Pan Americano Sandwich -----> S/ 7.80", "Pan  Blanco Superbom Familiar ----->  S/6.40", "Pan Fibra Integral ----->  S/8.90", "Pan multisemillas miel de abeja -----> S/9.30", "Fan Integral Familiar Superbom -----> S/6.50 ", "Pan Granos y Semillas -----> S/8.90", "Pan Fuente -----> S/8.90", "Pan Integral Sándwich Clásico -----> S/9.30"};
+    String [] bolleria={"Pan pita integral granos andinos ----->  S/ 7.60","Pan pita semillas chia y linaza ----->  S/ 7.60","Pre Pizza Union ----->  S/ 8.90","Rollo de Canela ----->  S/ 11.10","Pionono x 7----->  S/19.00"};
+    String [] cereales={"Cereal Premium x 350 g ----->  S/ 21.50","Germen de Trigo ----->  S/ 9.99","Granola  con Granos Andinos ----->  S/ 14.50","Granola con Pasas y Almendras ----->  S/15.20 ","Granola Lonchera x 400 gr ----->  S/13.30","Salvado de Trigo ----->  S/5.99"};
+    String [] bebidas={"Bebida con pulpa de durazno 475 ml ----->  5.50","Bebida con pulpa de mango 475 ml ----->  5.50","Bebida con pulpa de manzana 475 ml ----->  5.50","Bebida con pulpa de piña 475 ml ----->  5.50","Duo Pack D Vine ----->  73.50","Zumo de  Uva 295 mll ----->  7.20"};
+    String [] galletas={"Galleta Lonchera de Coco x 42 gr ----->  S/ 2.50","Galleta Lonchera de Kiwicha x 42 gr ----->  S/ 2.50","Galleta Lonchera de Naranja x 42 gr ----->  S/ 2.50"," Mega Galleta  de Kiwicha ----->   S/5.10"," Mega Galleta de Naranja ----->   S/5.10","Mega Galleta Integral de Coco ----->   S/5.10"};
+    String [] snack={"Palitos con ajonjoli y linaza 65 g ----->  S/ 2.30","Palitos con Especias x 65 gr ----->  S/ 2.30","Tostada Blanca X 10 ----->  S/ 5.30","Tostada Integral X 10 ----->  S/ 5.30"};
+    String [] untables={"Mant. de Mani 1 Kg ----->  S/ 36.00","Mermelada de Uva Frasco ----->  S/ 8.40","Mantequilla de Mani Sachet 200 gr ----->  S/ 10.50","Mant. de Mani Frasco 410 gr ----->  S/ 19.90"};
+    String [] panetones={"Paneton Diet T/L 500 gr ----->  S/ 24.40","Paneton Integral T/B 900 ----->  S/ 23.00 ","Paneton Integral T/C 900 gr ----->  S/ 24.00","Paneton Union T/L 1kg ----->  S/ 32.40","Paneton Vita Rey con Arádanos T/C 900 gr ----->  S/ 26.00"};
+    double[] precioPanes = {7.80,6.40,8.90,9.30,6.50,8.90,8.90,9.30};
+    double[] precioBolleria = {7.60,7.60,8.90,11.10,19.00};
+    double[] precioCereales = {21.50,9.99,14.50,15.20,13.30,5.99};
+    double[] precioBebidas = {5.50,5.50,5.50,5.50,73.50,7.20};
+    double[] precioGalletas = {2.50,2.50,2.50,5.10,5.10,5.10};
+    double[] precioSnack = {2.30,2.30,5.30,5.30};
+    double[] precioUntables = {36.00,8.40,10.50,19.90};
+    double[] precioPanetones = {24.40,23.00,24.00,32.40,26.00};
+
     private double total = 0,subtotal=0, precio,precio1,total1=0;
     private String correo, dni,contraseña, correoComp, contraseñaComp, nombre, nombreconvertido, apellido,apellidoconvertido,opcion_de_pago,opcionU;;
-    private int opcion, op_pdt = 0;
-    private int cantidad,cantidad1;
+    private int cantidad,cantidad1,opcion;
     private float peso,talla,rpt_imc;
     private static int contador_factura = 0;
     String codigoU,nombre_vende,contra_vende,contra_vende_com;//*
     String numero_factura;
-
+    double[] subtotal_extra = new double[8];
+    double totalPagar;
+    int[] carrito = new int[productos.length];
+    String respuesta;
     public String fdatos() { //CODIGO DE MIJAEL
         Scanner datos = new Scanner(System.in);
         String  codigoU, opcion, opcionconvertido;
@@ -62,1797 +85,343 @@ public class compras_union {
         if(correoComp.equals(correo)&&contraseñaComp.equals(contraseña)){
             System.out.println("BIENVENIDO A PRODUCTOS UNION");
             System.out.println("Sr(a): "+nombreconvertido+" "+apellidoconvertido);
-            this.pregunta();
+            this.fpregunta();
         }
         return null;
     }
-    public String pregunta(){ //CODIGO DE JUANA
-        Scanner union = new Scanner(System.in);
-        boolean salir = false;
-        System.out.print("\033[31m");
-        System.out.println(" _    _  ._   _.  _    ___   ._   _.");
-        System.out.println("|  |  |  | |  \\ |  | |  |  /  __  \\  |  \\ |  |");
-        System.out.println("|  |  |  | |   \\|  | |  | |  |  |  | |   \\|  |");
-        System.out.println("|  |  |  | |  . `   | |  | |  |  |  | |  . `  |");
-        System.out.println("|  `--'  | |  |\\   | |  | |  `--'  | |  |\\   |");
-        System.out.println(" \\__/  |_| \\| ||  \\__/  || \\_|");
-        do {
-            System.out.println("┌────────────┬─────────────────┬───────────┬─────────────────────┬─────┐");
-            System.out.println("│  PRODUCTOS │ PUNTOS DE VENTA │  DELIVERY │ ELIJO SER SALUDABLE │  x  │");
-            System.out.println("└────────────┴─────────────────┴───────────┴─────────────────────┴─────┘");
-            System.out.println("Ingrese el nombre de la seccion sin espaciados");
-            String respuesta = union.next();
-            switch (respuesta) {
-                case "PRODUCTOS":
+    public String fpregunta(){ //CODIGO DE JUANA
+        System.out.println("---------Bienvenido a Productos Union -----------");
+        System.out.println("Marque alguna de las siguientes opciones");
+        System.out.println("Seleccione productos a comprar");
+        for (int i = 0; i < menus.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + menus[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        switch (opcion) {
+                case 1:
                     this.fproductos();
                     break;
-                case "PUNTOSDEVENTA":
+                case 2:
                     this.puntosdeventa();
                     break;
-                case "DELIVERY":
+                case 3:
                     this.delivery();
                     break;
-                case "ELIJOSERSALUDABLE":
+                case 4:
                     this.IMC();
-                case "x":
-                    salir = true;
-                    break;
-                default:
-                    System.out.println("\033[93m");
-                    System.out.println("Sección no válida. Inténtalo de nuevo.");
-                    break;
-            }
 
-        } while (!salir);
-        union.close(); // Importante cerrar el scanner después de su uso.
+            default:
+                System.out.println("Opcion no válida");
+                this.fpregunta();
+                break;
+        }
+
         return null;
     }
-    public void fproductos() {
-        Scanner union = new Scanner(System.in);
-        int opcion;
-
-        boolean salir;
-        do {
-            System.out.println("\033[96m");
-            System.out.println("┌─────────────────────────────────────────────────────────┐");
-            System.out.println("│                         PRODUCTOS                       │");
-            System.out.println("├──────────────┼──────────────┼──────────────┼────────────┤");
-            System.out.println("│     PANES    │  BOLLERIA    │    CEREALES  │  BEBIDAS   │");
-            System.out.println("├──────────────┼──────────────┼──────────────┼────────────┤");
-            System.out.println("│   GALLETAS   │     SNACK    │    UNTABLES  │ PANETONES  │");
-            System.out.println("└──────────────┴──────────────┴──────────────┴────────────┘");
-
-            System.out.println("Ingrese el nombre de la seccion de productos");
-            String respuesta = union.next();
-            salir = false;
-            switch (respuesta) {
-                case "PANES":
-                    do {
-                        System.out.println("\033[93m");
-                        System.out.println("┌────────────────────────────────────────────────────────────────────────────────────┐");
-                        System.out.println("│                          PANES                                                     │");
-                        System.out.println("├──────────────────────┼────────────────────┼───────────────┼────────────────────────┤");
-                        System.out.println("│ 1. Pan Americano     │ 2.  Pan  Blanco    │  3.Pan Fibra  │ 4. Pan multisemillas   │");
-                        System.out.println("│       Sandwich       │ Familiar Superbom  │    Integral   │      miel de abeja     │");
-                        System.out.println("│        S/7.80        │       S/6.40       │     S/8.90    │         S/9.30         │");
-                        System.out.println("├──────────────────────┼────────────────────┼───────────────┼────────────────────────┤");
-                        System.out.println("│ 5.  Pan Integral     │ 6. Pan Granos y    │  7.  Pan      │ 8.     Pan Integral    │");
-                        System.out.println("│  Familiar Superbom   │      Semillas      │    Fuente     │    Sándwich Clásico    │");
-                        System.out.println("│        S/6.50        │       S/8.90       │    S/8.90     │         S/9.30         │");
-                        System.out.println("└──────────────────────┴────────────────────┴───────────────┴────────────────────────┘");
-                        System.out.println("Seleccione una opción");
-                        opcion = union.nextInt();
-                        switch (opcion) {
-                            case 1:
-                                precio = 7.80;
-                                System.out.println("S/7.80 ");
-                                System.out.println("Pan Americano  Sandwich");
-                                System.out.println("Energético y delicioso pan, elaborado en base");
-                                System.out.println("de harina fortificada con hierro y vitaminas del");
-                                System.out.println("complejo B. Libre de bromato. Fundamental");
-                                System.out.println("para el desarrollo y fortalecimiento de los");
-                                System.out.println("músculos, ideal para complementar tus");
-                                System.out.println("desayunos. Consumido en las cantidades");
-                                System.out.println("adecuadas no altera el peso ideal.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 2:
-                                precio = 6.40;
-                                System.out.println("S/6.40 ");
-                                System.out.println("Pan Blanco Familiar Superbom");
-                                System.out.println("Delicioso pan, elaborado en base de harina fortificada");
-                                System.out.println("con hierro y vitaminas del complejo B. Libre de bromato,");
-                                System.out.println("bajo en grasa saturada y colesterol. El pan es un alimento");
-                                System.out.println("fuente de hidratos de carbono complejos, principal fuente ");
-                                System.out.println("de energía del organismo. Consumido en las cantidades");
-                                System.out.println("adecuadas no altera el peso ideal.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 3:
-                                precio = 8.90;
-                                System.out.println("S/8.90 ");
-                                System.out.println("Pan Fibra Integral");
-                                System.out.println("Delicioso y saludable pan, Libre de bromato y colesterol.");
-                                System.out.println("Elaborado en base de harina integral fortificada y granos");
-                                System.out.println("como la Quinua y la Cañihua. Así mismo, contiene una ");
-                                System.out.println("semilla altamente nutritiva y saludable como el ajonjolí.");
-                                System.out.println("El pan es alto en Hierro, contiene fuente de fibra");
-                                System.out.println(" y fuente de proteínas del organismo.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            int cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 4:
-                                precio = 9.30;
-                                System.out.println("S/9.30 ");
-                                System.out.println(" Pan Multisemillas con Avena");
-                                System.out.println("Delicioso y saludable pan, libre de bromato. Con una");
-                                System.out.println("nutritiva mezcla en base a harina fortificada con hierro y");
-                                System.out.println("semillas altamente nutritivas por su valor funcional");
-                                System.out.println("para el organismo humano como el girasol, chía y linaza. ");
-                                System.out.println("El pan es alto en Hierro, contiene fuente de fibra y ");
-                                System.out.println("  fuente de proteínas del organismo.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 5:
-                                precio = 6.50;
-                                System.out.println("S/6.50 ");
-                                System.out.println(" Pan Integral Familiar Superbom");
-                                System.out.println("Delicioso pan, elaborado en base de harina integral");
-                                System.out.println("fortificada con hierro y vitaminas del complejo B.");
-                                System.out.println("El pan es un alimento fuente de hidratos de carbono");
-                                System.out.println("complejos, principal fuente de energía del organismo. ");
-                                System.out.println(" Consumido en las cantidades adecuadas no altera el peso ideal.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 6:
-                                precio = 8.90;
-                                System.out.println("S/8.90 ");
-                                System.out.println("Pan Granos y Semillas");
-                                System.out.println("Pan delicioso y saludable, elaborado a base de harina");
-                                System.out.println("fortificada con hierro y vitaminas del complejo B.");
-                                System.out.println("Así mismo, contiene semillas altamente nutritivas por");
-                                System.out.println("su valor funcional para el organismo humano como el girasol,");
-                                System.out.println("ajonjolí y linaza. El pan es alto en Hierro,");
-                                System.out.println("contiene fuente de fibra y fuente de proteínas del organismo.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 7:
-                                precio = 9.50;
-                                System.out.println("S/9.50 ");
-                                System.out.println("Pan Fuente");
-                                System.out.println("Energético y delicioso pan, elaborado en base ");
-                                System.out.println("de harina fortificada con hierro y vitaminas del complejo B.");
-                                System.out.println("Libre de bromato, bajo en grasa saturada y colesterol. El pan ");
-                                System.out.println("es un alimento fuente de hidratos de carbono complejos, ");
-                                System.out.println("principal fuente de energía del organismo. Consumido en");
-                                System.out.println("las cantidades adecuadas no altera el peso ideal.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 8:
-                                precio = 8.50;
-                                System.out.println("S/8.50 ");
-                                System.out.println("Pan Integral Sándwich Clásico");
-                                System.out.println("Delicioso pan, elaborado en base de harina integral");
-                                System.out.println("fortificada con hierro y vitaminas del complejo B. ");
-                                System.out.println("Libre de colesterol. El pan integral es un alimento ");
-                                System.out.println("fuente de hidratos de carbono complejos, principal ");
-                                System.out.println("fuente de fibra del organismo. Consumido en las ");
-                                System.out.println("cantidades adecuadas no altera el peso ideal.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 0:
-                                salir = true;
-                                break;
-                            default:
-                                System.out.println("\033[93m");
-                                System.out.println("Sección no válida. Inténtalo de nuevo.");
-                                break;
-                        }
-
-                    } while (!salir);
-                    break;
-                case "BOLLERIA":
-                    do {
-                        System.out.println("\033[93m");
-                        System.out.println("┌──────────────────────────────────────────────────────────────┐");
-                        System.out.println("│                            BOLLERIA                          │");
-                        System.out.println("├──────────────────────┼───────────────────────┼───────────────┤");
-                        System.out.println("│ 1. Pan pita integral │ 2.  Pan pita semillas │  3.Pre Pizza  │");
-                        System.out.println("│      granos andinos  │       chia y linaza   │       Union   │");
-                        System.out.println("│          S/7.60      │          S/7.60       │     S/8.90    │");
-                        System.out.println("├──────────────────────┼───────────────────────┼───────────────┘");
-                        System.out.println("│ 4. Rollo de Canela   │  5.  Pionono x 7      │ ");
-                        System.out.println("│        S/11.10       │        S/19.00        │ ");
-                        System.out.println("└──────────────────────┴───────────────────────┘ ");
-                        System.out.println("Seleccione una opción");
-                        opcion = union.nextInt();
-                        double precio = 0;
-                        switch (opcion) {
-                            case 1:
-                                precio = 7.60;
-                                System.out.println("S/7.60 ");
-                                System.out.println("Delicioso pan pita integral elaborado con semillas ");
-                                System.out.println("de linaza, kiwicha y quinua. Bajo en Colesterol.");
-                                System.out.println("Contiene Omega 9 y Omega 3.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 2:
-                                precio = 7.60;
-                                System.out.println("S/7.60 ");
-                                System.out.println("Pan pita semillas chia y linaza");
-                                System.out.println("Delicioso pan pita elaborado con semillas de chía,");
-                                System.out.println("linaza y quinua. Libre de grasas trans y colesterol.");
-                                System.out.println("Contiene Omega 9 y Omega 3.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 3:
-                                precio = 8.50;
-                                System.out.println("S/8.50 ");
-                                System.out.println("Pre Pizza Union");
-                                System.out.println("Deliciosa masa, elaborada en base de harina fortificada");
-                                System.out.println("con hierro y vitaminas del complejo B, y una cobertura");
-                                System.out.println(" de pasta de tomate. Libre de bromato, grasas trans y colesterol. ");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 4:
-                                precio = 11.10;
-                                System.out.println("S/11.10 ");
-                                System.out.println(" Rollo de Canela");
-                                System.out.println("Delicioso pan relleno de una mezcla de maní y canela ");
-                                System.out.println("molida. Elaborado en base a harina fortificada con hierro ");
-                                System.out.println("y vitaminas del complejo B. Libre de bromato. Este producto es ");
-                                System.out.println("un alimento fuente de hidratos de carbono complejos, principal");
-                                System.out.println("fuente de energíafuente de proteínas del organismo. del organismo.");
-                                System.out.println("Consumido en las cantidades adecuadas no altera el peso ideal.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 5:
-                                precio = 19.00;
-                                System.out.println("S/ 19.00 ");
-                                System.out.println("Pionono x 7");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panes va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-
-                            case 0:
-                                salir = true;
-                                break;
-                            default:
-                                System.out.println("\033[93m");
-                                System.out.println("Sección no válida. Inténtalo de nuevo.");
-                                break;
-                        }
-
-                    } while (!salir);
-                    break;
-                case "CEREALES":
-                    do {
-                        System.out.println("\033[93m");
-                        System.out.println("┌──────────────────────────────────────────────────────────────────┐");
-                        System.out.println("│                          CEREALES                                │");
-                        System.out.println("├──────────────────────┼────────────────────┼──────────────────────┤");
-                        System.out.println("│ 1. Cereal Premium    │ 2.   Germen de     │  3.  Granola  con    │");
-                        System.out.println("│        x 350 g       │        Trigo       │     Granos Andinos   │");
-                        System.out.println("│       S/21.50        │       S/9.99       │         S/14.50      │");
-                        System.out.println("├──────────────────────┼────────────────────┼──────────────────────┤");
-                        System.out.println("│ 4.  Granola con      │ 5.Granola Lonchera │  6.    Salvado       │");
-                        System.out.println("│  Pasas y Almendras   │      x 400 gr.     │       de Trigo       │");
-                        System.out.println("│        S/15.20       │       S/13.30      │        S/5.99        │");
-                        System.out.println("└──────────────────────┴────────────────────┴──────────────────────┘");
-                        System.out.println("Seleccione una opción");
-                        opcion = union.nextInt();
-                        double precio = 0;
-                        switch (opcion) {
-                            case 1:
-                                precio = 21.50;
-                                System.out.println("S/21.50 ");
-                                System.out.println("Cereal Premium x 350 g");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos cereales va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 2:
-                                precio = 9.99;
-                                System.out.println("S/9.99 ");
-                                System.out.println("Germen de Trigo");
-                                System.out.println("El Germen de trigo es rico en fibra insoluble ideal para el ");
-                                System.out.println("control de la glucosa en sangre, reducción del colesterol y ");
-                                System.out.println("protección del corazón. Así también para promover el movimiento ");
-                                System.out.println("intestinal, protección del cáncer de colon y control del peso ideal.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos cereales va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 3:
-                                precio = 14.50;
-                                System.out.println("S/ 14.50 ");
-                                System.out.println("Granola con Granos Andinos");
-                                System.out.println("Energético y delicioso preparado, elaborado a base  ");
-                                System.out.println("de una mezcla de frutos secos, semillas y cereales ");
-                                System.out.println("altamente nutritivos. Contiene ajonjolí, linaza, maní,");
-                                System.out.println("almendras, quinua y kañihua. Fortificada con Zinc y Magnesio.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos cereales va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 4:
-                                precio = 15.20;
-                                System.out.println("S/15.20 ");
-                                System.out.println("Granola con Pasas y Almendras");
-                                System.out.println("Energético y delicioso preparado, elaborado a base de ");
-                                System.out.println("una mezcla de cereales y frutos secos nutritivos. Contiene  ");
-                                System.out.println("hojuelas de avena, ajonjolí, pasas y almendras. Fortificada ");
-                                System.out.println("con Zinc y Magnesio. Fuente de Fibra.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos cereales va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 5:
-                                precio = 13.30;
-                                System.out.println("S/13.30 ");
-                                System.out.println("Granola Lonchera x 400 gr.");
-                                System.out.println("Energético y delicioso preparado, elaborado a base ");
-                                System.out.println("Energético y delicioso preparado, elaborado a base ");
-                                System.out.println("Contiene hojuelas de avena, maní, ajonjolí y miel de abeja. ");
-                                System.out.println("Fortificada con Zinc y Magnesio. Fuente de Fibra y de proteínas.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos cereales va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 6:
-                                precio = 5.99;
-                                System.out.println("S/5.99");
-                                System.out.println("Salvado de Trigo");
-                                System.out.println("El Salvado de trigo es rico en fibra insoluble ideal");
-                                System.out.println("para el control de la glucosa en sangre, reducción");
-                                System.out.println("del colesterol y protección del corazón. Así también ");
-                                System.out.println("para promover el movimiento intestinal, protección ");
-                                System.out.println("del cáncer de colon y control del peso ideal.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos cereales va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                        }
-
-                    } while (!salir);
-                    break;
-                case "BEBIDAS":
-                    do {
-                        System.out.println("\033[93m");
-                        System.out.println("┌──────────────────────────────────────────────────────────────────┐");
-                        System.out.println("│                          BEBIDAS                                 │");
-                        System.out.println("├──────────────────────┼────────────────────┼──────────────────────┤");
-                        System.out.println("│ 1. Bebida con pulpa  │ 2.Bebida con pulpa │  3. Bebida con pulpa │");
-                        System.out.println("│   de durazno 475 ml  │   de mango 475 ml  │    de manzana 475 ml │");
-                        System.out.println("│        S/5.50        │       S/5.50       │          S/5.50      │");
-                        System.out.println("├──────────────────────┼────────────────────┼──────────────────────┤");
-                        System.out.println("│ 4. Bebida con pulpa  │ 5.    Duo Pack     │  6.    Zumo de       │");
-                        System.out.println("│    de piña 475 ml    │        D Vine      │       Uva 295 ml     │");
-                        System.out.println("│        S/5.50        │       S/73.50      │        S/7.20        │");
-                        System.out.println("└──────────────────────┴────────────────────┴──────────────────────┘");
-                        System.out.println("Seleccione una opción");
-                        opcion = union.nextInt();
-                        double precio = 0;
-                        switch (opcion) {
-                            case 1:
-                                precio = 5.50;
-                                System.out.println("S/5.50");
-                                System.out.println("Bebida con pulpa de durazno 475 ml");
-                                System.out.println("Bebida refrescante e hidratante, elaborada con seleccionada  ");
-                                System.out.println("y deliciosa pulpa de Durazno de 475 ml. Así mismo, ");
-                                System.out.println("esta bebida contiene ingredientes saludables los cuales  ");
-                                System.out.println("nos brindan vitaminas, minerales y fibra prebiótica.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos bebidas  va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 2:
-                                precio = 5.50;
-                                System.out.println("S/5.50");
-                                System.out.println("Bebida con pulpa de mango 475 ml");
-                                System.out.println("Bebida refrescante e hidratante, elaborada con seleccionada y ");
-                                System.out.println("deliciosa pulpa de Mango de 475 ml. Así mismo,esta bebida ");
-                                System.out.println("contiene ingredientes saludables los cuales nos brindan  ");
-                                System.out.println("vitaminas, minerales y fibra prebiótica.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos bebidas  va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 3:
-                                precio = 5.50;
-                                System.out.println("S/5.50");
-                                System.out.println("Bebida con pulpa de manzana 475 ml");
-                                System.out.println("Bebida refrescante e hidratante, elaborada con seleccionada y ");
-                                System.out.println("deliciosa pulpa de Manzana de 475 ml. Así mismo, esta bebida ");
-                                System.out.println("contiene ingredientes saludables los cuales nos brindan ");
-                                System.out.println("vitaminas, minerales y fibra prebiótica.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos bebidas  va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 4:
-                                precio = 5.50;
-                                System.out.println("S/5.50");
-                                System.out.println("Bebida con pulpa de piña 475 ml");
-                                System.out.println("Bebida refrescante e hidratante, elaborada con seleccionada y  ");
-                                System.out.println("deliciosa pulpa de piña de 475 ml. Así mismo, esta bebida contiene ");
-                                System.out.println("ingredientes saludables los cuales nos brindan vitaminas, minerales  ");
-                                System.out.println("y fibra prebiótica.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos bebidas  va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 5:
-                                precio = 73.50;
-                                System.out.println("S/73.50");
-                                System.out.println("Duo Pack D Vine");
-                                System.out.println("La uva borgoña posee propiedades nutricionales valiosas  ");
-                                System.out.println("por su contenido de fitoquímicos o fitoprotectores, como");
-                                System.out.println("lo son los antioxidantes. En este caso nos brinda polifenoles, ");
-                                System.out.println("ideales para prevenir el cáncer y fortalecer el sistema inmunológico.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos bebidas  va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 6:
-                                precio = 7.20;
-                                System.out.println("S/7.20");
-                                System.out.println("Zumo de Uva 295 ml");
-                                System.out.println("Delicioso zumo, concentrado de uva borgoña. Contiene antioxidantes");
-                                System.out.println("que contribuye con el fortalecimiento del sistema inmunológico.");
-                                System.out.println("Libre de azúcar agregada, así también de colorantes y saborizantes artificiales. ");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos bebidas  va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                        }
-
-                    } while (!salir);
-                    break;
-                case "GALLETAS":
-                    do {
-                        System.out.println("\033[93m");
-                        System.out.println("┌──────────────────────────────────────────────────────────────────┐");
-                        System.out.println("│                          GALLETAS                                │");
-                        System.out.println("├──────────────────────┼────────────────────┼──────────────────────┤");
-                        System.out.println("│ 1. Galleta Lonchera  │ 2.Galleta Lonchera │  3. Galleta Lonchera │");
-                        System.out.println("│    de Coco x 42 gr   │ de Kiwicha x 42 gr │   de Naranja x 42 gr │");
-                        System.out.println("│        S/2.50        │       S/2.50       │          S/2.50      │");
-                        System.out.println("├──────────────────────┼────────────────────┼──────────────────────┤");
-                        System.out.println("│ 4.   Mega Galleta    │ 5. Mega Galleta    │  6.   Mega Galleta   │");
-                        System.out.println("│       de Kiwicha     │     de Naranja     │   Integral de Coco   │");
-                        System.out.println("│        S/5.10        │        S/5.10      │         S/5.10       │");
-                        System.out.println("└──────────────────────┴────────────────────┴──────────────────────┘");
-                        System.out.println("Seleccione una opción");
-                        opcion = union.nextInt();
-                        precio = 0;
-                        switch (opcion) {
-                            case 1:
-                                precio = 2.50;
-                                System.out.println("S/2.50");
-                                System.out.println("Galleta Lonchera de Coco x 42 gr");
-                                System.out.println("Energética y deliciosa galleta, elaborada en base a  ");
-                                System.out.println("la mezcla de harina especial fortificada con hierro y ");
-                                System.out.println("vitaminas del complejo B y coco rallado.");
-                                System.out.println("Libre de colorantes artificiales");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 2:
-                                precio = 2.50;
-                                System.out.println("S/2.50");
-                                System.out.println("Galleta Lonchera de Kiwicha x 42 gr");
-                                System.out.println("Energética y deliciosa galleta, elaborada en base  ");
-                                System.out.println("a la mezcla de harina integral de Kiwicha especial fortificada con hierro. ");
-                                System.out.println("Libre de colorantes artificiales");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 3:
-                                precio = 2.50;
-                                System.out.println("S/2.50");
-                                System.out.println("Galleta Lonchera de Naranja x 42 gr");
-                                System.out.println("Deliciosa galleta sabor a Naranja, elaborada con ");
-                                System.out.println("harina especial fortificada con hierro y vitaminas   ");
-                                System.out.println("del complejo B. Deliciosa al paladar por su textura y sabor tradicional.  ");
-                                System.out.println("Libre de colorantes artificiales");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 4:
-                                precio = 5.10;
-                                System.out.println("S/5.10");
-                                System.out.println("Mega Galleta de Kiwicha");
-                                System.out.println("Energética y deliciosa galleta, elaborada en base a la mezcla de ");
-                                System.out.println(" harina integral de Kiwicha especial fortificada con hierro.");
-                                System.out.println("Libre de colorantes artificiales");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 5:
-                                precio = 5.10;
-                                System.out.println("S/5.10");
-                                System.out.println("Mega Galleta de Naranja");
-                                System.out.println("Energética y deliciosa galleta, elaborada en base a la mezcla ");
-                                System.out.println("de Deliciosa galleta sabor a Naranja, elaborada con harina ");
-                                System.out.println("especial fortificada con hierro y vitaminas del complejo B. ");
-                                System.out.println("Deliciosa al paladar por su textura y sabor tradicional.");
-                                System.out.println("Libre de colorantes artificiales");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 6:
-                                precio = 5.10;
-                                System.out.println("S/5.10");
-                                System.out.println("Mega Galleta Integral de Coco");
-                                System.out.println("Energética y deliciosa galleta, elaborada en base a la mezcla  ");
-                                System.out.println(" de harina integral especial fortificada con hierro y vitaminas");
-                                System.out.println("del complejo B y coco rallado.");
-                                System.out.println("Libre de colorantes artificiales");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos galletas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                        }
-
-                    } while (!salir);
-                    break;
-                case "SNACK":
-                    do {
-                        System.out.println("\033[93m");
-                        System.out.println("┌─────────────────────────────────────────────────────┐");
-                        System.out.println("│                   SNACK                             │");
-                        System.out.println("├───────────────────────────┼─────────────────────────┤");
-                        System.out.println("│ 1.  Palitos con ajonjoli  │ 2.Palitos con Especias  │");
-                        System.out.println("│        y linaza 65 g      │          x 65 gr        │");
-                        System.out.println("│           S/2.30          │          S/2.30         │");
-                        System.out.println("├───────────────────────────┼─────────────────────────┤");
-                        System.out.println("│ 3.   Tostada Blanca X 10  │ 4.Tostada Integral X 10 │");
-                        System.out.println("│          S/5.30           │        S/5.30           │");
-                        System.out.println("└───────────────────────────┴─────────────────────────┘");
-                        System.out.println("Seleccione una opción");
-                        opcion = union.nextInt();
-                        switch (opcion) {
-                            case 1:
-                                precio = 2.30;
-                                System.out.println("S/2.30");
-                                System.out.println("Palitos con ajonjoli y linaza 65 g");
-                                System.out.println("Estos deliciosos palitos, están elaborados en base a ");
-                                System.out.println("harina fortificada con hierro. Libre de bromato y colesterol. ");
-                                System.out.println(" Este producto es un alimento fuente de hidratos de carbono ");
-                                System.out.println("complejos, principal fuente de energía del organismo. Contiene Omega 9, 6 y 3.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos Palitos con ajonjoli y linaza va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 2:
-                                precio = 2.30;
-                                System.out.println("S/2.30");
-                                System.out.println("Palitos con Especias x 65 gr");
-                                System.out.println("Estos deliciosos palitos con ajonjolí, chía, kión y ajo, están");
-                                System.out.println("elaborados en base a harina fortificada con hierro y vitaminas B12.");
-                                System.out.println("Libre de bromato y colesterol. Este producto es un alimento fuente ");
-                                System.out.println("de hidratos de carbono complejos, principal fuente de energía del ");
-                                System.out.println("organismo. Contiene Omega 9, 6 y 3.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos Palitos con Especias x 65 gr va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 3:
-                                precio = 5.30;
-                                System.out.println("S/5.30");
-                                System.out.println("Tostada Blanca X 10");
-                                System.out.println("Deliciosas y clásicas tostadas, elaboradas en base a harina fortificada ");
-                                System.out.println("con hierro y vitaminas del complejo B. Libre de bromato, bajo en grasa ");
-                                System.out.println("saturada y libre de colesterol. Las tostadas son fuente de hidratos de ");
-                                System.out.println("carbono complejos, principal fuente de energía del organismo. Consumido ");
-                                System.out.println("en las cantidades adecuadas no altera el peso ideal.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos Tostadas Blancas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 4:
-                                precio = 5.30;
-                                System.out.println("S/5.30");
-                                System.out.println("Tostada Integral X 10");
-                                System.out.println("Deliciosas y clásicas tostadas, elaboradas en base a harina integral fortificada ");
-                                System.out.println(" con hierro y vitaminas del complejo B. Libre de bromato, bajo en grasa saturada y ");
-                                System.out.println("libre de colesterol. Las tostadas son fuente de hidratos de carbono complejos,");
-                                System.out.println(" principal fuente de energía del organismo. Consumido en las cantidades adecuadas no altera el peso ideal.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos Palitos con ajonjoli y linaza va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                        }
-
-                    } while (!salir);
-                    break;
-                case "UNTABLES":
-                    do {
-                        System.out.println("\033[93m");
-                        System.out.println("┌─────────────────────────────────────────────────────┐");
-                        System.out.println("│                     UNTABLES                        │");
-                        System.out.println("├───────────────────────────┼─────────────────────────┤");
-                        System.out.println("│ 1.  Mant. de Mani 1 Kg.   │2.Mermelada de Uva Frasco│");
-                        System.out.println("│          S/36.00          │          S/8.40         │");
-                        System.out.println("├───────────────────────────┼─────────────────────────┤");
-                        System.out.println("│ 3. Mantequilla de Mani    │ 4.Mant. de Mani Frasco  │");
-                        System.out.println("│       Sachet 200 gr       │         410 gr.         │");
-                        System.out.println("│          S/10.50          │        S/19.90          │");
-                        System.out.println("└───────────────────────────┴─────────────────────────┘");
-                        System.out.println("Seleccione una opción");
-                        opcion = union.nextInt();
-                        switch (opcion) {
-                            case 1:
-                                precio = 36.00;
-                                System.out.println("S/36.00");
-                                System.out.println("Mant. de Mani 1 Kg.");
-                                System.out.println("Elaborado en base a puro maní, fruto seco rico en proteínas.  ");
-                                System.out.println("Dos cucharas de este producto aportan el 10% del requerimiento  ");
-                                System.out.println("diario de este nutriente. Contiene Omega 6 y 9.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántas Mantequillas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 2:
-                                precio = 8.40;
-                                System.out.println("S/8.40");
-                                System.out.println("Mermelada de Uva Frasco");
-                                System.out.println("Fuente de antioxidantes, mermelada clásica. Fuente de energía. ");
-                                System.out.println("Elaborado con uva borgoña.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos frascos de Mermelada va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 3:
-                                precio = 10.50;
-                                System.out.println("S/10.50");
-                                System.out.println("Mantequilla de Mani Sachet 200 gr.");
-                                System.out.println("Elaborado en base a puro maní, fruto seco rico en proteínas. Dos ");
-                                System.out.println("cucharas de este producto aportan el 10% del requerimiento diario . ");
-                                System.out.println("de este nutriente. Contiene Omega 6 y 9. ");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántas Mantequillas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 4:
-                                precio = 19.90;
-                                System.out.println("S/19.90");
-                                System.out.println("Mant. de Mani Frasco 410 gr.");
-                                System.out.println("Deliciosas y clásicas tostadas, elaboradas en base a harina integral fortificada ");
-                                System.out.println(" con hierro y vitaminas del complejo B. Libre de bromato, bajo en grasa saturada y ");
-                                System.out.println("libre de colesterol. Las tostadas son fuente de hidratos de carbono complejos,");
-                                System.out.println(" principal fuente de energía del organismo. Consumido en las cantidades adecuadas no altera el peso ideal.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántas Mantequillas va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                        }
-
-                    } while (!salir);
-                    break;
-                case "PANETONES":
-                    do {
-                        System.out.println("\033[93m");
-                        System.out.println("┌────────────────────────────────────────────────────────────────────┐");
-                        System.out.println("│                            BOLLERIA                                │");
-                        System.out.println("├──────────────────────┼────────────────────────┼────────────────────┤");
-                        System.out.println("│ 1. Paneton Diet T/L  │  2.Paneton Integral    │ 3.Paneton Integral │");
-                        System.out.println("│          500 gr      │       T/B 900 g        │      T/C 900 gr    │");
-                        System.out.println("│         S/24.40      │        S/23.00         │       S/24.00      │");
-                        System.out.println("├──────────────────────┼────────────────────────┼────────────────────┘");
-                        System.out.println("│ 4.  Paneton Union    │  5.Paneton Vita Rey    │ ");
-                        System.out.println("│        T/L 1kg       │con Arádanos T/C 900 gr │ ");
-                        System.out.println("│        S/32.40       │        S/26.00         │ ");
-                        System.out.println("└──────────────────────┴────────────────────────┘ ");
-                        System.out.println("Seleccione una opción");
-                        opcion = union.nextInt();
-                        switch (opcion) {
-                            case 1:
-                                precio = 24.40;
-                                System.out.println("S/24.40");
-                                System.out.println(" Paneton Diet T/L 500 gr");
-                                System.out.println("Deliciosa y nutritiva receta elaborada a partir de la selección ");
-                                System.out.println("de los mejores ingredientes, como harina integral fortificada con ");
-                                System.out.println("nutrientes a la cual se adiciona higos deshidratados y pecanas. ");
-                                System.out.println("Atractivo al paladar por su miga suave y crujientes, frescas pecanas. ");
-                                System.out.println("Contiene Omega 9. Fuente de proteínas, libre de colorantes artificiales.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panetones va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 2:
-                                precio = 23.00;
-                                System.out.println("S/23.00 ");
-                                System.out.println("Paneton Integral T/B 900 g");
-                                System.out.println("Deliciosa y nutritiva receta elaborada a partir de la ");
-                                System.out.println("selección de los mejores ingredientes, como harina integral");
-                                System.out.println(" fortificada con nutrientes a la cual se adiciona pasas y ");
-                                System.out.println("castañas. Atractivo al paladar por su miga suave y crujientes ");
-                                System.out.println("frescas castañas. Fortificado con Hierro, contiene fuente de ");
-                                System.out.println("fibra y fuente de proteínas. Contiene Omega 6 y 9.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panetones va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 3:
-                                precio = 24.00;
-                                System.out.println("S/24.00 ");
-                                System.out.println("Paneton Integral T/C 900 gr");
-                                System.out.println("Deliciosa y nutritiva receta elaborada a partir de la selección ");
-                                System.out.println("de los mejores ingredientes, como harina integral fortificada con ");
-                                System.out.println(" nutrientes a la cual se adiciona pasas y castañas. Atractivo al ");
-                                System.out.println("paladar por su miga suave y crujientes frescas castañas. Fortificado ");
-                                System.out.println("con Hierro, contiene fuente de fibra y fuente de proteínas. Contiene Omega 6 y 9. ");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panetones va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 4:
-                                precio = 32.40;
-                                System.out.println("S/32.40 ");
-                                System.out.println(" Paneton Union T/L 1kg");
-                                System.out.println("Receta tradicional elaborada a partir de la selección de los mejores");
-                                System.out.println(" ingredientes, como harina fortificada con nutrientes a la cual se ");
-                                System.out.println("adiciona pasas, frutas confitadas y almendras. Atractivo al paladar  ");
-                                System.out.println("por su característica miga suave y fresca.");
-
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panetones va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-                            case 5:
-                                precio = 26.00;
-                                System.out.println("S/ 26.00 ");
-                                System.out.println(" Paneton Vita Rey con Arádanos T/C 900 gr");
-                                System.out.println("Deliciosa y nutritiva receta elaborada a partir de la selección de los ");
-                                System.out.println("mejores ingredientes, como harina integral fortificada con nutrientes a ");
-                                System.out.println("la cual se adiciona arándanos deshidratados y castañas. Atractivo al ");
-                                System.out.println("paladar por su miga suave y crujientes, frescas Castañas.");
-                                do {
-                                    System.out.println("Seleccione una opción");
-                                    System.out.println("1. AÑADIR A CARRITO");
-                                    System.out.println("2. salir");
-                                    opcion = union.nextInt();
-                                    union.nextLine();
-                                    switch (opcion) {
-                                        case 1:
-                                            System.out.println("¿Cuántos panetones va comprar?");
-                                            cantidad = union.nextInt();
-                                            total = precio * cantidad;
-                                            System.out.println("El total a pagar es: S/. " + total);
-                                            System.out.println("vaya a caja a pagar");
-                                            fTipoDePago();
-                                            break;
-                                        case 2:
-                                            salir = true;
-                                            System.out.println("vuelva pronto");
-                                            break;
-                                        default:
-                                            System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                            break;
-                                    }
-
-                                }while (!salir);
-                                break;
-
-                            case 0:
-                                salir = true;
-                                break;
-                            default:
-                                System.out.println("\033[93m");
-                                System.out.println("Sección no válida. Inténtalo de nuevo.");
-                                break;
-                        }
-
-                    } while (!salir);
-                    break;
+    public String fproductos() {
+        System.out.println("------ PRODUCTOS------------");
+        System.out.println("Seleccione productos a comprar");
+        for (int i = 0; i < productos.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + productos[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        switch (opcion) {
+            case 1:
+                this.fpanes();
+                break;
+            case 2:
+                this.fbolleria();
+                break;
+            case 3:
+                this.fcereales();
+                break;
+            case 4:
+                this.fbebidas();
+                break;
+            case 5:
+                this.fgalletas();
+                break;
+            case 6:
+                this.fsnack();
+                break;
+            case 7:
+                this.funtables();
+                break;
+            case 8:
+                this.fpanetones();
+                break;
+            default:
+                System.out.println("Opcion no válida");
+                this.fpregunta();
+                break;
+        }
+        return null;
+    }
+
+    public void fpanes() {
+        System.out.println("------ PANES------------");
+        System.out.println("Seleccione panes a comprar");
+        for (int i = 0; i < panes.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + panes[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        if (opcion > 0 && opcion <= panes.length) {
+            System.out.println("¿Cuantos comprará? Ingrese la cantidad");
+            cantidad = union.nextInt();
+            union.nextLine();
+            carrito[opcion - 1] += cantidad;
+            subtotal_extra[opcion - 1] = carrito[opcion - 1] * precioPanes[opcion - 1];
+            System.out.println("Ud ha pedido " + carrito[opcion - 1] + " de " + panes[opcion - 1]);
+            System.out.println("¿Desea elegir otro producto?  1 SI/ 2 NO / 3 Menu Principal");
+            opcion = union.nextInt();
+            union.nextLine();
+            if (opcion == 1) {
+                this.fproductos();
+            } else if (opcion == 2) {
+                this.fpago();
+            } else if (opcion == 3) {
+                this.fpregunta();
+            } else {
+                System.out.println("Opcion no válida");
             }
+        } else {
+            System.out.println("Opcion no válida");
+            this.fpanes();
+        }
+    }
+    public void fbolleria() {
+        System.out.println("------ BOLLERIA------------");
+        System.out.println("Seleccione panes a comprar");
+        for (int i = 0; i < bolleria.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + bolleria[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        if (opcion > 0 && opcion <= bolleria.length) {
+            System.out.println("¿Cuantos comprará? Ingrese la cantidad");
+            cantidad = union.nextInt();
+            union.nextLine();
+            carrito[opcion - 1] += cantidad;
+            subtotal_extra[opcion - 1] = carrito[opcion - 1] * precioBolleria[opcion - 1];
+            System.out.println("Ud ha pedido " + carrito[opcion - 1] + " de " + bolleria[opcion - 1]);
+            System.out.println("¿Desea elegir otro producto?  1 SI/ 2 NO / 3 Menu Principal");
+            opcion = union.nextInt();
+            union.nextLine();
+            if (opcion == 1) {
+                this.fproductos();
+            } else if (opcion == 2) {
+                this.fpago();
+            } else if (opcion == 3) {
+                this.fpregunta();
+            } else {
+                System.out.println("Opcion no válida");
+            }
+        } else {
+            System.out.println("Opcion no válida");
+            this.fpanes();
+        }
+    }
+    public void fcereales() {
+        System.out.println("------ CEREALES------------");
+        System.out.println("Seleccione panes a comprar");
+        for (int i = 0; i < cereales.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + cereales[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        if (opcion > 0 && opcion <= cereales.length) {
+            System.out.println("¿Cuantos comprará? Ingrese la cantidad");
+            cantidad = union.nextInt();
+            union.nextLine();
+            carrito[opcion - 1] += cantidad;
+            subtotal_extra[opcion - 1] = carrito[opcion - 1] * precioCereales[opcion - 1];
+            System.out.println("Ud ha pedido " + carrito[opcion - 1] + " de " + cereales[opcion - 1]);
+            System.out.println("¿Desea elegir otro producto?  1 SI/ 2 NO / 3 Menu Principal");
+            opcion = union.nextInt();
+            union.nextLine();
+            if (opcion == 1) {
+                this.fproductos();
+            } else if (opcion == 2) {
+                this.fpago();
+            } else if (opcion == 3) {
+                this.fpregunta();
+            } else {
+                System.out.println("Opcion no válida");
+            }
+        } else {
+            System.out.println("Opcion no válida");
+            this.fpanes();
+        }
+    }
+    public void fbebidas() {
+        System.out.println("------ BEBIDAS------------");
+        System.out.println("Seleccione panes a comprar");
+        for (int i = 0; i < bebidas.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + bebidas[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        if (opcion > 0 && opcion <= bebidas.length) {
+            System.out.println("¿Cuantos comprará? Ingrese la cantidad");
+            cantidad = union.nextInt();
+            union.nextLine();
+            carrito[opcion - 1] += cantidad;
+            subtotal_extra[opcion - 1] = carrito[opcion - 1] * precioBebidas[opcion - 1];
+            System.out.println("Ud ha pedido " + carrito[opcion - 1] + " de " + bebidas[opcion - 1]);
+            System.out.println("¿Desea elegir otro producto?  1 SI/ 2 NO / 3 Menu Principal");
+            opcion = union.nextInt();
+            union.nextLine();
+            if (opcion == 1) {
+                this.fproductos();
+            } else if (opcion == 2) {
+                this.fpago();
+            } else if (opcion == 3) {
+                this.fpregunta();
+            } else {
+                System.out.println("Opcion no válida");
+            }
+        } else {
+            System.out.println("Opcion no válida");
+            this.fpanes();
+        }
+    }
+    public void fgalletas() {
+        System.out.println("------ GALLETAS------------");
+        System.out.println("Seleccione panes a comprar");
+        for (int i = 0; i < galletas.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + galletas[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        if (opcion > 0 && opcion <= galletas.length) {
+            System.out.println("¿Cuantos comprará? Ingrese la cantidad");
+            cantidad = union.nextInt();
+            union.nextLine();
+            carrito[opcion - 1] += cantidad;
+            subtotal_extra[opcion - 1] = carrito[opcion - 1] * precioGalletas[opcion - 1];
+            System.out.println("Ud ha pedido " + carrito[opcion - 1] + " de " + galletas[opcion - 1]);
+            System.out.println("¿Desea elegir otro producto?  1 SI/ 2 NO / 3 Menu Principal");
+            opcion = union.nextInt();
+            union.nextLine();
+            if (opcion == 1) {
+                this.fproductos();
+            } else if (opcion == 2) {
+                this.fpago();
+            } else if (opcion == 3) {
+                this.fpregunta();
+            } else {
+                System.out.println("Opcion no válida");
+            }
+        } else {
+            System.out.println("Opcion no válida");
+            this.fpanes();
+        }
+    }
+    public void fsnack() {
+        System.out.println("------ SNACK------------");
+        System.out.println("Seleccione panes a comprar");
+        for (int i = 0; i < snack.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + snack[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        if (opcion > 0 && opcion <= snack.length) {
+            System.out.println("¿Cuantos comprará? Ingrese la cantidad");
+            cantidad = union.nextInt();
+            union.nextLine();
+            carrito[opcion - 1] += cantidad;
+            subtotal_extra[opcion - 1] = carrito[opcion - 1] * precioSnack[opcion - 1];
+            System.out.println("Ud ha pedido " + carrito[opcion - 1] + " de " + snack[opcion - 1]);
+            System.out.println("¿Desea elegir otro producto?  1 SI/ 2 NO / 3 Menu Principal");
+            opcion = union.nextInt();
+            union.nextLine();
+            if (opcion == 1) {
+                this.fproductos();
+            } else if (opcion == 2) {
+                this.fpago();
+            } else if (opcion == 3) {
+                this.fpregunta();
+            } else {
+                System.out.println("Opcion no válida");
+            }
+        } else {
+            System.out.println("Opcion no válida");
+            this.fpanes();
+        }
+    }
+    public void funtables() {
+        System.out.println("------ UNTABLES------------");
+        System.out.println("Seleccione panes a comprar");
+        for (int i = 0; i < untables.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + untables[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        if (opcion > 0 && opcion <= untables.length) {
+            System.out.println("¿Cuantos comprará? Ingrese la cantidad");
+            cantidad = union.nextInt();
+            union.nextLine();
+            carrito[opcion - 1] += cantidad;
+            subtotal_extra[opcion - 1] = carrito[opcion - 1] * precioUntables[opcion - 1];
+            System.out.println("Ud ha pedido " + carrito[opcion - 1] + " de " + untables[opcion - 1]);
+            System.out.println("¿Desea elegir otro producto?  1 SI/ 2 NO / 3 Menu Principal");
+            opcion = union.nextInt();
+            union.nextLine();
+            if (opcion == 1) {
+                this.fproductos();
+            } else if (opcion == 2) {
+                this.fpago();
+            } else if (opcion == 3) {
+                this.fpregunta();
+            } else {
+                System.out.println("Opcion no válida");
+            }
+        } else {
+            System.out.println("Opcion no válida");
+            this.fpanes();
+        }
+    }
+    public void fpanetones() {
+        System.out.println("------ PANETONES------------");
+        System.out.println("Seleccione panes a comprar");
+        for (int i = 0; i < panetones.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + panetones[i]);
+        }
+        opcion = union.nextInt();
+        union.nextLine();
+        if (opcion > 0 && opcion <= panetones.length) {
+            System.out.println("¿Cuantos comprará? Ingrese la cantidad");
+            cantidad = union.nextInt();
+            union.nextLine();
+            carrito[opcion - 1] += cantidad;
+            subtotal_extra[opcion - 1] = carrito[opcion - 1] * precioPanetones[opcion - 1];
+            System.out.println("Ud ha pedido " + carrito[opcion - 1] + " de " + panetones[opcion - 1]);
+            System.out.println("¿Desea elegir otro producto?  1 SI/ 2 NO / 3 Menu Principal");
+            opcion = union.nextInt();
+            union.nextLine();
+            if (opcion == 1) {
+                this.fproductos();
+            } else if (opcion == 2) {
+                this.fpago();
+            } else if (opcion == 3) {
+                this.fpregunta();
+            } else {
+                System.out.println("Opcion no válida");
+            }
+        } else {
+            System.out.println("Opcion no válida");
+            this.fpanes();
+        }
+    }
 
-        } while (!salir);
-        union.close(); // Importante cerrar el scanner después de su uso.
+    public void fpago() {
+        double total = Arrays.stream(subtotal_extra).sum();
+        System.out.println("El total a pagar es: " + total);
+        System.out.println("Vaya a caja a pagar");
+        this.fTipoDePago();
     }
     public String puntosdeventa() {
         Scanner direc = new Scanner(System.in);
