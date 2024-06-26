@@ -172,7 +172,7 @@ public class compras_union {
         return null;
     }
 
-  public void fpanes() {
+    public void fpanes() {
         System.out.println("------ PANES------------");
         System.out.println("Seleccione panes a comprar");
         for (int i = 0; i < panes.length; i++) {
@@ -430,7 +430,7 @@ public class compras_union {
     }
 
 
- 
+
     public String puntosdeventa() {
         Scanner direc = new Scanner(System.in);
         String opcionPV;
@@ -727,22 +727,20 @@ public class compras_union {
         union.nextLine();;
         switch (opcion) {
             case 1:
-                String tarjeta, fechacaducidad, cvv;
+                String tarjeta, fechacaducidad, dni, cvv;
                 System.out.println("ingrese el nombre completo del titular de la tarjeta");
                 String titulartarjeta=union.nextLine();
                 do {
-                    System.out.print("Introduce tu numero de tarjeta (16 dígitos): ");
+                    System.out.println("ingrese el numero de DNI del titular de la tarjeta (8 digitos)");
                     dni = union.nextLine();
-                } while (dni.length() != 16);
+                } while (dni.length() !=8);
+                do {
+                    System.out.print("Introduce tu numero de tarjeta (16 dígitos): ");
+                    tarjeta = union.nextLine();
+                } while (tarjeta.length() != 16);
                 boolean formatoValido = false;
                 do {
                     System.out.print("Introduce la fecha de caducidad de la tarjeta (MM/YY): ");
-                    System.out.println(" ___________________________ ");
-                    System.out.println("|                           |");
-                    System.out.println("|          Tarjeta          |");
-                    System.out.println("|                           |");
-                    System.out.println("|    **** **** **** ****    |");
-                    System.out.println("|___________________________|");
                     fechacaducidad = union.nextLine();
                     if (fechacaducidad.matches("\\d{2}/\\d{2}")) {
                         formatoValido = true;
@@ -849,7 +847,7 @@ public class compras_union {
                         EXPO_FACTURA(productos, fechaActual, horaActual);
                         break;
                     case 5:
-                       //CARRITO();
+                        //CARRITO();
                         break;
                     case 0:
                         System.out.println("\u001B[31m🌟✨ Gracias por usar nuestro servicio. ✨🌟");
@@ -996,53 +994,53 @@ public class compras_union {
     }
     public static void EXPO_FACTURA(String[][] productos, LocalDate fechaActual, LocalTime horaActual){
         String nombreArchivo = "D:\\Factura.txt";
-            try (FileWriter writer = new FileWriter(nombreArchivo)) {
-                writer.write("\u001B[36m|--------------------------------------------------------------|\n");
-                writer.write("|---------------------------- UNIÓN ---------------------------|\n");
-                writer.write("|-------------------- Saludable por naturaleza ----------------|\n");
-                writer.write("|--------------------------------------------------------------|\n");
-                writer.write("|------------------- UNIVERSIDAD PERUANA UNIÓN ----------------|\n");
-                writer.write("|--------- Centro de prod. de Bienes  Productos union ---------|\n");
-                writer.write("|---------------- C. central Km. 19 Villa union ---------------|\n");
-                writer.write("|-------------- Lurigancho - Chosica Fax : 6186300 ------------|\n");
-                writer.write("|------------------ Telef. 618-6309 - 618-6310 ----------------|\n");
-                writer.write("|------------------------ RUC 20138122256 ---------------------|\n");
-                writer.write("|--------------------------------------------------------------|\n");
-                writer.write("|======================= FACTURA DE UNIÓN =====================|\n");
-                writer.write("|=-- Fecha: ------------------  " + fechaActual + "   " + horaActual + "|\n");
-                writer.write("|=-- Facturado a Cliente: " + nombre + " " + apellido + "-----------|\n");
-                writer.write("|=-- DNI: " + dni + "-------------------------------------------|\n");
-                writer.write("|=-- Correo: " + correo + "--------------------------------------------------|\n");
-                writer.write("|=-- Contraseña: " + contraseña + "----------------------------------------------|\n");
-                writer.write("|=-- codigo universitario: " + codigoU + "------------------------------------|\n");
-                writer.write("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|\n");
-                for (int i = 0; i < productos.length; i++) {
-                    writer.write(String.format("|%s|%s|%s|%s|%n", productos[i][0], productos[i][1], productos[i][2], productos[i][3]));
-                }
-                writer.write("|=== Op. Gratuitas: ============================== S/. " + 0 + "        |\n");
-                writer.write("|=== Op. Exoneradas: ============================= S/  " + 0 + "        |\n");
-                writer.write("|=== Op. Gravadas: =============================== S/. " + 0 + "        |\n");
-                writer.write("|=== Total de descuento: ========================= S/. " + 0 + "        |\n");
-                writer.write("|=== Sub-Total: ================================== S/. " + 0 + "        |\n");
-                writer.write("|=== IGV: ======================================== S/. " + 0 + "          |\n");
-                writer.write("|=== ICBPER: ===================================== S/. " + 0 + "       |\n");
-                writer.write("|=== Importe total: ============================== S/. " + 0 + " |\n");
-                writer.write("|=== Detracción: ================================= S/. " + 0 + "|\n");
-                writer.write("|=== Importe neto: =============================== S/. " + 0 + " |\n");
-                writer.write("|================= GRACIAS POR SU COMPRA ======================|\n");
-                writer.write("|==============================================================|\n");
-                writer.write("|=== Medio de Pago: ==============================  " + opcion_de_pago + "   |\n");
-                writer.write("|=== Vendedor(a) :================================  " + nombre_vende + "     |\n");
-                writer.write("|==============================================================|\n");
-                writer.write("|==== Representación Impresa de documento, el cual puede ser ==|\n");
-                writer.write("|==========  descargado de la pagina WWW.upeu.pe   ============|\n");
-                writer.write("|==============================================================|\n");
-                writer.write("|==============================================================|\n");
-            }catch (IOException e) {
-                e.printStackTrace();
+        try (FileWriter writer = new FileWriter(nombreArchivo)) {
+            writer.write("\u001B[36m|--------------------------------------------------------------|\n");
+            writer.write("|---------------------------- UNIÓN ---------------------------|\n");
+            writer.write("|-------------------- Saludable por naturaleza ----------------|\n");
+            writer.write("|--------------------------------------------------------------|\n");
+            writer.write("|------------------- UNIVERSIDAD PERUANA UNIÓN ----------------|\n");
+            writer.write("|--------- Centro de prod. de Bienes  Productos union ---------|\n");
+            writer.write("|---------------- C. central Km. 19 Villa union ---------------|\n");
+            writer.write("|-------------- Lurigancho - Chosica Fax : 6186300 ------------|\n");
+            writer.write("|------------------ Telef. 618-6309 - 618-6310 ----------------|\n");
+            writer.write("|------------------------ RUC 20138122256 ---------------------|\n");
+            writer.write("|--------------------------------------------------------------|\n");
+            writer.write("|======================= FACTURA DE UNIÓN =====================|\n");
+            writer.write("|=-- Fecha: ------------------  " + fechaActual + "   " + horaActual + "|\n");
+            writer.write("|=-- Facturado a Cliente: " + nombre + " " + apellido + "-----------|\n");
+            writer.write("|=-- DNI: " + dni + "-------------------------------------------|\n");
+            writer.write("|=-- Correo: " + correo + "--------------------------------------------------|\n");
+            writer.write("|=-- Contraseña: " + contraseña + "----------------------------------------------|\n");
+            writer.write("|=-- codigo universitario: " + codigoU + "------------------------------------|\n");
+            writer.write("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|\n");
+            for (int i = 0; i < productos.length; i++) {
+                writer.write(String.format("|%s|%s|%s|%s|%n", productos[i][0], productos[i][1], productos[i][2], productos[i][3]));
             }
+            writer.write("|=== Op. Gratuitas: ============================== S/. " + 0 + "        |\n");
+            writer.write("|=== Op. Exoneradas: ============================= S/  " + 0 + "        |\n");
+            writer.write("|=== Op. Gravadas: =============================== S/. " + 0 + "        |\n");
+            writer.write("|=== Total de descuento: ========================= S/. " + 0 + "        |\n");
+            writer.write("|=== Sub-Total: ================================== S/. " + 0 + "        |\n");
+            writer.write("|=== IGV: ======================================== S/. " + 0 + "          |\n");
+            writer.write("|=== ICBPER: ===================================== S/. " + 0 + "       |\n");
+            writer.write("|=== Importe total: ============================== S/. " + 0 + " |\n");
+            writer.write("|=== Detracción: ================================= S/. " + 0 + "|\n");
+            writer.write("|=== Importe neto: =============================== S/. " + 0 + " |\n");
+            writer.write("|================= GRACIAS POR SU COMPRA ======================|\n");
+            writer.write("|==============================================================|\n");
+            writer.write("|=== Medio de Pago: ==============================  " + opcion_de_pago + "   |\n");
+            writer.write("|=== Vendedor(a) :================================  " + nombre_vende + "     |\n");
+            writer.write("|==============================================================|\n");
+            writer.write("|==== Representación Impresa de documento, el cual puede ser ==|\n");
+            writer.write("|==========  descargado de la pagina WWW.upeu.pe   ============|\n");
+            writer.write("|==============================================================|\n");
+            writer.write("|==============================================================|\n");
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-   public static void CARRITO(String[][] productos, LocalDate fechaActual, LocalTime horaActual){
+    public static void CARRITO(String[][] productos, LocalDate fechaActual, LocalTime horaActual){
 
     }
     public static void main(String[]args){
