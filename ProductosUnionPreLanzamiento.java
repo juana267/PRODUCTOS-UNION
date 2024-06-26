@@ -1,3 +1,4 @@
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.io.FileWriter;
@@ -458,7 +459,7 @@ public class compras_union {
             this.fpanes();
         }
     }
-    
+
     public void puntosdeventa() {
         Scanner direc = new Scanner(System.in);
         System.out.println("PUNTOS DE VENTA");
@@ -841,10 +842,90 @@ public class compras_union {
                 switch (opcion) {
                     case 1:
                         numero_factura = "BROE - 00000" + (++contador_factura);
-                        BOLETA(productos, fechaActual, horaActual);
+                        System.out.println("\033[38;5;226m");
+                        System.out.println("|--------------------------------------------------------------|");
+                        System.out.println("|---------------------------- UNIÓN ---------------------------|");
+                        System.out.println("|-------------------- Saludable por naturaleza ----------------|");
+                        System.out.println("|--------------------------------------------------------------|");
+                        System.out.println("|------------------- UNIVERSIDAD PERUANA UNIÓN ----------------|");
+                        System.out.println("|--------- Centro de prod. de Bienes  Productos union ---------|");
+                        System.out.println("|---------------- C. central Km. 19 Villa union ---------------|");
+                        System.out.println("|-------------- Lurigancho - Chosica Fax : 6186300 ------------|");
+                        System.out.println("|------------------ Telef. 618-6309 - 618-6310 ----------------|");
+                        System.out.println("|------------------------ RUC 20138122256 ---------------------|");
+                        System.out.println("|--------------------------------------------------------------|");
+                        System.out.println("|===================== BOLETA ELECTRONICA =====================|");
+                        System.out.println("|=-- Numero: -----------------------------------  " + numero_factura + "|");
+                        System.out.println("|=-- Cliente: --------------------------  " + nombre + " " + apellido + " |");
+                        System.out.println("|=-- Doc. ident: -----------------------------------  " + dni + "|");
+                        System.out.println("|=-- Fecha: ------------------  " + fechaActual + "   " + horaActual + "|");
+                        System.out.println("|=-- Dirección: ---------------------------" + opcionU + " - Perú|");
+                        System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
+                        for (int i = 0; i < productos.length; i++) {
+                            System.out.printf("|%s|%s|%s|%s|%n", productos[i][0], productos[i][1], productos[i][2], productos[i][3]);
+                        }
+                        System.out.println("|=== Op. Gratuitas: ============================== S/. " + op_gratuitas + "        |");
+                        System.out.println("|=== Op. Exoneradas: ============================= S/  " + op_exoneradas + "        |");
+                        System.out.println("|=== Op. Gravadas: =============================== S/. " + op_gravadas + "        |");
+                        System.out.println("|=== Total de descuento: ========================= S/. " + descuento_total + "        |");
+                        System.out.println("|=== Sub-Total: ================================== S/. " + sub_total + "        |");
+                        System.out.println("|=== IGV: ======================================== S/. " + igv + "          |");
+                        System.out.println("|=== ICBPER: ===================================== S/. " + icbper + "       |");
+                        System.out.println("|=== Importe total: ============================== S/. " + importe_Total + " |");
+                        System.out.println("|=== Detracción: ================================= S/. " + detraccion + "|");
+                        System.out.println("|=== Importe neto: =============================== S/. " + importe_Neto + " |");
+                        System.out.println("|================= GRACIAS POR SU COMPRA ======================|");
+                        System.out.println("|==============================================================|");
+                        System.out.println("|=== Medio de Pago: ==============================  " + opcion_de_pago + "   |");
+                        System.out.println("|=== Vendedor(a) :================================  " + nombre_vende + "     |");
+                        System.out.println("|==============================================================|");
+                        System.out.println("|==== Representación Impresa de documento, el cual puede ser ==|");
+                        System.out.println("|==========  descargado de la pagina WWW.upeu.pe   ============|");
+                        System.out.println("|==============================================================|");
+                        System.out.println("|==============================================================|");
                         break;
                     case 2:
-                        FACTURA(productos, fechaActual, horaActual);
+                        System.out.println("\u001B[36m|--------------------------------------------------------------|");
+                        System.out.println("|---------------------------- UNIÓN ---------------------------|");
+                        System.out.println("|-------------------- Saludable por naturaleza ----------------|");
+                        System.out.println("|--------------------------------------------------------------|");
+                        System.out.println("|------------------- UNIVERSIDAD PERUANA UNIÓN ----------------|");
+                        System.out.println("|--------- Centro de prod. de Bienes  Productos union ---------|");
+                        System.out.println("|---------------- C. central Km. 19 Villa union ---------------|");
+                        System.out.println("|-------------- Lurigancho - Chosica Fax : 6186300 ------------|");
+                        System.out.println("|------------------ Telef. 618-6309 - 618-6310 ----------------|");
+                        System.out.println("|------------------------ RUC 20138122256 ---------------------|");
+                        System.out.println("|--------------------------------------------------------------|");
+                        System.out.println("|======================= FACTURA DE UNIÓN =====================|");
+                        System.out.println("|=-- Fecha: ------------------  " + fechaActual + "   " + horaActual + "|");
+                        System.out.println("|=-- Facturado a Cliente: " + nombre + " " + apellido + "-----------|");
+                        System.out.println("|=-- DNI: " + dni + "-------------------------------------------|");
+                        System.out.println("|=-- Correo: " + correo + "--------------------------------------------------|");
+                        System.out.println("|=-- Contraseña: " + contraseña + "----------------------------------------------|");
+                        System.out.println("|=-- codigo universitario: " + codigoU + "------------------------------------|");
+                        System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
+                        for (int i = 0; i < productos.length; i++) {
+                            System.out.printf("|%s|%s|%s|%s|%n", productos[i][0], productos[i][1], productos[i][2], productos[i][3]);
+                        }
+                        System.out.println("|=== Op. Gratuitas: ============================== S/. " + op_gratuitas + "        |");
+                        System.out.println("|=== Op. Exoneradas: ============================= S/  " + op_exoneradas + "        |");
+                        System.out.println("|=== Op. Gravadas: =============================== S/. " + op_gravadas + "        |");
+                        System.out.println("|=== Total de descuento: ========================= S/. " + descuento_total + "        |");
+                        System.out.println("|=== Sub-Total: ================================== S/. " + sub_total + "        |");
+                        System.out.println("|=== IGV: ======================================== S/. " + igv + "          |");
+                        System.out.println("|=== ICBPER: ===================================== S/. " + icbper + "       |");
+                        System.out.println("|=== Importe total: ============================== S/. " + importe_Total + " |");
+                        System.out.println("|=== Detracción: ================================= S/. " + detraccion + "|");
+                        System.out.println("|=== Importe neto: =============================== S/. " + importe_Neto + " |");
+                        System.out.println("|================= GRACIAS POR SU COMPRA ======================|");
+                        System.out.println("|==============================================================|");
+                        System.out.println("|=== Medio de Pago: ==============================  " + opcion_de_pago + "   |");
+                        System.out.println("|=== Vendedor(a) :================================  " + nombre_vende + "     |");
+                        System.out.println("|==============================================================|");
+                        System.out.println("|==== Representación Impresa de documento, el cual puede ser ==|");
+                        System.out.println("|==========  descargado de la pagina WWW.upeu.pe   ============|");
+                        System.out.println("|==============================================================|");
+                        System.out.println("|==============================================================|");
                         break;
                     case 3:
                         EXPO_BOLETA(productos, fechaActual, horaActual);
@@ -864,92 +945,6 @@ public class compras_union {
                 }
             }
         } while (opcion != 0);
-    }
-    private static void BOLETA(String[][] productos, LocalDate fechaActual, LocalTime horaActual) {
-        System.out.println("\033[38;5;226m|--------------------------------------------------------------|");
-        System.out.println("|---------------------------- UNIÓN ---------------------------|");
-        System.out.println("|-------------------- Saludable por naturaleza ----------------|");
-        System.out.println("|--------------------------------------------------------------|");
-        System.out.println("|------------------- UNIVERSIDAD PERUANA UNIÓN ----------------|");
-        System.out.println("|--------- Centro de prod. de Bienes  Productos union ---------|");
-        System.out.println("|---------------- C. central Km. 19 Villa union ---------------|");
-        System.out.println("|-------------- Lurigancho - Chosica Fax : 6186300 ------------|");
-        System.out.println("|------------------ Telef. 618-6309 - 618-6310 ----------------|");
-        System.out.println("|------------------------ RUC 20138122256 ---------------------|");
-        System.out.println("|--------------------------------------------------------------|");
-        System.out.println("|===================== BOLETA ELECTRONICA =====================|");
-        System.out.println("|=-- Numero: -----------------------------------  " + numero_factura + "|");
-        System.out.println("|=-- Cliente: --------------------------  " + nombre + " " + apellido + " |");
-        System.out.println("|=-- Doc. ident: -----------------------------------  " + dni + "|");
-        System.out.println("|=-- Fecha: ------------------  " + fechaActual + "   " + horaActual + "|");
-        System.out.println("|=-- Dirección: ---------------------------" + opcionU + " - Perú|");
-        System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
-        for (int i = 0; i < productos.length; i++) {
-            System.out.printf("|%s|%s|%s|%s|%n", productos[i][0], productos[i][1], productos[i][2], productos[i][3]);
-        }
-        System.out.println("|=== Op. Gratuitas: ============================== S/. " +  0+ "        |");
-        System.out.println("|=== Op. Exoneradas: ============================= S/  " + 0+ "        |");
-        System.out.println("|=== Op. Gravadas: =============================== S/. " + 0+ "        |");
-        System.out.println("|=== Total de descuento: ========================= S/. " + 0+ "        |");
-        System.out.println("|=== Sub-Total: ================================== S/. " + 0+ "        |");
-        System.out.println("|=== IGV: ======================================== S/. " + 0+ "          |");
-        System.out.println("|=== ICBPER: ===================================== S/. " + 0+ "       |");
-        System.out.println("|=== Importe total: ============================== S/. " + 0+ " |");
-        System.out.println("|=== Detracción: ================================= S/. " + 0+ "|");
-        System.out.println("|=== Importe neto: =============================== S/. " + 0+ " |");
-        System.out.println("|================= GRACIAS POR SU COMPRA ======================|");
-        System.out.println("|==============================================================|");
-        System.out.println("|=== Medio de Pago: ==============================  " + opcion_de_pago + "   |");
-        System.out.println("|=== Vendedor(a) :================================  " + nombre_vende + "     |");
-        System.out.println("|==============================================================|");
-        System.out.println("|==== Representación Impresa de documento, el cual puede ser ==|");
-        System.out.println("|==========  descargado de la pagina WWW.upeu.pe   ============|");
-        System.out.println("|==============================================================|");
-        System.out.println("|==============================================================|");
-    }
-
-    private static void FACTURA(String[][] productos, LocalDate fechaActual, LocalTime horaActual) {
-        System.out.println("\u001B[36m|--------------------------------------------------------------|");
-        System.out.println("|---------------------------- UNIÓN ---------------------------|");
-        System.out.println("|-------------------- Saludable por naturaleza ----------------|");
-        System.out.println("|--------------------------------------------------------------|");
-        System.out.println("|------------------- UNIVERSIDAD PERUANA UNIÓN ----------------|");
-        System.out.println("|--------- Centro de prod. de Bienes  Productos union ---------|");
-        System.out.println("|---------------- C. central Km. 19 Villa union ---------------|");
-        System.out.println("|-------------- Lurigancho - Chosica Fax : 6186300 ------------|");
-        System.out.println("|------------------ Telef. 618-6309 - 618-6310 ----------------|");
-        System.out.println("|------------------------ RUC 20138122256 ---------------------|");
-        System.out.println("|--------------------------------------------------------------|");
-        System.out.println("|======================= FACTURA DE UNIÓN =====================|");
-        System.out.println("|=-- Fecha: ------------------  " + fechaActual + "   " + horaActual + "|");
-        System.out.println("|=-- Facturado a Cliente: " + nombre + " " + apellido + "-----------|");
-        System.out.println("|=-- DNI: " + dni + "-------------------------------------------|");
-        System.out.println("|=-- Correo: " + correo + "--------------------------------------------------|");
-        System.out.println("|=-- Contraseña: " + contraseña + "----------------------------------------------|");
-        System.out.println("|=-- codigo universitario: " + codigoU + "------------------------------------|");
-        System.out.println("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|");
-        for (int i = 0; i < productos.length; i++) {
-            System.out.printf("|%s|%s|%s|%s|%n", productos[i][0], productos[i][1], productos[i][2], productos[i][3]);
-        }
-        System.out.println("|=== Op. Gratuitas: ============================== S/. " +  0+ "        |");
-        System.out.println("|=== Op. Exoneradas: ============================= S/  " + 0+ "        |");
-        System.out.println("|=== Op. Gravadas: =============================== S/. " + 0+ "        |");
-        System.out.println("|=== Total de descuento: ========================= S/. " + 0+ "        |");
-        System.out.println("|=== Sub-Total: ================================== S/. " + 0+ "        |");
-        System.out.println("|=== IGV: ======================================== S/. " + 0+ "          |");
-        System.out.println("|=== ICBPER: ===================================== S/. " + 0+ "       |");
-        System.out.println("|=== Importe total: ============================== S/. " + 0+ " |");
-        System.out.println("|=== Detracción: ================================= S/. " + 0+ "|");
-        System.out.println("|=== Importe neto: =============================== S/. " + 0+ " |");
-        System.out.println("|================= GRACIAS POR SU COMPRA ======================|");
-        System.out.println("|==============================================================|");
-        System.out.println("|=== Medio de Pago: ==============================  " + opcion_de_pago + "   |");
-        System.out.println("|=== Vendedor(a) :================================  " + nombre_vende + "     |");
-        System.out.println("|==============================================================|");
-        System.out.println("|==== Representación Impresa de documento, el cual puede ser ==|");
-        System.out.println("|==========  descargado de la pagina WWW.upeu.pe   ============|");
-        System.out.println("|==============================================================|");
-        System.out.println("|==============================================================|");
     }
     public static void EXPO_BOLETA(String[][] productos, LocalDate fechaActual, LocalTime horaActual){
         String nombreArchivo = "D:\\Factura.txt";
@@ -1000,51 +995,7 @@ public class compras_union {
     }
     public static void EXPO_FACTURA(String[][] productos, LocalDate fechaActual, LocalTime horaActual){
         String nombreArchivo = "D:\\Factura.txt";
-        try (FileWriter writer = new FileWriter(nombreArchivo)) {
-            writer.write("\u001B[36m|--------------------------------------------------------------|\n");
-            writer.write("|---------------------------- UNIÓN ---------------------------|\n");
-            writer.write("|-------------------- Saludable por naturaleza ----------------|\n");
-            writer.write("|--------------------------------------------------------------|\n");
-            writer.write("|------------------- UNIVERSIDAD PERUANA UNIÓN ----------------|\n");
-            writer.write("|--------- Centro de prod. de Bienes  Productos union ---------|\n");
-            writer.write("|---------------- C. central Km. 19 Villa union ---------------|\n");
-            writer.write("|-------------- Lurigancho - Chosica Fax : 6186300 ------------|\n");
-            writer.write("|------------------ Telef. 618-6309 - 618-6310 ----------------|\n");
-            writer.write("|------------------------ RUC 20138122256 ---------------------|\n");
-            writer.write("|--------------------------------------------------------------|\n");
-            writer.write("|======================= FACTURA DE UNIÓN =====================|\n");
-            writer.write("|=-- Fecha: ------------------  " + fechaActual + "   " + horaActual + "|\n");
-            writer.write("|=-- Facturado a Cliente: " + nombre + " " + apellido + "-----------|\n");
-            writer.write("|=-- DNI: " + dni + "-------------------------------------------|\n");
-            writer.write("|=-- Correo: " + correo + "--------------------------------------------------|\n");
-            writer.write("|=-- Contraseña: " + contraseña + "----------------------------------------------|\n");
-            writer.write("|=-- codigo universitario: " + codigoU + "------------------------------------|\n");
-            writer.write("|================ BOLSA DE PRODUCTOS COMPRADOS: ===============|\n");
-            for (int i = 0; i < productos.length; i++) {
-                writer.write(String.format("|%s|%s|%s|%s|%n", productos[i][0], productos[i][1], productos[i][2], productos[i][3]));
-            }
-            writer.write("|=== Op. Gratuitas: ============================== S/. " + 0 + "        |\n");
-            writer.write("|=== Op. Exoneradas: ============================= S/  " + 0 + "        |\n");
-            writer.write("|=== Op. Gravadas: =============================== S/. " + 0 + "        |\n");
-            writer.write("|=== Total de descuento: ========================= S/. " + 0 + "        |\n");
-            writer.write("|=== Sub-Total: ================================== S/. " + 0 + "        |\n");
-            writer.write("|=== IGV: ======================================== S/. " + 0 + "          |\n");
-            writer.write("|=== ICBPER: ===================================== S/. " + 0 + "       |\n");
-            writer.write("|=== Importe total: ============================== S/. " + 0 + " |\n");
-            writer.write("|=== Detracción: ================================= S/. " + 0 + "|\n");
-            writer.write("|=== Importe neto: =============================== S/. " + 0 + " |\n");
-            writer.write("|================= GRACIAS POR SU COMPRA ======================|\n");
-            writer.write("|==============================================================|\n");
-            writer.write("|=== Medio de Pago: ==============================  " + opcion_de_pago + "   |\n");
-            writer.write("|=== Vendedor(a) :================================  " + nombre_vende + "     |\n");
-            writer.write("|==============================================================|\n");
-            writer.write("|==== Representación Impresa de documento, el cual puede ser ==|\n");
-            writer.write("|==========  descargado de la pagina WWW.upeu.pe   ============|\n");
-            writer.write("|==============================================================|\n");
-            writer.write("|==============================================================|\n");
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
+        //aqui repetimos otra vez
     }
     public static void CARRITO(String[][] productos, LocalDate fechaActual, LocalTime horaActual){
 
