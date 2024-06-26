@@ -25,6 +25,36 @@ public class compras_union {
     double[] precioUntables = {36.00,8.40,10.50,19.90};
     double[] precioPanetones = {24.40,23.00,24.00,32.40,26.00};
 
+    String [] ubicacion = {"Salida | Universidad de la Unión Peruana","Av. La Marina 123, Cayma, Arequipa","Carretera Salida a Arequipa Km. 6 Chullunquiani,Av. Héroes de la Guerra del Pacífico","Jr. 2 de Mayo 456, Huanuco","Av. Centenario 123, Pucallpa, Ucayali","Av. José Gálvez 345, Chimbote, Ancash","Jr. Independencia 456, Trujillo, La Libertad","Av. Sullana 123, Piura","Jr. Amazonas 345, Jaèn, Cajamarquilla","Av. Tarapoto 456, Tarapoto, San Martín","Av. La Marina 123, Iquitos, Loreto"};
+    String [] lugar = {"Lima","Arequipa","Juliaca","Huanuco","Pucallpa","Chimbote","Trujillo","Piura","Jaèn","Tarapoto","Iquitos"};
+
+    String[] productosdel = {
+            "Pionono",
+            "Cereal Premium",
+            "Mantequilla de Mani Sachet",
+            "Mant. de Mani 1 Kg.",
+            "Mermelada de Uva Frasco",
+            "Palitos con Especias",
+            "Palitos con ajonjoli y linaza",
+            "Tostada Integral X 10",
+            "Tostada Blanca X 10",
+            "Paneton Diet T/L 500 gr",
+            "Paneton Integral T/C 900 gr",
+            "Pan pita integral granos andinos",
+            "Pan pita semillas chia y linaza",
+            "Pan Integral Sandwich",
+            "Pan Integral Mediano Union",
+            "Pan Blanco Familiar Superbom",
+            "Pan Fuente",
+            "Pan Integral Familiar Superbom",
+            "Mega Galleta Integral de Naranja",
+            "Mega Galleta Integral de Coco",
+            "Mega Galleta de Naranja",
+            "Mega Galleta de Kiwicha",
+            "Mega Galleta de Coco"
+    };
+    double[] preciodel = {19.00,21.50,10.50,36.00,8.40,2.30,2.30,5.30,5.30,24.40,24.00,7.60,7.60,8.50,4.70,6.40,9.50,6.50,5.10,5.10,5.10,5.10,5.10};
+
     private double total = 0,subtotal=0, precio,precio1,total1=0;
     private static String correo;
     private static String dni;
@@ -428,81 +458,58 @@ public class compras_union {
             this.fpanes();
         }
     }
-
-
-
-    public String puntosdeventa() {
+    
+    public void puntosdeventa() {
         Scanner direc = new Scanner(System.in);
-        String opcionPV;
-
         System.out.println("PUNTOS DE VENTA");
         System.out.println("Conoce las ubicaciones donde puedes encontrar nuestros productos");
         System.out.println("\uD83D\uDED2Supermercados");
         System.out.println("⛟Bodegas y distribuidores");
-        System.out.println("1. Conoce más");
-        System.out.println("SI/NO");
-        opcionPV = direc.nextLine();
-        switch (opcionPV) {
-            case "SI":
-                System.out.println("Ingrese su ubicación");
-                System.out.println("Lima");
-                System.out.println("Arequipa");
-                System.out.println("Juliaca");
-                System.out.println("Huanuco");
-                System.out.println("Pucallpa");
-                System.out.println("Chimbote");
-                System.out.println("Trujillo");
-                System.out.println("Piura");
-                System.out.println("Jaèn");
-                System.out.println("Tarapoto");
-                System.out.println("Iquitos");
-                opcionU = direc.nextLine();
-                switch (opcionU) {
-                    case "Lima":
-                        System.out.println("Salida | Universidad de la Unión Peruana");
-                        System.out.println("Carretera Central Km 19.5 Hermana\n" +
-                                "Chosica, Lima");
-                        break;
-                    case "Arequipa":
-                        System.out.println("Av. La Marina 123, Cayma, Arequipa");
-                        break;
-                    case "Juliaca":
-                        System.out.println("Carretera Salida a Arequipa Km. 6 Chullunquiani,\n" +
-                                " Av. Héroes de la Guerra del Pacífico");
-                        break;
-                    case "Huanuco":
-                        System.out.println("Jr. 2 de Mayo 456, Huanuco");
-                        break;
-                    case "Pucallpa":
-                        System.out.println("Av. Centenario 123, Pucallpa, Ucayali");
-                        break;
-                    case "Chimbote":
-                        System.out.println("Av. José Gálvez 345, Chimbote, Ancash");
-                        break;
-                    case "Trujillo":
-                        System.out.println("Jr. Independencia 456, Trujillo, La Libertad");
-                        break;
-                    case "Piura":
-                        System.out.println("Av. Sullana 123, Piura");
-                        break;
-                    case "Jaèn":
-                        System.out.println("Jr. Amazonas 345, Jaèn, Cajamarquilla");
-                        break;
-                    case "Tarapoto":
-                        System.out.println("Av. Tarapoto 456, Tarapoto, San Martín");
-                        break;
-                    case "Iquitos":
-                        System.out.println("Av. La Marina 123, Iquitos, Loreto");
-                        break;
-                    default:
-                        System.out.println("sin ubicacion");
-                }
-            default:
-                System.out.println("opcion no valida");
+        System.out.println(" Conoce más");
+        for (int i = 0; i < lugar.length; i++) {
+            System.out.println("Opcion " + (i + 1) + " : " + lugar[i]);
         }
-        return null;
+        opcion = direc.nextInt();
+        switch (opcion) {
+            case 1:
+                System.out.println("su ubicacion es:" + ubicacion[0]);
+                break;
+            case 2:
+                System.out.println("su ubicacion es:" + ubicacion[1]);
+                break;
+            case 3:
+                System.out.println("su ubicacion es:" + ubicacion[2]);
+                break;
+            case 4:
+                System.out.println("su ubicacion es:" + ubicacion[3]);
+                break;
+            case 5:
+                System.out.println("su ubicacion es:" + ubicacion[4]);
+                break;
+            case 6:
+                System.out.println("su ubicacion es:" + ubicacion[5]);
+                break;
+            case 7:
+                System.out.println("su ubicacion es:" + ubicacion[6]);
+                break;
+            case 8:
+                System.out.println("su ubicacion es:" + ubicacion[7]);
+                break;
+            case 9:
+                System.out.println("su ubicacion es:" + ubicacion[8]);
+                break;
+            case 10:
+                System.out.println("su ubicacion es:" + ubicacion[9]);
+                break;
+            case 11:
+                System.out.println("su ubicacion es:" + ubicacion[10]);
+                break;
+            case 12:
+                System.out.println("su ubicacion es:" + ubicacion[11]);
+                break;
+        }
     }
-    public String delivery() {
+    public void delivery() {
         Scanner union = new Scanner(System.in);
         int opcion;
         System.out.println("DELIVERY");
@@ -518,29 +525,29 @@ public class compras_union {
                 System.out.println("┌──────────────────────────────────────────────────────────┐");
                 System.out.println("│ Nº │ Producto                        │ Precio │ Cantidad │");
                 System.out.println("├────┼─────────────────────────────────┼────────┼──────────┤");
-                System.out.println("│ 1  | Pionono                         | 19.00  | 7        │");//19
-                System.out.println("│ 2  | Cereal Premium                  | 21.50  | 350g     │");//21.50
-                System.out.println("│ 3  | Mantequilla de Mani Sachet      | 10.50  | 200g     │");//10.50
-                System.out.println("│ 4  | Mant. de Mani 1 Kg.             | 36.00  | 1000g    │");//36
-                System.out.println("│ 5  | Mermelada de Uva Frasco         | 8.40   | 1        │");//8.40
-                System.out.println("│ 6  | Palitos con Especias            | 2.30   | 65g      │");//+
-                System.out.println("│ 7  | Palitos con ajonjoli y linaza   | 2.30   | 65g      │");//+
-                System.out.println("│ 8  | Tostada Integral X 10           | 5.30   | 10       │");//P
-                System.out.println("│ 9  | Tostada Blanca X 10             | 5.30   | 10       │    ┌──────────────────────────────────────────────────────────┐");//P
-                System.out.println("│ 10 | Paneton Diet T/L 500 gr         | 24.40  | 500g     │    │                                                        X │ ");//24.40
-                System.out.println("│ 11 | Paneton Integral T/C 900 gr     | 24.00  | 900g     │    │                           AVISO                          │");//24
-                System.out.println("│ 12 | Pan pita integral granos andinos| 7.60   | 1        │    │      Días de entrega                  Monto Mínimo       │");//--
-                System.out.println("│ 13 | Pan pita semillas chia y linaza | 7.60   | 1        │    │   El día de entrega es          El monto mínimo para las │");//--
-                System.out.println("│ 14 | Pan Integral Sandwich           | 8.50   | 1        │    │          jueves                    compras es de S/. 58  │");//8.50
-                System.out.println("│ 15 | Pan Integral Mediano Union      | 4.70   | 1        │    │                                       incluye Delivery   │");//4.70
-                System.out.println("│ 16 | Pan Blanco Familiar Superbom    | 6.40   | 1        │    │                                                          │");//6.40
-                System.out.println("│ 17 | Pan Fuente                      | 9.50   | 1        │    │                           Además                         │");//9.50
-                System.out.println("│ 18 | Pan Integral Familiar Superbom  | 6.50   | 1        │    │      Recuerda usar la aplicación para encontrar muchas   │");//6.50
-                System.out.println("│ 19 | Mega Galleta Integral de Naranja| 5.10   | 1        │    │      promociones y ofertas                               │");//
-                System.out.println("│ 20 | Mega Galleta Integral de Coco   | 5.10   | 1        │    │                                                          │");//
-                System.out.println("│ 21 | Mega Galleta de Naranja         | 5.10   | 1        │    │                                                          │");//
-                System.out.println("│ 22 | Mega Galleta de Kiwicha         | 5.10   | 1        │    │      App: Tienda Unión                                   │");//
-                System.out.println("│ 23 | Mega Galleta de Coco            | 5.10   | 1        │    └──────────────────────────────────────────────────────────┘");//
+                System.out.println("│ 1  | "+productosdel [0]+"                         | 19.00  | 7        │");//19
+                System.out.println("│ 2  | "+productosdel [1]+"                  | 21.50  | 350g     │");//21.50
+                System.out.println("│ 3  | "+productosdel [2]+"      | 10.50  | 200g     │");//10.50
+                System.out.println("│ 4  | "+productosdel [3]+"             | 36.00  | 1000g    │");//36
+                System.out.println("│ 5  | "+productosdel [4]+"         | 8.40   | 1        │");//8.40
+                System.out.println("│ 6  | "+productosdel [5]+"            | 2.30   | 65g      │");//+
+                System.out.println("│ 7  | "+productosdel [6]+"   | 2.30   | 65g      │");//+
+                System.out.println("│ 8  | "+productosdel [7]+"           | 5.30   | 10       │");//P
+                System.out.println("│ 9  | "+productosdel [8]+"             | 5.30   | 10       │    ┌──────────────────────────────────────────────────────────┐");//P
+                System.out.println("│ 10 | "+productosdel [9]+"         | 24.40  | 500g     │    │                                                        X │ ");//24.40
+                System.out.println("│ 11 | "+productosdel [10]+"     | 24.00  | 900g     │    │                           AVISO                          │");//24
+                System.out.println("│ 12 | "+productosdel [11]+"| 7.60   | 1        │    │      Días de entrega                  Monto Mínimo       │");//--
+                System.out.println("│ 13 | "+productosdel [12]+" | 7.60   | 1        │    │   El día de entrega es          El monto mínimo para las │");//--
+                System.out.println("│ 14 | "+productosdel [13]+"           | 8.50   | 1        │    │          jueves                    compras es de S/. 58  │");//8.50
+                System.out.println("│ 15 | "+productosdel [14]+"      | 4.70   | 1        │    │                                       incluye Delivery   │");//4.70
+                System.out.println("│ 16 | "+productosdel [15]+"    | 6.40   | 1        │    │                                                          │");//6.40
+                System.out.println("│ 17 | "+productosdel [16]+"                      | 9.50   | 1        │    │                           Además                         │");//9.50
+                System.out.println("│ 18 | "+productosdel [17]+"  | 6.50   | 1        │    │      Recuerda usar la aplicación para encontrar muchas   │");//6.50
+                System.out.println("│ 19 | "+productosdel [18]+"| 5.10   | 1        │    │      promociones y ofertas                               │");//
+                System.out.println("│ 20 | "+productosdel [19]+"   | 5.10   | 1        │    │                                                          │");//
+                System.out.println("│ 21 | "+productosdel [20]+"         | 5.10   | 1        │    │                                                          │");//
+                System.out.println("│ 22 | "+productosdel [21]+"         | 5.10   | 1        │    │      App: Tienda Unión                                   │");//
+                System.out.println("│ 23 | "+productosdel [22]+"            | 5.10   | 1        │    └──────────────────────────────────────────────────────────┘");//
                 System.out.println("└──────────────────────────────────────────────────────────┘    ");//===============16
                 System.out.println("selecione opcion");
                 opcion = union.nextInt();
@@ -648,7 +655,6 @@ public class compras_union {
             default:
                 System.out.println("opcion no valida");
         }
-        return null;
     }
 
     public void IMC(){ //mio may
