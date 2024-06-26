@@ -76,7 +76,7 @@ public class compras_union {
     private static String nombre_vende; //este mas
     private static int contador_factura = 0;
     double[] subtotal_extra = new double[8];
-    double totalPagar;
+    float totalPagado;
     int[] carrito = new int[productos.length];
     String respuesta;
     public String fdatos() {
@@ -764,10 +764,9 @@ public class compras_union {
                 función_de_impresion_de_cobro();
                 break;
             case 2:
-                double totalPagado;
                 System.out.println("El monto a pagar es de: " + total);
                 System.out.println("Ingrese el pago de los productos:");
-                totalPagado = union.nextDouble();
+                totalPagado = union.nextFloat();
                 while (totalPagado < total) {
                     System.out.println("Monto insuficiente. Faltan " + (total - totalPagado) + " para completar el pago.");
                     System.out.println("Ingrese el monto adicional que va a pagar:");
@@ -802,11 +801,11 @@ public class compras_union {
         LocalTime horaActual = LocalTime.now();
         double op_gratuitas=0.00; //Recordar dar valores pero solo si lo deseas *
         double op_exoneradas=0.00;
-        double op_gravadas=precio;
+        double op_gravadas=totalPagado ;
         double descuento_total=0.00;
         double tasaIGV = 0.18;
-        double igv = (precio+precio1) * (cantidad+cantidad1) * tasaIGV;
-        double sub_total = ((precio+precio1) * (cantidad+cantidad1))-igv;
+        double igv = totalPagado * tasaIGV;
+        double sub_total = totalPagado-igv;
         double icbper = 0.00;
         double importe_Total = sub_total + igv + icbper;
         double detraccion = 0.00;
