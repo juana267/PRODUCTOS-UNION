@@ -172,7 +172,7 @@ public class compras_union {
         return null;
     }
 
-    public void fpanes() {
+  public void fpanes() {
         System.out.println("------ PANES------------");
         System.out.println("Seleccione panes a comprar");
         for (int i = 0; i < panes.length; i++) {
@@ -193,7 +193,7 @@ public class compras_union {
             if (opcion == 1) {
                 this.fproductos();
             } else if (opcion == 2) {
-                this.fpago();
+                this.fTipoDePago();
             } else if (opcion == 3) {
                 this.fpregunta();
             } else {
@@ -225,7 +225,7 @@ public class compras_union {
             if (opcion == 1) {
                 this.fproductos();
             } else if (opcion == 2) {
-                this.fpago();
+                this.fTipoDePago();
             } else if (opcion == 3) {
                 this.fpregunta();
             } else {
@@ -257,7 +257,7 @@ public class compras_union {
             if (opcion == 1) {
                 this.fproductos();
             } else if (opcion == 2) {
-                this.fpago();
+                this.fTipoDePago();
             } else if (opcion == 3) {
                 this.fpregunta();
             } else {
@@ -289,7 +289,7 @@ public class compras_union {
             if (opcion == 1) {
                 this.fproductos();
             } else if (opcion == 2) {
-                this.fpago();
+                this.fTipoDePago();
             } else if (opcion == 3) {
                 this.fpregunta();
             } else {
@@ -321,7 +321,7 @@ public class compras_union {
             if (opcion == 1) {
                 this.fproductos();
             } else if (opcion == 2) {
-                this.fpago();
+                this.fTipoDePago();
             } else if (opcion == 3) {
                 this.fpregunta();
             } else {
@@ -353,7 +353,7 @@ public class compras_union {
             if (opcion == 1) {
                 this.fproductos();
             } else if (opcion == 2) {
-                this.fpago();
+                this.fTipoDePago();
             } else if (opcion == 3) {
                 this.fpregunta();
             } else {
@@ -385,7 +385,7 @@ public class compras_union {
             if (opcion == 1) {
                 this.fproductos();
             } else if (opcion == 2) {
-                this.fpago();
+                this.fTipoDePago();
             } else if (opcion == 3) {
                 this.fpregunta();
             } else {
@@ -417,7 +417,7 @@ public class compras_union {
             if (opcion == 1) {
                 this.fproductos();
             } else if (opcion == 2) {
-                this.fpago();
+                this.fTipoDePago();
             } else if (opcion == 3) {
                 this.fpregunta();
             } else {
@@ -429,12 +429,8 @@ public class compras_union {
         }
     }
 
-    public void fpago() {
-        double total = Arrays.stream(subtotal_extra).sum();
-        System.out.println("El total a pagar es: " + total);
-        System.out.println("Vaya a caja a pagar");
-        this.fTipoDePago();
-    }
+
+ 
     public String puntosdeventa() {
         Scanner direc = new Scanner(System.in);
         String opcionPV;
@@ -721,19 +717,22 @@ public class compras_union {
         this.fproductos();
     }
     private String fTipoDePago() {
-        Scanner tpago = new Scanner(System.in);
+        double total = Arrays.stream(subtotal_extra).sum();
+        System.out.println("El total a pagar es: " + total);
+        System.out.println("Vaya a caja a pagar");
         System.out.println("ingrese el tipo de pago?");
-        System.out.println("TARJETA ");
-        System.out.println("EFECTIVO");
-        opcion_de_pago=tpago.nextLine();
-        switch (opcion_de_pago){
-            case "TARJETA":
+        System.out.println("1. TARJETA ");
+        System.out.println("2. EFECTIVO");
+        opcion = union.nextInt();
+        union.nextLine();;
+        switch (opcion) {
+            case 1:
                 String tarjeta, fechacaducidad, cvv;
                 System.out.println("ingrese el nombre completo del titular de la tarjeta");
-                String titulartarjeta=tpago.nextLine();
+                String titulartarjeta=union.nextLine();
                 do {
                     System.out.print("Introduce tu numero de tarjeta (16 dígitos): ");
-                    dni = tpago.nextLine();
+                    dni = union.nextLine();
                 } while (dni.length() != 16);
                 boolean formatoValido = false;
                 do {
@@ -744,7 +743,7 @@ public class compras_union {
                     System.out.println("|                           |");
                     System.out.println("|    **** **** **** ****    |");
                     System.out.println("|___________________________|");
-                    fechacaducidad = tpago.nextLine();
+                    fechacaducidad = union.nextLine();
                     if (fechacaducidad.matches("\\d{2}/\\d{2}")) {
                         formatoValido = true;
                     } else {
@@ -753,22 +752,21 @@ public class compras_union {
                 } while (!formatoValido);
                 do {
                     System.out.print("Ingrese el numero de CVV ( 3 digitos) ");
-                    cvv = tpago.nextLine();
+                    cvv = union.nextLine();
                 } while (cvv.length() != 3);
                 System.out.println("pago realizado exitosamente con su tarjeta");
                 System.out.println("PRODUCTOS UNION");
                 función_de_impresion_de_cobro();
                 break;
-            case "EFECTIVO":
-                Scanner efect = new Scanner(System.in);
+            case 2:
                 double totalPagado;
                 System.out.println("El monto a pagar es de: " + total);
                 System.out.println("Ingrese el pago de los productos:");
-                totalPagado = efect.nextDouble();
+                totalPagado = union.nextDouble();
                 while (totalPagado < total) {
                     System.out.println("Monto insuficiente. Faltan " + (total - totalPagado) + " para completar el pago.");
                     System.out.println("Ingrese el monto adicional que va a pagar:");
-                    double pagoAdicional = efect.nextDouble();
+                    double pagoAdicional = union.nextDouble();
                     if (pagoAdicional <= 0) {
                         System.out.println("Ingrese un monto válido, por favor. No puede consumir los productos gratis.");
                     } else {
@@ -782,9 +780,15 @@ public class compras_union {
                     System.out.println("Pago completado. Gracias por su compra.");
                 }
                 función_de_impresion_de_cobro();
+                break;
+
             default:
-                System.out.println("ingrese de nuevo");
+                System.out.println("Opcion no válida");
+                this.fpregunta();
+                break;
         }
+
+
         return  null;
     }
     public void función_de_impresion_de_cobro(){
